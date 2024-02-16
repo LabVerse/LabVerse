@@ -6,6 +6,8 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    permissions:
+        checks: write
     steps:
       # Checkout (without LFS)
       - name: Checkout repository
@@ -38,6 +40,7 @@ jobs:
 
       # Test
       - name: Run tests
+        id: testStep
         uses: game-ci/unity-test-runner@v4
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
@@ -71,4 +74,4 @@ jobs:
         if: always()
         with:
           name: Coverage results
-          path: ${{ steps.myTestStep.outputs.coveragePath }}
+          path: ${{ steps.testStep.outputs.coveragePath }}
