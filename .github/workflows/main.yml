@@ -49,15 +49,15 @@ jobs:
           unityVersion: 2022.3.20f1
 
       # Build
-      - name: Build project
-        uses: game-ci/unity-builder@v4
-        env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-        with:
-          targetPlatform: Android
-          allowDirtyBuild: true
+      # - name: Build project
+      #   uses: game-ci/unity-builder@v4
+      #  env:
+      #    UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+      #    UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+      #    UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+      #  with:
+      #    targetPlatform: Android
+      #    allowDirtyBuild: true
 
       # Output test results
       - name: Upload test results
