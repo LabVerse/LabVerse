@@ -57,7 +57,7 @@
       "url": "https://npm.developer.oculus.com",
       "scopes": [
         "com.meta.xr.sdk",
-		    "com.meta.xr.simulator"
+        "com.meta.xr.simulator"
       ]
     }
   ]
