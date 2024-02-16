@@ -60,12 +60,12 @@ jobs:
       #    allowDirtyBuild: true
 
       # Output test results
-      - name: Upload test results
-        uses: actions/upload-artifact@v3
-        if: always()
-        with:
-          name: Build
-          path: build
+      #- name: Upload test results
+      #  uses: actions/upload-artifact@v3
+      #  if: always()
+      #  with:
+      #    name: Build
+      #    path: build
       
       # Output code coverage
       - name: Upload code coverage results
