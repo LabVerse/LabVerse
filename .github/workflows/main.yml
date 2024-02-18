@@ -82,6 +82,16 @@ jobs:
           restore-keys: |
             Library-
             Library-LabVerse-
+      
+      # Free up disk space because Android installations cause us to run out of memory
+      # https://github.com/game-ci/unity-builder/issues/191
+      - name: Free Disk Space
+        run: |
+            sudo swapoff -a
+            sudo rm -f /swapfile
+            sudo apt clean
+            docker rmi $(docker images -q)
+            df -h
 
       # Build
       - name: Build project
