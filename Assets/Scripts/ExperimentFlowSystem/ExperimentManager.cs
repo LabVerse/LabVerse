@@ -45,14 +45,14 @@ public class ExperimentManager : MonoBehaviour
     {
         // Subscribe to events.
         StageHandler.enterStage += ChangeStage;
-        StageHandler.finishStage += FinishStage;
+        StageHandler.finishStage += CompleteStage;
     }
 
     private void OnDisable()
     {
         // Unsubscribe from events.
         StageHandler.enterStage -= ChangeStage;
-        StageHandler.finishStage -= FinishStage;
+        StageHandler.finishStage -= CompleteStage;
     }
 
     /// <summary>
@@ -124,7 +124,7 @@ public class ExperimentManager : MonoBehaviour
     /// <summary>
     /// Store that the stage has been completed
     /// </summary>
-    private void FinishStage(int stageIndex, bool completed)
+    private void CompleteStage(int stageIndex, bool completed)
     {
         if (stageIndex == m_currentStageIndex)
         {
