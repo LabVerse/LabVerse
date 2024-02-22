@@ -3,8 +3,8 @@ name: Unity
 on: [push]
 
 jobs:
-  build:
-    name: Build
+  test:
+    name: Test
     runs-on: ubuntu-latest
     steps:
       # Checkout (without LFS)
@@ -35,6 +35,7 @@ jobs:
           key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
           restore-keys: |
             Library-
+            Library-LabVerse-
 
       # Test
       - name: Run tests
@@ -48,29 +49,66 @@ jobs:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
           unityVersion: 2022.3.20f1
 
-      # Build
-      # - name: Build project
-      #   uses: game-ci/unity-builder@v4
-      #  env:
-      #    UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-      #    UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-      #    UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-      #  with:
-      #    targetPlatform: Android
-      #    allowDirtyBuild: true
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    if: contains(github.ref, 'main')
+    steps:
+      # Checkout (without LFS)
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      # Output test results
-      #- name: Upload test results
-      #  uses: actions/upload-artifact@v3
-      #  if: always()
-      #  with:
-      #    name: Build
-      #    path: build
+      # Git LFS
+      - name: Create LFS file list
+        run: git lfs ls-files -l | cut -d' ' -f1 | sort > .lfs-assets-id
+
+      - name: Restore LFS cache
+        uses: actions/cache@v3
+        id: lfs-cache
+        with:
+          path: .git/lfs
+          key: ${{ runner.os }}-lfs-${{ hashFiles('.lfs-assets-id') }}
+
+      - name: Git LFS Pull
+        run: |
+          git lfs pull
+          git add .
+          git reset --hard
+
+      # Cache
+      - uses: actions/cache@v3
+        with:
+          path: Library
+          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: |
+            Library-
+            Library-LabVerse-
       
-      # Output code coverage
-      - name: Upload code coverage results
+      # Free up disk space because Android installations cause us to run out of memory
+      # https://github.com/game-ci/unity-builder/issues/191
+      - name: Free Disk Space
+        run: |
+            sudo swapoff -a
+            sudo rm -f /swapfile
+            sudo apt clean
+            docker rmi $(docker images -q)
+            df -h
+
+      # Build
+      - name: Build project
+        uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          targetPlatform: Android
+          allowDirtyBuild: true
+
+      # Output build results
+      - name: Upload build results
         uses: actions/upload-artifact@v3
         if: always()
         with:
-          name: Coverage results
-          path: ${{ steps.testStep.outputs.coveragePath }}
+          name: Build
+          path: build
