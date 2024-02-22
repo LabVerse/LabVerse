@@ -4,49 +4,40 @@ using UnityEngine;
 /// <summary>
 /// Stage Manager with multiple events to handle stage changes.
 /// </summary>
-public class StageManager : MonoBehaviour
+public class StageHandler : MonoBehaviour
 {
     public static event Action<int> enterStage;
     public static event Action<int, bool> finishStage;
 
-    [SerializeField]
-    private int m_stageIndex = 0;
-
-    public int StageIndex
-    {
-        get { return m_stageIndex; }
-        private set { m_stageIndex = value; }
-    }
-
     /// <summary>
     /// Notify that the interaction for starting the specific stage has been triggered.
     /// </summary>
-    public void EnterStage()
+    public void EnterStage(int stageIndex)
     {
-        OnEnterStage();
+        OnEnterStage(stageIndex);
     }
 
     /// <summary>
     /// Notify that the interaction for finishing (successfuly or not) the specific stage has been triggered.
     /// </summary>
-    public void FinishStage(bool completed)
+    public void FinishStage(int stageIndex, bool completed)
     {
-        OnFinishStage(completed);
+        OnFinishStage(stageIndex, completed);
     }
 
     /// <summary>
     /// Invoke the enterStage event.
     /// </summary>
-    private void OnEnterStage()
+    private void OnEnterStage(int stageIndex)
     {
-        enterStage?.Invoke(m_stageIndex);
+        enterStage?.Invoke(stageIndex);
     }
 
     /// <summary>
     /// Invoke the finishStage event.
     /// </summary>
-    private void OnFinishStage(bool completed)
+    private void OnFinishStage(int stageIndex, bool completed)
     {
-        finishStage?.Invoke(m_stageIndex, completed);
+        finishStage?.Invoke(stageIndex, completed);
     }
 }
