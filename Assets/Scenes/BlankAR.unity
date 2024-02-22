@@ -1253,6 +1253,19 @@ Transform:
   - {fileID: 1365477603}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &622521522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782677921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa17d122634046b4a8e23048891fafc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RaycastPrefab: {fileID: 0}
 --- !u!1 &683821872
 GameObject:
   m_ObjectHideFlags: 0
@@ -1603,6 +1616,12 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &782677921 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8527362242434426454, guid: 8b4d02b4e05af714dab2a12548a310f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 880385852}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &880385852
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1611,6 +1630,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2074947109, guid: 8b4d02b4e05af714dab2a12548a310f8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 244379632707478738, guid: 8b4d02b4e05af714dab2a12548a310f8,
         type: 3}
       propertyPath: m_Name
@@ -1856,6 +1879,17 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5583487535348522280, guid: 8b4d02b4e05af714dab2a12548a310f8,
+        type: 3}
+      propertyPath: m_ActionAssets.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5583487535348522280, guid: 8b4d02b4e05af714dab2a12548a310f8,
+        type: 3}
+      propertyPath: m_ActionAssets.Array.data[2]
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 2e52aefc8c982aa458ead95f51a6749e,
+        type: 3}
     - target: {fileID: 5583487535906483291, guid: 8b4d02b4e05af714dab2a12548a310f8,
         type: 3}
       propertyPath: m_EnableMouseInput
@@ -1905,6 +1939,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMin.x
       value: 0.0000003684651
+      objectReference: {fileID: 0}
+    - target: {fileID: 6841169019257832232, guid: 8b4d02b4e05af714dab2a12548a310f8,
+        type: 3}
+      propertyPath: m_DebugDrawJoints
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6880324381277293900, guid: 8b4d02b4e05af714dab2a12548a310f8,
         type: 3}
@@ -1962,7 +2001,11 @@ PrefabInstance:
     - {fileID: 8495506645477454422, guid: 8b4d02b4e05af714dab2a12548a310f8, type: 3}
     - {fileID: 6175213767407465855, guid: 8b4d02b4e05af714dab2a12548a310f8, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8527362242434426454, guid: 8b4d02b4e05af714dab2a12548a310f8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 622521522}
   m_SourcePrefab: {fileID: 100100000, guid: 8b4d02b4e05af714dab2a12548a310f8, type: 3}
 --- !u!114 &880385853 stripped
 MonoBehaviour:
@@ -1982,7 +2025,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 880385852}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 782677921}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0cb9aa70a22847b5925ee5f067c10a9, type: 3}
@@ -4159,7 +4202,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1771080661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4172,7 +4215,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 115aa369219921d4d9840d8a213d02d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnedObject: {fileID: 1105860264359615452, guid: ee9e7a3998f4655408296a41b90fc5f9,
+  m_RaycastManager: {fileID: 622521522}
+  spawnablePrefab: {fileID: 2214620097028167850, guid: 39a576fa7ca247342a7f60eb7c8e2579,
     type: 3}
 --- !u!4 &1771080662
 Transform:
