@@ -16,15 +16,22 @@ public class Stage : ScriptableObject
 }
 
 /// <summary>
+/// Group of stages that can be used to organize the stages of an experiment.
+/// </summary>
+[CreateAssetMenu(fileName = "NewStageGroup", menuName = "StageGroup")]
+public class StageGroup : ScriptableObject
+{
+    public List<Stage> stages = new List<Stage>();
+    public bool m_areStagesSequential = false;
+}
+
+/// <summary>
 /// Experiment Manager that manages the flow of the experiment.
 /// </summary>
 public class ExperimentManager : MonoBehaviour
 {
     [SerializeField]
-    private List<Stage> m_stages = new List<Stage>();
-
-    [SerializeField]
-    private bool m_areStagesSequential = false;
+    private StageGroup stageGroup;
 
     private int m_currentStageIndex = 0;
     private bool m_currentStageComplete = false;
@@ -37,15 +44,15 @@ public class ExperimentManager : MonoBehaviour
     private void OnEnable()
     {
         // Subscribe to events.
-        StageManager.enterStage += ChangeStage;
-        StageManager.finishStage += FinishStage;
+        StageHandler.enterStage += ChangeStage;
+        StageHandler.finishStage += FinishStage;
     }
 
     private void OnDisable()
     {
         // Unsubscribe from events.
-        StageManager.enterStage -= ChangeStage;
-        StageManager.finishStage -= FinishStage;
+        StageHandler.enterStage -= ChangeStage;
+        StageHandler.finishStage -= FinishStage;
     }
 
     /// <summary>
@@ -100,13 +107,13 @@ public class ExperimentManager : MonoBehaviour
     private void ChangeStage(int stageIndex)
     {
         // Change stage
-        if (stageIndex < 0 || stageIndex >= m_stages.Count)
+        if (stageIndex < 0 || stageIndex >= stageGroup.stages.Count)
         {
             return;
         }
 
-        bool sequentialAndNextStage = m_areStagesSequential && stageIndex == m_currentStageIndex + 1;
-        bool notSequentialAndDifferentStage = !m_areStagesSequential && stageIndex != m_currentStageIndex;
+        bool sequentialAndNextStage = stageGroup.m_areStagesSequential && stageIndex == m_currentStageIndex + 1;
+        bool notSequentialAndDifferentStage = !stageGroup.m_areStagesSequential && stageIndex != m_currentStageIndex;
         if (sequentialAndNextStage || notSequentialAndDifferentStage)
         {
             EndCurrentStage();
