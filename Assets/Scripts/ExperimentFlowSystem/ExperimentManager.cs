@@ -1,29 +1,4 @@
-using System.Collections.Generic;
 using UnityEngine;
-
-/// <summary>
-/// Stage Scriptable Object that can store information about a stage.
-/// </summary>
-[CreateAssetMenu(fileName = "NewStage", menuName = "Stage")]
-public class Stage : ScriptableObject
-{
-    public string title;
-
-    [TextArea]
-    public string description;
-
-    // other stage properties
-}
-
-/// <summary>
-/// Group of stages that can be used to organize the stages of an experiment.
-/// </summary>
-[CreateAssetMenu(fileName = "NewStageGroup", menuName = "StageGroup")]
-public class StageGroup : ScriptableObject
-{
-    public List<Stage> stages = new List<Stage>();
-    public bool m_areStagesSequential = false;
-}
 
 /// <summary>
 /// Experiment Manager that manages the flow of the experiment.
