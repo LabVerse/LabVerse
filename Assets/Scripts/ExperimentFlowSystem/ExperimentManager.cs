@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 /// <summary>
@@ -5,6 +6,10 @@ using UnityEngine;
 /// </summary>
 public class ExperimentManager : MonoBehaviour
 {
+    public static event Action startExperiment;
+    public static event Action endExperiment;
+    public static event Action<int> changeExperimentStage;
+
     [SerializeField]
     private Experiment[] m_experiments;
 
@@ -18,6 +23,8 @@ public class ExperimentManager : MonoBehaviour
     {   
         foreach (Experiment experiment in m_experiments)
         {
+            // PlayerPrefs stores Player preferences between game sessions.
+            // Experiment name is stored in PlayerPrefs when the experiment is selected.
             if (experiment.name == PlayerPrefs.GetString("ExperimentName"))
             {
                 m_experiment = experiment;
@@ -52,6 +59,7 @@ public class ExperimentManager : MonoBehaviour
     /// </summary>
     private void StartExperiment()
     {
+        startExperiment?.Invoke();
     }
     
     /// <summary>
@@ -59,6 +67,7 @@ public class ExperimentManager : MonoBehaviour
     /// </summary>
     private void EndExperiment(bool completed)
     {
+        endExperiment?.Invoke();
     }
 
     /// <summary>
@@ -109,6 +118,7 @@ public class ExperimentManager : MonoBehaviour
         {
             EndCurrentStage();
             StartStage(stageIndex);
+            changeExperimentStage?.Invoke(stageIndex);
         }
     }
 
