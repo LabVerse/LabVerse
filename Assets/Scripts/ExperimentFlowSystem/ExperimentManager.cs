@@ -6,13 +6,30 @@ using UnityEngine;
 public class ExperimentManager : MonoBehaviour
 {
     [SerializeField]
-    private StageGroup stageGroup;
+    private Experiment[] m_experiments;
+
+    [SerializeField]
+    private Experiment m_experiment;
 
     private int m_currentStageIndex = 0;
     private bool m_currentStageComplete = false;
 
     private void Start()
-    {
+    {   
+        foreach (Experiment experiment in m_experiments)
+        {
+            if (experiment.name == PlayerPrefs.GetString("ExperimentName"))
+            {
+                m_experiment = experiment;
+                break;
+            }
+        }
+    
+        if (m_experiment == null) {
+            Debug.LogError("No experiment selected or found");
+            return;
+        }
+
         StartExperiment();
     }
 
@@ -35,7 +52,6 @@ public class ExperimentManager : MonoBehaviour
     /// </summary>
     private void StartExperiment()
     {
-
     }
     
     /// <summary>
@@ -82,13 +98,13 @@ public class ExperimentManager : MonoBehaviour
     private void ChangeStage(int stageIndex)
     {
         // Change stage
-        if (stageIndex < 0 || stageIndex >= stageGroup.stages.Count)
+        if (stageIndex < 0 || stageIndex >= m_experiment.stages.Count)
         {
             return;
         }
 
-        bool sequentialAndNextStage = stageGroup.m_areStagesSequential && stageIndex == m_currentStageIndex + 1;
-        bool notSequentialAndDifferentStage = !stageGroup.m_areStagesSequential && stageIndex != m_currentStageIndex;
+        bool sequentialAndNextStage = m_experiment.m_areStagesSequential && stageIndex == m_currentStageIndex + 1;
+        bool notSequentialAndDifferentStage = !m_experiment.m_areStagesSequential && stageIndex != m_currentStageIndex;
         if (sequentialAndNextStage || notSequentialAndDifferentStage)
         {
             EndCurrentStage();
