@@ -11,7 +11,7 @@ public class ExperimentManager : MonoBehaviour
     public static event Action<int> changeExperimentStage;
 
     [SerializeField]
-    private Experiment[] m_experiments;
+    private Experiment[] m_availableExperiments;
 
     [SerializeField]
     private Experiment m_experiment;
@@ -21,7 +21,7 @@ public class ExperimentManager : MonoBehaviour
 
     private void Start()
     {   
-        foreach (Experiment experiment in m_experiments)
+        foreach (Experiment experiment in m_availableExperiments)
         {
             // PlayerPrefs stores Player preferences between game sessions.
             // Experiment name is stored in PlayerPrefs when the experiment is selected.
