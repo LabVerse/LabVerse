@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -6,18 +8,19 @@ using UnityEngine;
 /// </summary>
 public class ExperimentManager : MonoBehaviour
 {
-    public static event Action startExperiment;
+    public static event Action<string> startExperiment; // string: experiment name
     public static event Action endExperiment;
-    public static event Action<int> changeExperimentStage;
+    public static event Action<int> startExperimentStage; // int: stage index
+    public static event Action<int> endExperimentStage; // int: stage index
 
     [SerializeField]
     private Experiment[] m_availableExperiments;
 
     [SerializeField]
-    private Experiment m_experiment;
+    public Experiment m_experiment;
 
     private int m_currentStageIndex = 0;
-    private bool m_currentStageComplete = false;
+    private bool[] m_stagesCompletedStatus;
 
     private void Start()
     {   
@@ -37,6 +40,8 @@ public class ExperimentManager : MonoBehaviour
             return;
         }
 
+        // Fill the array with false.
+        m_stagesCompletedStatus = new bool[m_experiment.stages.Count];
         StartExperiment();
     }
 
@@ -59,7 +64,8 @@ public class ExperimentManager : MonoBehaviour
     /// </summary>
     private void StartExperiment()
     {
-        startExperiment?.Invoke();
+        startExperiment?.Invoke(m_experiment.experimentName);
+        startExperimentStage?.Invoke(m_currentStageIndex);
     }
     
     /// <summary>
@@ -76,25 +82,16 @@ public class ExperimentManager : MonoBehaviour
     private void StartStage(int stageIndex)
     {
         m_currentStageIndex = stageIndex;
+        startExperimentStage?.Invoke(stageIndex);
 
         // Other logic to start the stage.
     }
 
     /// <summary>
-    /// Safely end the current stage.
+    /// Safely end the current stage if necessary.
     private void EndCurrentStage()
     {
-        // Clean up the stage if necessary
-
-        // Check if stage is completed
-        if (m_currentStageComplete)
-        {
-            // 
-        }
-        else
-        {
-            EndExperiment(m_currentStageComplete);
-        }
+        endExperimentStage?.Invoke(m_currentStageIndex);
     }
     
     /// <summary>
@@ -112,31 +109,29 @@ public class ExperimentManager : MonoBehaviour
             return;
         }
 
-        bool sequentialAndNextStage = m_experiment.m_areStagesSequential && stageIndex == m_currentStageIndex + 1;
-        bool notSequentialAndDifferentStage = !m_experiment.m_areStagesSequential && stageIndex != m_currentStageIndex;
-        if (sequentialAndNextStage || notSequentialAndDifferentStage)
+        bool sequentialAndNextStage = m_experiment.areStagesSequential && stageIndex == m_currentStageIndex + 1;
+        bool notSequentialAndDifferentStage = !m_experiment.areStagesSequential && stageIndex != m_currentStageIndex;
+        if ((m_stagesCompletedStatus[m_currentStageIndex] && sequentialAndNextStage) || notSequentialAndDifferentStage)
         {
-            EndCurrentStage();
             StartStage(stageIndex);
-            changeExperimentStage?.Invoke(stageIndex);
         }
     }
 
     /// <summary>
-    /// Store that the stage has been completed
+    /// Store that the stage has been completed, and end the experiment if all stages have been completed or if the stage has failed.
     /// </summary>
     private void CompleteStage(int stageIndex, bool completed)
     {
-        if (stageIndex == m_currentStageIndex)
+        m_stagesCompletedStatus[stageIndex] = completed;
+        bool completedAllStages = m_stagesCompletedStatus.All(stageComplete => stageComplete);
+        if (!completed || completedAllStages)
         {
-            if (completed)
-            {
-                m_currentStageComplete = completed;
-            }
-            else {
-                // Stage failed
-                EndExperiment(completed);
-            }
+            EndCurrentStage();
+            EndExperiment(completed);
+        }
+        else
+        {
+            EndCurrentStage();
         }
     }
 }
