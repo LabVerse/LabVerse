@@ -9,5 +9,6 @@ public class Experiment : ScriptableObject
 {
     public string experimentName;
     public List<Stage> stages = new List<Stage>();
-    public bool m_areStagesSequential = false;
+    public bool areStagesSequential = false;
+    public GameObject[] equipment;
 }

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 783a95b0eca027649a473cf132330e7e, type: 3}
+  m_Name: ExampleTestSequentialExperiment
+  m_EditorClassIdentifier: 
+  experimentName: ExampleTestSequentialExperiment
+  stages:
+  - {fileID: 11400000, guid: 60a747a9858fced4da7283499ddbe735, type: 2}
+  - {fileID: 11400000, guid: 8af5ee658f25b0c4cad818152faa589f, type: 2}
+  - {fileID: 11400000, guid: f784571e22f00b447a36f9cf8d337d5c, type: 2}
+  m_areStagesSequential: 1
