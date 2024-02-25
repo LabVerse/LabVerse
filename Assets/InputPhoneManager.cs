@@ -8,7 +8,7 @@ public class InputPhoneManager : MonoBehaviour
 {
     [SerializeField] ARRaycastManager m_RaycastManager;
     List<ARRaycastHit> m_Hits = new List<ARRaycastHit>();
-    [SerializeField] GameObject spawnablePrefab;
+    public GameObject spawnablePrefab;
 
     Camera arCam;
     GameObject spawnedObject;
@@ -29,7 +29,11 @@ public class InputPhoneManager : MonoBehaviour
         if (Input.touchCount == 0)
             return;
 
-
+        if(spawnablePrefab == null)
+        {
+            Debug.Log("No spawnable prefab selected");
+            return;
+        }
         RaycastHit hit;
         Ray ray = arCam.ScreenPointToRay(Input.GetTouch(0).position);
 
@@ -88,20 +92,9 @@ public class InputPhoneManager : MonoBehaviour
     /*NOTE: Needs to be tested for vr kit. Shouldn't use arCam but instead device gyro*/
     private Quaternion rotate()
     {
-        Quaternion rotation;
-        if (SystemInfo.deviceType == DeviceType.Handheld)
-        {
-            rotation = arCam.transform.rotation;
-            //rotation.x = 0;
-            //rotation.y = 0;
-        }
-        else
-        {
-            rotation = Input.gyro.attitude;
-            //rotation.x = 0;
-            //rotation.y = 0;
-        }
-        //Debug.Log("Rotation: " + rotation);
+        Quaternion rotation = arCam.transform.rotation;
+        //rotation.x = 0;
+        //rotation.y = 0;
         return rotation;
     }
 
@@ -134,6 +127,7 @@ public class InputPhoneManager : MonoBehaviour
     {
         spawnPosition.y += 0.1f;
         spawnedObject = Instantiate(spawnablePrefab, spawnPosition, Quaternion.identity);
+        spawnedObject.SetActive(true);
     }
 
 }
