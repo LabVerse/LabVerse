@@ -17,4 +17,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 60a747a9858fced4da7283499ddbe735, type: 2}
   - {fileID: 11400000, guid: 8af5ee658f25b0c4cad818152faa589f, type: 2}
   - {fileID: 11400000, guid: f784571e22f00b447a36f9cf8d337d5c, type: 2}
-  m_areStagesSequential: 1
+  areStagesSequential: 1
+  equipment: []
