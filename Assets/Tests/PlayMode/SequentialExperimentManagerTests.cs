@@ -17,7 +17,7 @@ public class SequentialExperimentManagerTests
     {
         // Initially starts at a automatically generated scene.
 
-        PlayerPrefs.SetString("ExperimentName", "ExampleTestNonSequentialExperiment");
+        PlayerPrefs.SetString("ExperimentName", "ExampleTestSequentialExperiment");
 
         EditorSceneManager.LoadSceneInPlayMode("Assets/Tests/Scenes/ExperimentManagerScene.unity", new LoadSceneParameters(LoadSceneMode.Single));
         
@@ -47,10 +47,10 @@ public class SequentialExperimentManagerTests
         yield return null;
     }
     
-    [UnityTest]
-    public IEnumerator ExperimentChangeStage()
+    [UnityTest, Order(2)]
+    public IEnumerator ValidExperimentChangeStage()
     {
-        // Check if the ExperimentManager is present in the scene.
+        // Check if the StageHandler is present in the scene.
         StageHandler stageHandler = Object.FindObjectOfType<StageHandler>();
         Assert.IsNotNull(stageHandler);
 
@@ -75,6 +75,26 @@ public class SequentialExperimentManagerTests
         Assert.IsTrue(endExperimentEventFired);
         // Reset the value.
         endExperimentEventFired = false;
+
+        yield return null;
+    }
+
+    [UnityTest, Order(3)]
+    public IEnumerator InvalidExperimentStageChange()
+    {
+        // Check if the StageHandler is present in the scene.
+        StageHandler stageHandler = Object.FindObjectOfType<StageHandler>();
+        Assert.IsNotNull(stageHandler);
+
+        bool completed = true;
+        // By default already in stage 0.
+        stageHandler.FinishStage(0, completed);
+
+        // The experiment is sequential so the stage should not change.
+        startExperimentStageEventFired = false;
+        Assert.IsFalse(startExperimentStageEventFired);
+        stageHandler.EnterStage(2);
+        Assert.IsFalse(startExperimentStageEventFired);
 
         yield return null;
     }

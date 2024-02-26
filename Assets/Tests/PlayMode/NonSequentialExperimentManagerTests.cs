@@ -48,7 +48,7 @@ public class NonSequentialExperimentManagerTests
     }
     
     [UnityTest]
-    public IEnumerator ExperimentChangeStage()
+    public IEnumerator ValidExperimentChangeStage()
     {
         // Check if the ExperimentManager is present in the scene.
         StageHandler stageHandler = Object.FindObjectOfType<StageHandler>();
