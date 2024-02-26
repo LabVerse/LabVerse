@@ -7,11 +7,11 @@ public class MenuNavigation : MonoBehaviour
 {
     public void goToSelectionMenu()
     {
-        SceneManager.LoadScene("ExperimentSelection");
+        SceneManager.LoadScene("ExperimentSelectionMenu");
     }
     public void goToSettings()
     {
-        SceneManager.LoadScene("Settings");
+        SceneManager.LoadScene("SettingsMenu");
     }
     public void openDocumentation()
     {

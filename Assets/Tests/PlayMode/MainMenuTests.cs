@@ -30,7 +30,7 @@ public class MainMenuTests
         yield return null;
 
         string newScene = SceneManager.GetActiveScene().name;
-        Assert.AreEqual("ExperimentSelection", newScene);
+        Assert.AreEqual("ExperimentSelectionMenu", newScene);
 
         yield return null;
     }
@@ -48,7 +48,7 @@ public class MainMenuTests
         yield return null;
 
         string newScene = SceneManager.GetActiveScene().name;
-        Assert.AreEqual("Settings", newScene);
+        Assert.AreEqual("SettingsMenu", newScene);
 
         yield return null;
     }
