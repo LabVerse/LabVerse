@@ -1,5 +1,3 @@
-using UnityEditor.SceneManagement;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
@@ -13,6 +11,8 @@ public class SceneLogicTesting : SceneLogic
     public new void ChangeScene(string scenePath)
     {
         // Load scene using the scene path for testing.
-        EditorSceneManager.LoadSceneInPlayMode(scenePath, new LoadSceneParameters(LoadSceneMode.Single));
+        #if UNITY_EDITOR
+        UnityEditor.SceneManagement.EditorSceneManager.LoadSceneInPlayMode(scenePath, new LoadSceneParameters(LoadSceneMode.Single));
+        #endif
     }
 }
