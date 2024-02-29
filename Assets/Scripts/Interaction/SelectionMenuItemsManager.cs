@@ -13,16 +13,22 @@ public class SelectionMenuItemsManager : MonoBehaviour
     [SerializeField]
     private GameObject m_itemToButtonPrefab;
 
+    [SerializeField]
     private GameObject scrollMenuContainer;
 
     private void OnEnable()
     {
+        Debug.Log("SelectionMenuItemsManager enabled");
         ExperimentManager.startExperiment += OnStartExperiment;
+    }
+
+    private void OnDisable()
+    {
+        ExperimentManager.startExperiment -= OnStartExperiment;
     }
 
     private void OnStartExperiment()
     {
-        scrollMenuContainer = GameObject.Find("Scroll Menu Container");
         items = ExperimentManager.instance.selectedExperiment.items;
         InstantiateItemsList(items);
     }
