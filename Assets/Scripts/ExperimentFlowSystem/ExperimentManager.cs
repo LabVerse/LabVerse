@@ -3,11 +3,13 @@ using System.Linq;
 using UnityEngine;
 
 /// <summary>
-/// Experiment Manager that manages the flow of the experiment.
+/// Experiment Manager Singleton that manages the flow of the experiment.
 /// </summary>
 public class ExperimentManager : MonoBehaviour
 {
-    public static event Action<string> startExperiment; // string: experiment name
+    public static ExperimentManager instance { get; private set; }
+
+    public static event Action startExperiment; // string: experiment name
     public static event Action endExperiment;
     public static event Action<int> startExperimentStage; // int: stage index
     public static event Action<int> endExperimentStage; // int: stage index
@@ -16,10 +18,22 @@ public class ExperimentManager : MonoBehaviour
     private Experiment[] m_availableExperiments;
 
     [SerializeField]
-    public Experiment m_experiment;
+    public Experiment selectedExperiment;
 
     private int m_currentStageIndex = 0;
     private bool[] m_stagesCompletedStatus;
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
 
     private void Start()
     {   
@@ -29,18 +43,18 @@ public class ExperimentManager : MonoBehaviour
             // Experiment name is stored in PlayerPrefs when the experiment is selected.
             if (experiment.name == PlayerPrefs.GetString("ExperimentName"))
             {
-                m_experiment = experiment;
+                selectedExperiment = experiment;
                 break;
             }
         }
     
-        if (m_experiment == null) {
+        if (selectedExperiment == null) {
             Debug.LogError("No experiment selected or found");
             return;
         }
 
         // Fill the array with false.
-        m_stagesCompletedStatus = new bool[m_experiment.stages.Count];
+        m_stagesCompletedStatus = new bool[selectedExperiment.stages.Count];
         StartExperiment();
     }
 
@@ -63,7 +77,7 @@ public class ExperimentManager : MonoBehaviour
     /// </summary>
     private void StartExperiment()
     {
-        startExperiment?.Invoke(m_experiment.experimentName);
+        startExperiment?.Invoke();
         startExperimentStage?.Invoke(m_currentStageIndex);
     }
     
@@ -73,6 +87,11 @@ public class ExperimentManager : MonoBehaviour
     private void EndExperiment(bool completed)
     {
         endExperiment?.Invoke();
+    }
+
+    public Item[] GetExperimentItems()
+    {
+        return selectedExperiment.items;
     }
 
     /// <summary>
@@ -103,13 +122,13 @@ public class ExperimentManager : MonoBehaviour
     private void ChangeStage(int stageIndex)
     {
         // Change stage
-        if (stageIndex < 0 || stageIndex >= m_experiment.stages.Count)
+        if (stageIndex < 0 || stageIndex >= selectedExperiment.stages.Count)
         {
             return;
         }
 
-        bool sequentialAndNextStage = m_experiment.areStagesSequential && stageIndex == m_currentStageIndex + 1;
-        bool notSequentialAndDifferentStage = !m_experiment.areStagesSequential && stageIndex != m_currentStageIndex;
+        bool sequentialAndNextStage = selectedExperiment.areStagesSequential && stageIndex == m_currentStageIndex + 1;
+        bool notSequentialAndDifferentStage = !selectedExperiment.areStagesSequential && stageIndex != m_currentStageIndex;
         if ((m_stagesCompletedStatus[m_currentStageIndex] && sequentialAndNextStage) || notSequentialAndDifferentStage)
         {
             StartStage(stageIndex);

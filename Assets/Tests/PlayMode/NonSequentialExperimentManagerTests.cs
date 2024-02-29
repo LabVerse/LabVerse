@@ -22,7 +22,7 @@ public class NonSequentialExperimentManagerTests
         EditorSceneManager.LoadSceneInPlayMode("Assets/Tests/Scenes/ExperimentManagerScene.unity", new LoadSceneParameters(LoadSceneMode.Single));
         
         // Subscribe to events.
-        ExperimentManager.startExperiment += (experimentName) => { startExperimentEventFired = true; };
+        ExperimentManager.startExperiment += () => { startExperimentEventFired = true; };
         ExperimentManager.endExperiment += () => { endExperimentEventFired = true; };
         ExperimentManager.startExperimentStage += (stageIndex) => { startExperimentStageEventFired = true; };
         ExperimentManager.endExperimentStage += (stageIndex) => { endExperimentStageEventFired = true; };
