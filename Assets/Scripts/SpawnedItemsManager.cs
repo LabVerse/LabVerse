@@ -6,9 +6,6 @@ public class SpawnedItemsManager : MonoBehaviour
 {
     private ItemSpawner m_Spawner;
 
-    [SerializeField]
-    private GameObject m_itemSelectionMenuCardRoot;
-
     public void OnEnable()
     {
         m_Spawner = GetComponent<ItemSpawner>();
