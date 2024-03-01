@@ -2,12 +2,26 @@ using System;
 using UnityEngine;
 
 /// <summary>
-/// Stage Manager with multiple events to handle stage changes.
+/// Stage Manager singleton with events to notify of potential stage changes.
 /// </summary>
-public class StageHandler : MonoBehaviour
+public class StageManager : MonoBehaviour
 {
+    public static StageManager instance { get; private set; }
+
     public static event Action<int> enterStage;
     public static event Action<int, bool> finishStage;
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
 
     /// <summary>
     /// Notify that the interaction for starting the specific stage has been triggered.

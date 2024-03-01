@@ -10,5 +10,5 @@ public class Experiment : ScriptableObject
     public string experimentName;
     public List<Stage> stages = new List<Stage>();
     public bool areStagesSequential = false;
-    public GameObject[] equipment;
+    public Item[] items;
 }
