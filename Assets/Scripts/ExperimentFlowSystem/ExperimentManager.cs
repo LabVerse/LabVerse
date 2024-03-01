@@ -61,15 +61,15 @@ public class ExperimentManager : MonoBehaviour
     private void OnEnable()
     {
         // Subscribe to events.
-        StageHandler.enterStage += ChangeStage;
-        StageHandler.finishStage += CompleteStage;
+        StageManager.enterStage += ChangeStage;
+        StageManager.finishStage += CompleteStage;
     }
 
     private void OnDisable()
     {
         // Unsubscribe from events.
-        StageHandler.enterStage -= ChangeStage;
-        StageHandler.finishStage -= CompleteStage;
+        StageManager.enterStage -= ChangeStage;
+        StageManager.finishStage -= CompleteStage;
     }
 
     /// <summary>

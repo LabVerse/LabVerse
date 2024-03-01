@@ -16,15 +16,23 @@ public class SelectionMenuItemsManager : MonoBehaviour
     [SerializeField]
     private GameObject scrollMenuContainer;
 
+    [SerializeField]
+    private GameObject cardRoot;
+
+    [SerializeField]
+    private ItemSpawner m_itemSpawner;
+
     private void OnEnable()
     {
         Debug.Log("SelectionMenuItemsManager enabled");
         ExperimentManager.startExperiment += OnStartExperiment;
+        m_itemSpawner.objectSpawned += OnObjectSpawned;
     }
 
     private void OnDisable()
     {
         ExperimentManager.startExperiment -= OnStartExperiment;
+        m_itemSpawner.objectSpawned -= OnObjectSpawned;
     }
 
     private void OnStartExperiment()
@@ -43,5 +51,11 @@ public class SelectionMenuItemsManager : MonoBehaviour
             itemToButton.transform.localScale = new Vector3(itemToButton.transform.localScale.x, itemToButton.transform.localScale.y, 1f);
             itemToButton.transform.SetParent(scrollMenuContainer.transform);
         }
+    }
+
+    private void OnObjectSpawned(GameObject obj)
+    {
+        cardRoot.SetActive(false);
+        m_itemSpawner.spawnOptionIndex = -1;
     }
 }

@@ -50,27 +50,27 @@ public class SequentialExperimentManagerTests
     [UnityTest, Order(2)]
     public IEnumerator ValidExperimentChangeStage()
     {
-        // Check if the StageHandler is present in the scene.
-        StageHandler stageHandler = Object.FindObjectOfType<StageHandler>();
-        Assert.IsNotNull(stageHandler);
+        // Check if the StageManager is present in the scene.
+        StageManager stageManager = Object.FindObjectOfType<StageManager>();
+        Assert.IsNotNull(stageManager);
 
         bool completed = true;
         // By default already in stage 0.
-        stageHandler.FinishStage(0, completed);
+        stageManager.FinishStage(0, completed);
 
         startExperimentStageEventFired = false;
         Assert.IsFalse(startExperimentStageEventFired);
-        stageHandler.EnterStage(1);
+        stageManager.EnterStage(1);
         Assert.IsTrue(startExperimentStageEventFired);
 
         endExperimentStageEventFired = false;
         Assert.IsFalse(endExperimentStageEventFired);
-        stageHandler.FinishStage(1, completed);
+        stageManager.FinishStage(1, completed);
         Assert.IsTrue(endExperimentStageEventFired);
 
         Assert.IsFalse(endExperimentEventFired);
-        stageHandler.EnterStage(2);
-        stageHandler.FinishStage(2, completed);
+        stageManager.EnterStage(2);
+        stageManager.FinishStage(2, completed);
         // Reached the last stage so the experiment should end.
         Assert.IsTrue(endExperimentEventFired);
         // Reset the value.
@@ -82,18 +82,18 @@ public class SequentialExperimentManagerTests
     [UnityTest, Order(3)]
     public IEnumerator InvalidExperimentStageChange()
     {
-        // Check if the StageHandler is present in the scene.
-        StageHandler stageHandler = Object.FindObjectOfType<StageHandler>();
-        Assert.IsNotNull(stageHandler);
+        // Check if the StageManager is present in the scene.
+        StageManager stageManager = Object.FindObjectOfType<StageManager>();
+        Assert.IsNotNull(stageManager);
 
         bool completed = true;
         // By default already in stage 0.
-        stageHandler.FinishStage(0, completed);
+        stageManager.FinishStage(0, completed);
 
         // The experiment is sequential so the stage should not change.
         startExperimentStageEventFired = false;
         Assert.IsFalse(startExperimentStageEventFired);
-        stageHandler.EnterStage(2);
+        stageManager.EnterStage(2);
         Assert.IsFalse(startExperimentStageEventFired);
 
         yield return null;
