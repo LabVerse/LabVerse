@@ -3,7 +3,10 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SelectionMenuItemsManager : MonoBehaviour
+/// <summary>
+/// Logic related to the item selection menu.
+/// </summary>
+public class ItemSelectionMenu : MonoBehaviour
 {
     public static event Action<string> itemSelectionMenuItemClicked; // string: item name
 
@@ -41,18 +44,27 @@ public class SelectionMenuItemsManager : MonoBehaviour
         InstantiateItemsList(items);
     }
 
+    /// <summary>
+    /// Instantiates the items listed in the item selection menu.
+    /// </summary>
     private void InstantiateItemsList(Item[] models)
     {
         foreach (Item item in models) {
             GameObject itemToButton = Instantiate(m_itemToButtonPrefab, scrollMenuContainer.transform);
+
+            // Update the button's text and add a listener to it
             itemToButton.GetComponentInChildren<TextMeshProUGUI>().text = item.itemName;
             itemToButton.GetComponentInChildren<Button>().onClick.AddListener(() => itemSelectionMenuItemClicked?.Invoke(item.itemName));
 
+            // Set the button's parent and scale
             itemToButton.transform.localScale = new Vector3(itemToButton.transform.localScale.x, itemToButton.transform.localScale.y, 1f);
             itemToButton.transform.SetParent(scrollMenuContainer.transform);
         }
     }
 
+    /// <summary>
+    /// Hides the item selection menu when an object is spawned.
+    /// </summary>
     private void OnObjectSpawned(GameObject obj)
     {
         cardRoot.SetActive(false);

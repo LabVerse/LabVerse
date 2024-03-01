@@ -1,6 +1,9 @@
 using System.Linq;
 using UnityEngine;
 
+/// <summary>
+/// Manager of the ItemSpawner component.
+/// </summary>
 [RequireComponent(typeof(ItemSpawner))]
 public class SpawnedItemsManager : MonoBehaviour
 {
@@ -10,10 +13,13 @@ public class SpawnedItemsManager : MonoBehaviour
     {
         m_Spawner = GetComponent<ItemSpawner>();
         m_Spawner.spawnAsChildren = true;
-        SelectionMenuItemsManager.itemSelectionMenuItemClicked += OnItemSelectionMenuItemClicked;
+        ItemSelectionMenu.itemSelectionMenuItemClicked += UpdateSpawnerSelectedItem;
     }
 
-    public void OnItemSelectionMenuItemClicked(string itemName)
+    /// <summary>
+    /// Handles the event of an item being selected in the item selection menu.
+    /// </summary>
+    public void UpdateSpawnerSelectedItem(string itemName)
     {
         foreach ((Item item, int i) in ExperimentManager.instance.selectedExperiment.items.Select((value, i) => (value, i)))
         {

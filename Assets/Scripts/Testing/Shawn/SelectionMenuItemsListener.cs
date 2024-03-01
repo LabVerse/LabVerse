@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class SelectionMenuItemsListener : MonoBehaviour
 {
