@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Samples/XR Interaction Toolkit/2.5.2/XR Device Simulator.meta
+guid: fa630c4230b1f2c92958ed34badd48c5
+folderAsset: yes
+DefaultImporter:
+========
+guid: 7198ecbe9c380ef49b2b111fb2c47c46
+PrefabImporter:
+>>>>>>>> 7b0bb89 (Fix: Deleted testing container and adapted bacteria scripts):Assets/Resources/Experiments/Growing A Bacterial Culture/Models/petriDish.prefab.meta
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
