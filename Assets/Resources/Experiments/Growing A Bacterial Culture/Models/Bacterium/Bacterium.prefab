@@ -128,7 +128,7 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
@@ -147,7 +147,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 909660e4c2468b146b28017f951abf2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  growthRate: 0.01
+  radiusOfBacteria: 0
+  growthRate: 0.005
   timePerGeneration: 1
   maxBacteriaSize: 1
   radius: 0
+  distanceFromCenter: 0
+  parentScale: {x: 0, y: 0, z: 0}
+  localBounds: {x: 0, y: 0, z: 0}
