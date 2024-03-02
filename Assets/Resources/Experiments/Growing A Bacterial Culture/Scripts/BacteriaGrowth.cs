@@ -23,7 +23,7 @@ public class BacteriaGrowth : MonoBehaviour
         maxBacteriaSize -= Random.Range(0.0f, maxBacteriaSize * 0.5f);
         meshBounds = GetComponent<MeshFilter>().mesh.bounds;
         distanceFromCenter = Mathf.Pow(transform.localPosition.x * parentScale.x, 2) + Mathf.Pow(transform.localPosition.y * parentScale.y, 2) + Mathf.Pow(transform.localPosition.z * parentScale.z, 2); //Sqrt is expensive so don't use
-        parentScale = GetComponentInParent<ContainerScale>().scale;
+        parentScale = GetComponentInParent<ParentTransform>().scale;
     }
 
     // Update is called once per frame
@@ -52,7 +52,6 @@ public class BacteriaGrowth : MonoBehaviour
     {
         radiusOfBacteria = Mathf.Pow(localBounds.x, 2)+ Mathf.Pow(localBounds.y,2) + Mathf.Pow(localBounds.z, 2);
         float radiusSquared = Mathf.Pow(radius, 2);
-        Debug.Log((distanceFromCenter + radiusOfBacteria)+" VS "+ radiusSquared);
         return distanceFromCenter + radiusOfBacteria >= radiusSquared;
     }
 }

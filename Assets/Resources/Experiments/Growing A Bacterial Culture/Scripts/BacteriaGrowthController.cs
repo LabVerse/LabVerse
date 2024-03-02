@@ -14,19 +14,21 @@ public class BacteriaGrowthController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        parentScale = GetComponentInParent<ContainerScale>().scale;
+        ParentTransform parentTransform = GetComponentInParent<ParentTransform>();
+        transform.localEulerAngles = parentTransform.rotation;
+        parentScale = parentTransform.scale;
         spawnArea = new Vector3(spawnArea.x / parentScale.x, spawnArea.y / parentScale.y, spawnArea.z / parentScale.z);
         for (int i = 0; i < bacteriumCount; i++)
         {
-            GameObject bacteria = Instantiate(bacteriumPrefab);
-            bacteria.transform.SetParent(transform);
-            bacteria.transform.localPosition = new Vector3(Random.Range(-spawnArea.x, spawnArea.x), 0, Random.Range(-spawnArea.z, spawnArea.z));
-            BacteriaGrowth bacteriaGrowth = bacteria.GetComponent<BacteriaGrowth>();
-            bacteriaGrowth.radius = GetComponent<SphereCollider>().radius * parentScale.x;
-            bacteriaGrowth.growthRate = growthRate;
-            bacteriaGrowth.timePerGeneration = timePerGeneration;
-            bacteriaGrowth.maxBacteriaSize = maxBacteriaSize;
-            bacteriaGrowth.parentScale = parentScale;
+            GameObject bacterium = Instantiate(bacteriumPrefab);
+            bacterium.transform.SetParent(transform);
+            bacterium.transform.localPosition = new Vector3(Random.Range(-spawnArea.x, spawnArea.x), 0, Random.Range(-spawnArea.z, spawnArea.z));
+            BacteriaGrowth bacteriumGrowth = bacterium.GetComponent<BacteriaGrowth>();
+            bacteriumGrowth.radius = GetComponent<SphereCollider>().radius * parentScale.x;
+            bacteriumGrowth.growthRate = growthRate;
+            bacteriumGrowth.timePerGeneration = timePerGeneration;
+            bacteriumGrowth.maxBacteriaSize = maxBacteriaSize;
+            bacteriumGrowth.parentScale = parentScale;
         }
     }
 
