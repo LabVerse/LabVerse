@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 
 public class Metal_FlameTest : MonoBehaviour
-{   
+{
+    private StageHandler stageHandler;
     private GameObject flame;
+
+    public int metal;
     private bool burning;
 
     //depending on element, set specific properties for flame colour, burn time, etc.
@@ -13,7 +17,9 @@ public class Metal_FlameTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //get references to key child components
         flame = transform.GetChild(0).gameObject;
+        stageHandler = gameObject.AddComponent<StageHandler>();
 
         //set default values for attributes
         burning = false;
@@ -31,6 +37,9 @@ public class Metal_FlameTest : MonoBehaviour
             {
                 //once zero hit, metal has 'burned up' so delete it
                 Destroy(transform.gameObject);
+
+                //call end of stage in stagehandler
+                stageHandler.FinishStage(metal, true);
             }
         }
         
@@ -38,9 +47,8 @@ public class Metal_FlameTest : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.name);
         //check if collision was with a bunsen burner's flame
-        if (other.gameObject.name == "BunsenFlame" && !burning)
+        if (other.transform.name == "BunsenFlameCool" || other.transform.name=="BunsenFlameHot")
         {
             //check if the bunsen burner's flame is lit
             if (other.gameObject.activeSelf)

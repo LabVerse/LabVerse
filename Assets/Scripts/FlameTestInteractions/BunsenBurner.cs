@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class BunsenBurner : MonoBehaviour
 {
-    private GameObject flame;
+    private GameObject coolFlame;
+    private GameObject hotFlame;
     public int flameState;
 
     // Start is called before the first frame update
     void Start()
     {
-        flame = transform.GetChild(0).gameObject;
+        coolFlame = transform.GetChild(0).gameObject;
+        hotFlame = transform.GetChild(1).gameObject;
 
         flameState = 1;
         setFlame(flameState);
@@ -30,19 +32,22 @@ public class BunsenBurner : MonoBehaviour
     {
         if (flameState == 0) { 
             //hide flame
-            flame.SetActive(false);
+            coolFlame.SetActive(false);
+            hotFlame.SetActive(false);
         } 
         else if (flameState == 1)
         {
             //make cool flame
-            flame.SetActive(true);
+            coolFlame.SetActive(true);
+            hotFlame.SetActive(false);
 
-            
+
         }
         else if (flameState == 2)
         {
             //make hot flame
-            flame.SetActive(true);
+            hotFlame.SetActive(true);
+            coolFlame.SetActive(false);
 
         }
     }

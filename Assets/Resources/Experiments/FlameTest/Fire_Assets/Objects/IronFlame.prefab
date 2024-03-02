@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 198321560017527566}
   - component: {fileID: 199049106770456860}
   m_Layer: 0
-  m_Name: LithiumFlame
+  m_Name: IronFlame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
