@@ -21,35 +21,36 @@ public class BunsenBurner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //check if flame state has been changed
-        // - how to do this? button on bunsen asset? discuss this later
-
         //set the flame to the correct state (would be better if this only occurs on change to state)
         SetFlame(flameState);
     }
 
-    void SetFlame(int flameState)
+    public bool SetFlame(int flame)
     {
-        if (flameState == 0) { 
+        if (flame == 0) {
             //hide flame
             coolFlame.SetActive(false);
             hotFlame.SetActive(false);
         } 
-        else if (flameState == 1)
+        else if (flame == 1)
         {
             //make cool flame
             coolFlame.SetActive(true);
             hotFlame.SetActive(false);
-
-
         }
-        else if (flameState == 2)
+        else if (flame == 2)
         {
             //make hot flame
-            hotFlame.SetActive(true);
             coolFlame.SetActive(false);
+            hotFlame.SetActive(true);
 
         }
+        else
+        {
+            return false;
+        }
+        flameState = flame;
+        return true;
     }
 
     public bool IsLit()
@@ -57,17 +58,11 @@ public class BunsenBurner : MonoBehaviour
         return (flameState>0);
     }
 
-    public void ToggleLit()
-    {
-        if (IsLit()) { SetFlame(0); }
-        else { SetFlame(1); }
-    }
-
     public void ToggleFlame()
     {
-        if (flameState == 0) { flameState = 1; }
-        else if (flameState == 1) { flameState = 2; }
-        else if (flameState == 2) { flameState = 0; }
+        if (flameState == 0) { SetFlame(1); }
+        else if (flameState == 1) { SetFlame(2); }
+        else if (flameState == 2) { SetFlame(0); }
         //else do nothing
     }
 }

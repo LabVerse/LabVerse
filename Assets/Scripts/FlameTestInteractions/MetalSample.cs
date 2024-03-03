@@ -29,6 +29,9 @@ public class Metal_FlameTest : MonoBehaviour
     {
         if (burning)
         {
+            //check if still inside flame
+            
+
             //decrement countdown to zero
             countdown = countdown - (1 * Time.deltaTime);
             if(countdown <= 0)
@@ -37,7 +40,7 @@ public class Metal_FlameTest : MonoBehaviour
                 Destroy(transform.gameObject);
 
                 //call end of stage in stagehandler
-                //StageManager.instance.FinishStage(metal, true);
+                StageManager.instance.FinishStage(metal, true);
             }
         }
         
@@ -55,6 +58,17 @@ public class Metal_FlameTest : MonoBehaviour
                 burning = true;
                 flame.SetActive(true);
             }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        //check if collision was with a bunsen burner's flame
+        if (other.transform.gameObject.name == "BunsenBurner")
+        {
+            //metal has left the flame, so stop fire
+            burning = false;
+            flame.SetActive(false);
         }
     }
 }

@@ -41,7 +41,7 @@ public class InoculatingLoop : MonoBehaviour
                 else { continue; }
                 Destroy(child.gameObject);
                 //fail the given stage
-                //StageManager.instance.FinishStage(i, false);
+                StageManager.instance.FinishStage(i, false);
             }
 
             //determine which metal should be added to the loop
@@ -57,7 +57,7 @@ public class InoculatingLoop : MonoBehaviour
             newChild.transform.localPosition = colliderPos;
 
             //start the correct stage of the experiment
-            //StageManager.instance.EnterStage(i);
+            StageManager.instance.EnterStage(i);
         }
     }
 }

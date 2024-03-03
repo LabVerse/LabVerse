@@ -389,7 +389,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5738038573704393638}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1532710771348977681}
+        m_TargetAssemblyTypeName: BunsenOnClick, LabVerseScripts
+        m_MethodName: ToggleFlame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &984617709472403105
 PrefabInstance:
   m_ObjectHideFlags: 0
