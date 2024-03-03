@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4630,7 +4630,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RaycastManager: {fileID: 622521522}
-  spawnablePrefab: {fileID: 0}
+  spawnablePrefab: {fileID: 3789598325801467388, guid: fff5c20f01a05b7469fe0d5bf3147d25,
+    type: 3}
 --- !u!4 &1771080662
 Transform:
   m_ObjectHideFlags: 0
@@ -5799,25 +5800,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74220dd334b18ff48b343f7d66175efb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnableObjects:
-  - {fileID: 4901028660341287002, guid: eb891ab42a917d34e81045d86df225e3, type: 3}
-  - {fileID: 4901028660341287002, guid: eb891ab42a917d34e81045d86df225e3, type: 3}
-  - {fileID: 4901028660341287002, guid: eb891ab42a917d34e81045d86df225e3, type: 3}
-  - {fileID: 4901028660341287002, guid: eb891ab42a917d34e81045d86df225e3, type: 3}
-  - {fileID: 4167548610053949182, guid: 8a7668a9a6295024a8defcdfcea4495f, type: 3}
-  - {fileID: 4167548610053949182, guid: 8a7668a9a6295024a8defcdfcea4495f, type: 3}
-  - {fileID: 1484915118769648484, guid: 409af316bce93ab44b7030067a9c3377, type: 3}
-  - {fileID: 1484915118769648484, guid: 409af316bce93ab44b7030067a9c3377, type: 3}
-  - {fileID: 1484915118769648484, guid: 409af316bce93ab44b7030067a9c3377, type: 3}
-  - {fileID: 1484915118769648484, guid: 409af316bce93ab44b7030067a9c3377, type: 3}
-  - {fileID: 1484915118769648484, guid: 409af316bce93ab44b7030067a9c3377, type: 3}
-  - {fileID: 1484915118769648484, guid: 409af316bce93ab44b7030067a9c3377, type: 3}
-  - {fileID: 1484915118769648484, guid: 409af316bce93ab44b7030067a9c3377, type: 3}
-  - {fileID: 1484915118769648484, guid: 409af316bce93ab44b7030067a9c3377, type: 3}
-  - {fileID: 1484915118769648484, guid: 409af316bce93ab44b7030067a9c3377, type: 3}
-  - {fileID: 1484915118769648484, guid: 409af316bce93ab44b7030067a9c3377, type: 3}
-  - {fileID: 1484915118769648484, guid: 409af316bce93ab44b7030067a9c3377, type: 3}
+  m_itemToButtonPrefab: {fileID: 0}
   scrollMenuContainer: {fileID: 0}
+  cardRoot: {fileID: 0}
+  m_itemSpawner: {fileID: 0}
 --- !u!114 &4690844149620615083
 MonoBehaviour:
   m_ObjectHideFlags: 0
