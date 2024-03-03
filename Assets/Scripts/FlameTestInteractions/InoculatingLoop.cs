@@ -8,23 +8,25 @@ using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 public class InoculatingLoop : MonoBehaviour
 {
     public GameObject[] metalSamples;
+    bool isColliding;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        isColliding = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        isColliding=false;
     }
 
     //When the inoculating loop collides with a metal source, remove any other child metals and add the current one
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Collision");
+        if (isColliding) { return; }
+        isColliding=true;
         if (other.gameObject.CompareTag("Metal"))
         {
             int i = 0;
@@ -36,9 +38,10 @@ public class InoculatingLoop : MonoBehaviour
                 if (child.gameObject.name == "CopperSample") { i = 1; }
                 else if (child.gameObject.name == "LithiumSample") { i = 2; }
                 else if (child.gameObject.name == "IronSample") { i = 3; }
+                else { continue; }
                 Destroy(child.gameObject);
                 //fail the given stage
-                StageManager.instance.FinishStage(i, false);
+                //StageManager.instance.FinishStage(i, false);
             }
 
             //determine which metal should be added to the loop
@@ -54,7 +57,7 @@ public class InoculatingLoop : MonoBehaviour
             newChild.transform.localPosition = colliderPos;
 
             //start the correct stage of the experiment
-            StageManager.instance.EnterStage(i);
+            //StageManager.instance.EnterStage(i);
         }
     }
 }

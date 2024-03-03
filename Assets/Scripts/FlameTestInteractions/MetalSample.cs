@@ -37,7 +37,7 @@ public class Metal_FlameTest : MonoBehaviour
                 Destroy(transform.gameObject);
 
                 //call end of stage in stagehandler
-                StageManager.instance.FinishStage(metal, true);
+                //StageManager.instance.FinishStage(metal, true);
             }
         }
         
@@ -46,10 +46,11 @@ public class Metal_FlameTest : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //check if collision was with a bunsen burner's flame
-        if (other.transform.name == "BunsenFlameCool" || other.transform.name=="BunsenFlameHot")
+        if (other.transform.gameObject.name == "BunsenBurner")
         {
             //check if the bunsen burner's flame is lit
-            if (other.gameObject.activeSelf)
+            var bunsenScript = other.transform.GetComponent<BunsenBurner>();
+            if (bunsenScript.IsLit())
             {
                 burning = true;
                 flame.SetActive(true);

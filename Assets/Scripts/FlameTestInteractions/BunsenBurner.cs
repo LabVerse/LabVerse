@@ -15,7 +15,7 @@ public class BunsenBurner : MonoBehaviour
         hotFlame = transform.GetChild(1).gameObject;
 
         flameState = 1;
-        setFlame(flameState);
+        SetFlame(flameState);
     }
 
     // Update is called once per frame
@@ -25,10 +25,10 @@ public class BunsenBurner : MonoBehaviour
         // - how to do this? button on bunsen asset? discuss this later
 
         //set the flame to the correct state (would be better if this only occurs on change to state)
-        setFlame(flameState);
+        SetFlame(flameState);
     }
 
-    void setFlame(int flameState)
+    void SetFlame(int flameState)
     {
         if (flameState == 0) { 
             //hide flame
@@ -52,8 +52,22 @@ public class BunsenBurner : MonoBehaviour
         }
     }
 
-    public bool isLit()
+    public bool IsLit()
     {
         return (flameState>0);
+    }
+
+    public void ToggleLit()
+    {
+        if (IsLit()) { SetFlame(0); }
+        else { SetFlame(1); }
+    }
+
+    public void ToggleFlame()
+    {
+        if (flameState == 0) { flameState = 1; }
+        else if (flameState == 1) { flameState = 2; }
+        else if (flameState == 2) { flameState = 0; }
+        //else do nothing
     }
 }

@@ -10,23 +10,38 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 0400f3891ef032945a40b834163f8e10,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0400f3891ef032945a40b834163f8e10,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0400f3891ef032945a40b834163f8e10,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0400f3891ef032945a40b834163f8e10,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.776
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0400f3891ef032945a40b834163f8e10,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.281
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0400f3891ef032945a40b834163f8e10,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.108
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0400f3891ef032945a40b834163f8e10,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071067
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0400f3891ef032945a40b834163f8e10,
         type: 3}
@@ -41,12 +56,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 0400f3891ef032945a40b834163f8e10,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0400f3891ef032945a40b834163f8e10,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0400f3891ef032945a40b834163f8e10,
         type: 3}
@@ -115,3 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 768284c1115ea544c8744da42593f06d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  metalSamples:
+  - {fileID: 5759553019297840615, guid: c006cbdc6b66f214087f17059bbbcf3d, type: 3}
+  - {fileID: 5759553019297840615, guid: 24d40b175240e2c498990f7b2239b70a, type: 3}
+  - {fileID: 5759553019297840615, guid: e90cf212016fe5446b948b1a17b22b82, type: 3}
