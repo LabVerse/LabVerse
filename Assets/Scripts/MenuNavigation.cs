@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MenuNavigation : MonoBehaviour
 {
+    public void goToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
     public void goToSelectionMenu()
     {
         SceneManager.LoadScene("ExperimentSelectionMenu");
