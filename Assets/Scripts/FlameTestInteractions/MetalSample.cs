@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Metal_FlameTest : MonoBehaviour
 {
-    private StageHandler stageHandler;
     private GameObject flame;
 
     public int metal;
@@ -19,7 +18,6 @@ public class Metal_FlameTest : MonoBehaviour
     {
         //get references to key child components
         flame = transform.GetChild(0).gameObject;
-        stageHandler = gameObject.AddComponent<StageHandler>();
 
         //set default values for attributes
         burning = false;
@@ -39,7 +37,7 @@ public class Metal_FlameTest : MonoBehaviour
                 Destroy(transform.gameObject);
 
                 //call end of stage in stagehandler
-                stageHandler.FinishStage(metal, true);
+                StageManager.instance.FinishStage(metal, true);
             }
         }
         

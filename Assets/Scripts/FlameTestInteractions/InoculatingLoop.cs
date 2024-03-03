@@ -8,13 +8,11 @@ using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 public class InoculatingLoop : MonoBehaviour
 {
     public GameObject[] metalSamples;
-    private StageHandler stageHandler;
 
     // Start is called before the first frame update
     void Start()
     {
-        //create new stageHandler for the inoculating loop
-        stageHandler = gameObject.AddComponent<StageHandler>();
+
     }
 
     // Update is called once per frame
@@ -40,7 +38,7 @@ public class InoculatingLoop : MonoBehaviour
                 else if (child.gameObject.name == "IronSample") { i = 3; }
                 Destroy(child.gameObject);
                 //fail the given stage
-                stageHandler.FinishStage(i, false);
+                StageManager.instance.FinishStage(i, false);
             }
 
             //determine which metal should be added to the loop
@@ -56,7 +54,7 @@ public class InoculatingLoop : MonoBehaviour
             newChild.transform.localPosition = colliderPos;
 
             //start the correct stage of the experiment
-            stageHandler.EnterStage(i);
+            StageManager.instance.EnterStage(i);
         }
     }
 }
