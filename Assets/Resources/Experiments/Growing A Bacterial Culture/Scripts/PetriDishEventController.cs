@@ -1,19 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.SceneManagement;
 using UnityEngine;
-using static Unity.Burst.Intrinsics.X86.Avx;
 
 public class PetriDishEventController : MonoBehaviour
 {
-    [SerializeField] GameObject lid;
+    public GameObject lid;
     [SerializeField] GameObject agarJelly;
     [SerializeField] GameObject bacteria;
 
     // Update is called once per frame
     void Update()
     {
-        //if()
+        
     }
     void OnTriggerEnter(Collider collider)
     {
@@ -22,15 +18,25 @@ public class PetriDishEventController : MonoBehaviour
         switch(collider.gameObject.name)
         {
             case "Agar Flow":
+                StageManager.instance.FinishStage(0, true);
+                StageManager.instance.EnterStage(1);
                 agarJelly.SetActive(true);
+                //Shouldnt do this part
+                StageManager.instance.FinishStage(1, true);
+                StageManager.instance.EnterStage(2);
                 break;
-            case "Inoculating Loop":
-                if (collider.gameObject.GetComponent<BacteriaPresence>())
+            case "loop":
+                BacteriaPresence bacteriaPresence = collider.gameObject.GetComponent<BacteriaPresence>();
+                if (bacteriaPresence != null && agarJelly.activeSelf)
                 {
-                    bacteria.SetActive(true);
+                    if(bacteriaPresence.bacteriaPresent)
+                    {
+                        StageManager.instance.FinishStage(2, true);
+                        StageManager.instance.EnterStage(3);
+                        bacteria.SetActive(true);
+                    }
+                    //3 to 4 in bacteria growth script
                 }
-                break;
-            case "Agar Plate":
                 break;
             default:
                 break;

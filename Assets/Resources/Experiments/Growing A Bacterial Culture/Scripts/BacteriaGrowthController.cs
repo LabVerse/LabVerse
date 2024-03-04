@@ -11,6 +11,7 @@ public class BacteriaGrowthController : MonoBehaviour
     [SerializeField] float timePerGeneration = 1.0f;
     [SerializeField] float maxBacteriaSize = 1.0f;
     [SerializeField] Vector3 parentScale;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +34,7 @@ public class BacteriaGrowthController : MonoBehaviour
     }
 
 
-    private void OnDrawGizmos()
+    void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, spawnArea.x);

@@ -15,6 +15,8 @@ public class BacteriaGrowth : MonoBehaviour
     [SerializeField] float distanceFromCenter;
     public Vector3 parentScale;
     [SerializeField] Vector3 localBounds;
+    public GameObject lid;
+    bool experimentStarted = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,11 +26,27 @@ public class BacteriaGrowth : MonoBehaviour
         meshBounds = GetComponent<MeshFilter>().mesh.bounds;
         distanceFromCenter = Mathf.Pow(transform.localPosition.x * parentScale.x, 2) + Mathf.Pow(transform.localPosition.y * parentScale.y, 2) + Mathf.Pow(transform.localPosition.z * parentScale.z, 2); //Sqrt is expensive so don't use
         parentScale = GetComponentInParent<ParentTransform>().scale;
+        lid = GetComponentInParent<PetriDishEventController>().lid;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (lid == null || !lid.activeSelf) return; //Only grow if the lid is on
+
+        if (experimentStarted)
+        {
+            Grow();
+        }
+        else
+        {
+            experimentStarted = true;
+            StageManager.instance.FinishStage(3, true);
+            StageManager.instance.EnterStage(4);
+        }
+    }
+
+    private void Grow() { 
         if(timeSinceLastGeneration >= timePerGeneration)
         {
             timeSinceLastGeneration = 0.0;
@@ -37,8 +55,8 @@ public class BacteriaGrowth : MonoBehaviour
         timeSinceLastGeneration += Time.deltaTime;
 
         localBounds = new Vector3(meshBounds.max.x * parentScale.x * transform.localScale.x, meshBounds.max.y * parentScale.y * transform.localScale.y, meshBounds.max.z * parentScale.z * transform.localScale.z);
-        //If bacteria reached max size or container bounds, stop growing
 
+        //If bacteria reached max size or container bounds, stop growing
         if (MaxSizeReached(localBounds) || ReachedContainerBounds(localBounds))
         {
             this.enabled = false;

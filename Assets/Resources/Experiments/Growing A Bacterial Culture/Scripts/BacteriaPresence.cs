@@ -5,4 +5,5 @@ using UnityEngine;
 public class BacteriaPresence : MonoBehaviour
 {
     public bool bacteriaPresent = false;
+    public GameObject bacteria;
 }
