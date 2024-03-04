@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Bacteria Growth Controller for spawning bacteria into petri dish.
+/// </summary>
 public class BacteriaGrowthController : MonoBehaviour
 {
     [SerializeField] int bacteriumCount = 10;
@@ -12,7 +12,9 @@ public class BacteriaGrowthController : MonoBehaviour
     [SerializeField] float maxBacteriaSize = 1.0f;
     [SerializeField] Vector3 parentScale;
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Spawn bacteria into petri dish.
+    /// </summary>
     void Start()
     {
         ParentTransform parentTransform = GetComponentInParent<ParentTransform>();
@@ -33,7 +35,9 @@ public class BacteriaGrowthController : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Draws spherical wire to show spawn area of bacteria.
+    /// </summary>
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Parent Transform for easy access of euler rotation and scale from children scripts.
+/// </summary>
 public class ParentTransform : MonoBehaviour
 {
     public Vector3 rotation;

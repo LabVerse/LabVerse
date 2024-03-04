@@ -1,16 +1,15 @@
 using UnityEngine;
-
+/// <summary>
+/// Petri Dish Event Controller for handling stages that directly require petri dish gameobject.
+/// </summary>
 public class PetriDishEventController : MonoBehaviour
 {
     public GameObject lid;
     [SerializeField] GameObject agarJelly;
     [SerializeField] GameObject bacteria;
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    /// <summary>
+    /// Collider trigger event for checking stage changes and enabling agar jelly and bacteria gameobject component.
+    /// </summary>
     void OnTriggerEnter(Collider collider)
     {
         if (lid.activeSelf) return;
