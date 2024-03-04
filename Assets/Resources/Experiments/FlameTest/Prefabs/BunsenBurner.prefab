@@ -390,8 +390,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1532710771348977681}
-        m_TargetAssemblyTypeName: BunsenOnClick, LabVerseScripts
+      - m_Target: {fileID: 5928587602507541469}
+        m_TargetAssemblyTypeName: BunsenBurner, LabVerseScripts
         m_MethodName: ToggleFlame
         m_Mode: 1
         m_Arguments:
@@ -697,7 +697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2b2853eb4389b4a90e07fc09808384, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flameState: 0
+  m_flameState: 0
 --- !u!65 &5091379855315459354
 BoxCollider:
   m_ObjectHideFlags: 0

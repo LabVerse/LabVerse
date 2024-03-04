@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
 using UnityEngine.UI;
 
-public class BunsenBurnerTestScript
+public class BunsenBurnerFlamesTests
 {
     [SetUp]
     public void Setup()
@@ -19,30 +19,31 @@ public class BunsenBurnerTestScript
     public IEnumerator SetFlameTests()
     {
         GameObject bunsen = GameObject.Find("BunsenBurner");
-        var bunsenScript = bunsen.GetComponent<BunsenBurner>();
+        var bunsenScript = bunsen.GetComponent<BunsenBurnerFlames>();
         GameObject coolFlame = bunsen.transform.GetChild(0).gameObject;
         GameObject hotFlame = bunsen.transform.GetChild(1).gameObject;
 
         //check that the bunsen burner can switch between states as intended
         //1. turn flame off
-        bool success = bunsenScript.SetFlame(0);
+        bool success = bunsenScript.SetFlame(BunsenBurnerFlames.FLAME_STATE.OFF);
         bool flamesOn = coolFlame.activeSelf || hotFlame.activeSelf || bunsenScript.IsLit();
         Assert.IsTrue(success && !flamesOn);
 
         //2. set to cool flame
-        success = bunsenScript.SetFlame(1);
-        flamesOn = coolFlame.activeSelf && bunsenScript.flameState==1 && !hotFlame.activeSelf;
+        success = bunsenScript.SetFlame(BunsenBurnerFlames.FLAME_STATE.COOL);
+        flamesOn = coolFlame.activeSelf && bunsenScript.GetFlameState()==BunsenBurnerFlames.FLAME_STATE.COOL && !hotFlame.activeSelf;
         Assert.IsTrue(success && flamesOn);
 
         //3. set to hot flame
-        success = bunsenScript.SetFlame(2);
-        flamesOn = hotFlame.activeSelf && bunsenScript.flameState == 2 && !coolFlame.activeSelf;
+        success = bunsenScript.SetFlame(BunsenBurnerFlames.FLAME_STATE.HOT);
+        flamesOn = hotFlame.activeSelf && bunsenScript.GetFlameState() == BunsenBurnerFlames.FLAME_STATE.HOT && !coolFlame.activeSelf;
         Assert.IsTrue(success && flamesOn);
 
         //4. set to invalid number, should ignore
-        Assert.IsTrue(!(bunsenScript.SetFlame(-1)));
-        Assert.IsTrue(!(bunsenScript.SetFlame(1000)));
-        Assert.IsTrue(!(bunsenScript.SetFlame(3)));
+        //No longer possible using enums FLAME_STATES instead
+        //Assert.IsTrue(!(bunsenScript.SetFlame(-1)));
+        //Assert.IsTrue(!(bunsenScript.SetFlame(1000)));
+        //Assert.IsTrue(!(bunsenScript.SetFlame(3)));
 
         yield return null;
     }
@@ -53,7 +54,7 @@ public class BunsenBurnerTestScript
         GameObject bunsen = GameObject.Find("BunsenBurner");
         Assert.IsTrue(bunsen != null);
 
-        var bunsenScript = bunsen.GetComponent<BunsenBurner>();
+        BunsenBurnerFlames bunsenScript = bunsen.GetComponent<BunsenBurnerFlames>();
         Assert.IsTrue(bunsenScript != null);
 
         GameObject coolFlame = bunsen.transform.GetChild(0).gameObject;
@@ -61,33 +62,33 @@ public class BunsenBurnerTestScript
 
         //check that the bunsen burner can toggle states
         //turn flame off
-        bunsenScript.SetFlame(0);
+        bunsenScript.SetFlame(BunsenBurnerFlames.FLAME_STATE.OFF);
 
         //check button exists on bunsen burner
-        Button btn = bunsen.transform.Find("Canvas/Button").GetComponent<Button>();
-        Assert.IsTrue(btn != null);
+        Button toggleFlameButton = bunsen.transform.Find("Canvas/Button").GetComponent<Button>();
+        Assert.IsTrue(toggleFlameButton != null);
 
         //toggle (to cool flame)
-        btn.onClick.Invoke();
-        bool success = bunsenScript.flameState==1;
+        toggleFlameButton.onClick.Invoke();
+        bool success = bunsenScript.GetFlameState() == BunsenBurnerFlames.FLAME_STATE.COOL;
         bool flamesOn = coolFlame.activeSelf && !hotFlame.activeSelf;
         Assert.IsTrue(success && flamesOn);
 
         //toggle (to hot flame)
-        btn.onClick.Invoke();
-        success = bunsenScript.flameState == 2;
+        toggleFlameButton.onClick.Invoke();
+        success = bunsenScript.GetFlameState() == BunsenBurnerFlames.FLAME_STATE.HOT;
         flamesOn = hotFlame.activeSelf && !coolFlame.activeSelf;
         Assert.IsTrue(success && flamesOn);
 
         //toggle (to off)
-        btn.onClick.Invoke();
-        success = bunsenScript.flameState == 0;
+        toggleFlameButton.onClick.Invoke();
+        success = bunsenScript.GetFlameState() == 0;
         flamesOn = hotFlame.activeSelf || coolFlame.activeSelf;
         Assert.IsTrue(success && !flamesOn);
 
         //toggle (to cool flame) to ensure looping correctly
-        btn.onClick.Invoke();
-        success = bunsenScript.flameState == 1;
+        toggleFlameButton.onClick.Invoke();
+        success = bunsenScript.GetFlameState() == BunsenBurnerFlames.FLAME_STATE.COOL;
         flamesOn = coolFlame.activeSelf && !hotFlame.activeSelf;
         Assert.IsTrue(success && flamesOn);
 
