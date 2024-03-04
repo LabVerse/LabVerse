@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Testing/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Testing/Shawn/BlankAR.unity
     guid: 18134d04c6f7fe4468a32c49079c18c2
   - enabled: 0
@@ -26,9 +26,18 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SettingsMenu.unity
     guid: 63e870c419086860b98cf4bcc2e67ce6
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Testing/Nishad/SetupAR.unity
-    guid: 59268f071fce94b00ad81fabf467320f
+    guid: 0d77d30d4a59742e99bc0011bca0e4e8
+  - enabled: 0
+    path: Assets/Scenes/Testing/Nishad/Setup.unity
+    guid: 978aaaee7e733454c8d1157b6e48365a
+  - enabled: 0
+    path: Assets/Scenes/Testing/Nishad/New Scene.unity
+    guid: 236f6d29a9c9a439cba11f0392a7a727
+  - enabled: 0
+    path: Assets/Scenes/Testing/Nishad/newscene.unity
+    guid: e140008f9f42948958d9c799151bb10a
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 4cf0fa3ac2cbbf342b2c36cecbf4f12c,
       type: 2}
