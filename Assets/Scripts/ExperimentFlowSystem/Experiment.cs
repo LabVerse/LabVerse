@@ -11,4 +11,7 @@ public class Experiment : ScriptableObject
     public List<Stage> stages = new List<Stage>();
     public bool areStagesSequential = false;
     public Item[] items;
+
+    // Prefab containing the combined items of the experiment arranged relative to each other appropriately
+    public GameObject combinedItems;
 }
