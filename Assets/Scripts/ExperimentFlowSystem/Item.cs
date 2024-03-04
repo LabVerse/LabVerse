@@ -8,4 +8,6 @@ public class Item : ScriptableObject
     public string itemName;
     public Sprite thumbnail;
     public GameObject model;
+    public bool isHazardous;
+    public string hazardInfo;
 }
