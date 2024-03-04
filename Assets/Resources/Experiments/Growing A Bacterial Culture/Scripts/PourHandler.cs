@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit.Inputs;
-using UnityEngine.XR.Interaction.Toolkit.Samples.ARStarterAssets;
-
+/// <summary>
+/// Pour handler that controls agar jelly flow from agar bottle.
+/// </summary>
 public class PourHandler : MonoBehaviour
 {
     [SerializeField] GameObject cap;
@@ -14,8 +12,10 @@ public class PourHandler : MonoBehaviour
     {
         parentTransform = GetComponentInParent<ParentTransform>();
     }
-    
-    // Update is called once per frame
+
+    /// <summary>
+    /// Check if agar bottle is tilted and cap is off and enable agar flow gameobject.
+    /// </summary>
     void Update()
     {
         if (cap.activeSelf) return;
@@ -33,7 +33,9 @@ public class PourHandler : MonoBehaviour
             agarFlow.SetActive(false);
         }
     }
-
+    /// <summary>
+    /// OnClick event for removing and placing agar bottle cap.
+    /// </summary>
     public void OnCapClicked()
     {
         cap.SetActive(!cap.activeSelf);
