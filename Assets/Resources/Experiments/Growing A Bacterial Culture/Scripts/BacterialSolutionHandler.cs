@@ -1,9 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Bacteria Solution Handler for applying bacteria to gameobject.
+/// </summary>
 public class BacterialSolutionHandler : MonoBehaviour
 {
+    /// <summary>
+    /// Collider trigger event to place bacteria on gameobject with bacteria presence script.
+    /// </summary>
     private void OnTriggerEnter(Collider other)
     {
         BacteriaPresence bacteriaPresence = other.gameObject.GetComponent<BacteriaPresence>();
