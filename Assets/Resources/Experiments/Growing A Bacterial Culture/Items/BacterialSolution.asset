@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abb159345b4ce0d47accebf89184fff7, type: 3}
-  m_Name: InoculatingLoop
+  m_Name: BacterialSolution
   m_EditorClassIdentifier: 
-  itemName: Inoculating Loop
+  itemName: Bacterial Solution
   thumbnail: {fileID: 0}
-  model: {fileID: 7593488662502669152, guid: 3ad0612d5a415f34eaa47801ee32a1b0, type: 3}
+  model: {fileID: 991644514921737657, guid: e00550d54358a0848ad0baec800c56fe, type: 3}

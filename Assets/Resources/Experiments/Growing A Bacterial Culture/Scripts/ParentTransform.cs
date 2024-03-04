@@ -12,4 +12,11 @@ public class ParentTransform : MonoBehaviour
         rotation = transform.localEulerAngles;
         scale = transform.lossyScale;
     }
+
+    // Update is called once per frame
+    void Update()
+    {
+        rotation = transform.localEulerAngles;
+        scale = transform.lossyScale;
+    }
 }

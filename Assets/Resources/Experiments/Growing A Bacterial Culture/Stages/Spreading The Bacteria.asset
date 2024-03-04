@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Spreading The Bacteria
   description: "Using the inoculating loop, carefully spread the bacteria around
-    the surface of the agar jelly plate. This will give an even spread of the\r\nbacterial
-    cells.\r"
+    the surface of the agar jelly plate. This will give an even spread of the bacterial
+    cells.\r\r"
