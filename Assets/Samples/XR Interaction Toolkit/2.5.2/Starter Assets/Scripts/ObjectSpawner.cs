@@ -11,7 +11,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
     {
         [SerializeField]
         [Tooltip("The camera that objects will face when spawned. If not set, defaults to the main camera.")]
-        Camera m_CameraToFace;
+        protected Camera m_CameraToFace;
 
         /// <summary>
         /// The camera that objects will face when spawned. If not set, defaults to the <see cref="Camera.main"/> camera.
@@ -28,7 +28,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
 
         [SerializeField]
         [Tooltip("The list of prefabs available to spawn.")]
-        List<GameObject> m_ObjectPrefabs = new List<GameObject>();
+        protected List<GameObject> m_ObjectPrefabs = new List<GameObject>();
 
         /// <summary>
         /// The list of prefabs available to spawn.
@@ -42,7 +42,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         [SerializeField]
         [Tooltip("Optional prefab to spawn for each spawned object. Use a prefab with the Destroy Self component to make " +
             "sure the visualization only lives temporarily.")]
-        GameObject m_SpawnVisualizationPrefab;
+        protected GameObject m_SpawnVisualizationPrefab;
 
         /// <summary>
         /// Optional prefab to spawn for each spawned object.
@@ -57,7 +57,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         [SerializeField]
         [Tooltip("The index of the prefab to spawn. If outside the range of the list, this behavior will select " +
             "a random object each time it spawns.")]
-        int m_SpawnOptionIndex = -1;
+        protected int m_SpawnOptionIndex = -1;
 
         /// <summary>
         /// The index of the prefab to spawn. If outside the range of <see cref="objectPrefabs"/>, this behavior will
@@ -79,7 +79,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
 
         [SerializeField]
         [Tooltip("Whether to only spawn an object if the spawn point is within view of the camera.")]
-        bool m_OnlySpawnInView = true;
+        protected bool m_OnlySpawnInView = true;
 
         /// <summary>
         /// Whether to only spawn an object if the spawn point is within view of the <see cref="cameraToFace"/>.
@@ -92,7 +92,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
 
         [SerializeField]
         [Tooltip("The size, in viewport units, of the periphery inside the viewport that will not be considered in view.")]
-        float m_ViewportPeriphery = 0.15f;
+        protected float m_ViewportPeriphery = 0.15f;
 
         /// <summary>
         /// The size, in viewport units, of the periphery inside the viewport that will not be considered in view.
@@ -106,7 +106,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         [SerializeField]
         [Tooltip("When enabled, the object will be rotated about the y-axis when spawned by Spawn Angle Range, " +
             "in relation to the direction of the spawn point to the camera.")]
-        bool m_ApplyRandomAngleAtSpawn = true;
+        protected bool m_ApplyRandomAngleAtSpawn = true;
 
         /// <summary>
         /// When enabled, the object will be rotated about the y-axis when spawned by <see cref="spawnAngleRange"/>
@@ -121,7 +121,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         [SerializeField]
         [Tooltip("The range in degrees that the object will randomly be rotated about the y axis when spawned, " +
             "in relation to the direction of the spawn point to the camera.")]
-        float m_SpawnAngleRange = 45f;
+        protected float m_SpawnAngleRange = 45f;
 
         /// <summary>
         /// The range in degrees that the object will randomly be rotated about the y axis when spawned, in relation
@@ -135,7 +135,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
 
         [SerializeField]
         [Tooltip("Whether to spawn each object as a child of this object.")]
-        bool m_SpawnAsChildren;
+        protected bool m_SpawnAsChildren;
 
         /// <summary>
         /// Whether to spawn each object as a child of this object.
@@ -160,7 +160,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             EnsureFacingCamera();
         }
 
-        void EnsureFacingCamera()
+        protected void EnsureFacingCamera()
         {
             if (m_CameraToFace == null)
                 m_CameraToFace = Camera.main;
@@ -190,10 +190,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         /// Otherwise, it will spawn the prefab at the index.
         /// </remarks>
         /// <seealso cref="objectSpawned"/>
-        public bool TrySpawnObject(Vector3 spawnPoint, Vector3 spawnNormal)
+        public virtual bool TrySpawnObject(Vector3 spawnPoint, Vector3 spawnNormal)
         {
-            if (m_SpawnOptionIndex == -1) return false;
-
             if (m_OnlySpawnInView)
             {
                 var inViewMin = m_ViewportPeriphery;
@@ -206,13 +204,14 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
                 }
             }
 
-            var newObject = Instantiate(m_ObjectPrefabs[m_SpawnOptionIndex]);
+            var objectIndex = isSpawnOptionRandomized ? Random.Range(0, m_ObjectPrefabs.Count) : m_SpawnOptionIndex;
+            var newObject = Instantiate(m_ObjectPrefabs[objectIndex]);
             if (m_SpawnAsChildren)
                 newObject.transform.parent = transform;
 
             newObject.transform.position = spawnPoint;
             EnsureFacingCamera();
-                
+
             var facePosition = m_CameraToFace.transform.position;
             var forward = facePosition - spawnPoint;
             BurstMathUtility.ProjectOnPlane(forward, spawnNormal, out var projectedForward);
@@ -231,8 +230,13 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
                 visualizationTrans.rotation = newObject.transform.rotation;
             }
 
-            objectSpawned?.Invoke(newObject);
+            InvokeObjectSpawned(newObject);
             return true;
+        }
+
+        protected void InvokeObjectSpawned(GameObject obj)
+        {
+            objectSpawned?.Invoke(obj);
         }
     }
 }
