@@ -192,8 +192,6 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         /// <seealso cref="objectSpawned"/>
         public virtual bool TrySpawnObject(Vector3 spawnPoint, Vector3 spawnNormal)
         {
-            if (m_SpawnOptionIndex == -1) return false;
-
             if (m_OnlySpawnInView)
             {
                 var inViewMin = m_ViewportPeriphery;
@@ -206,7 +204,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
                 }
             }
 
-            var newObject = Instantiate(m_ObjectPrefabs[m_SpawnOptionIndex]);
+            var objectIndex = isSpawnOptionRandomized ? Random.Range(0, m_ObjectPrefabs.Count) : m_SpawnOptionIndex;
+            var newObject = Instantiate(m_ObjectPrefabs[objectIndex]);
             if (m_SpawnAsChildren)
                 newObject.transform.parent = transform;
 
