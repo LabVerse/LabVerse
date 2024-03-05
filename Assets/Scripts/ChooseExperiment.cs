@@ -30,7 +30,6 @@ public class ChooseExperiment : MonoBehaviour
         CurrentDescription.text = OptionDescriptions[index];
         CurrentImage.sprite = OptionImages[index];
         StartButton.transform.SetParent(ExperimentOptions[index].transform, false);
-        StartButton.onClick.AddListener(() => SceneManager.LoadScene(ExperimentScenes[index]));
     }
 
 }

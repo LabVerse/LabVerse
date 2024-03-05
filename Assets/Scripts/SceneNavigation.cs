@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuNavigation : MonoBehaviour
+public class SceneNavigation : MonoBehaviour
 {
     public void goToMainMenu()
     {
@@ -11,11 +11,15 @@ public class MenuNavigation : MonoBehaviour
     }
     public void goToSelectionMenu()
     {
-        SceneManager.LoadScene("ExperimentSelectionMenu");
+        SceneManager.LoadScene("SelectionMenu");
     }
     public void goToSettings()
     {
         SceneManager.LoadScene("SettingsMenu");
+    }
+    public void goToExperimentLab()
+    {
+        SceneManager.LoadScene("ExperimentLab");
     }
     public void openDocumentation()
     {

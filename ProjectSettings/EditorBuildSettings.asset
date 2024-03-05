@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Testing/Shawn/TestScene.unity
     guid: 99339b35ce94ea94f82ff046335e1e47
   - enabled: 1
-    path: Assets/Scenes/ExperimentSelectionMenu.unity
+    path: Assets/Scenes/SelectionMenu.unity
     guid: fd5235d87bbe31f4caffad021f61349c
   - enabled: 1
     path: Assets/Scenes/SettingsMenu.unity
@@ -23,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: ce1c073f9f1998e4ba34b85687be7e23
+  - enabled: 1
+    path: Assets/Scenes/ExperimentLab.unity
+    guid: 99be13b82d096e349aabd062deb07020
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 4cf0fa3ac2cbbf342b2c36cecbf4f12c,
       type: 2}
