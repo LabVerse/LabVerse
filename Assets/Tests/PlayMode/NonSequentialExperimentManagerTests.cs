@@ -22,7 +22,7 @@ public class NonSequentialExperimentManagerTests
         EditorSceneManager.LoadSceneInPlayMode("Assets/Tests/Scenes/ExperimentManagerScene.unity", new LoadSceneParameters(LoadSceneMode.Single));
         
         // Subscribe to events.
-        ExperimentManager.startExperiment += (experimentName) => { startExperimentEventFired = true; };
+        ExperimentManager.startExperiment += () => { startExperimentEventFired = true; };
         ExperimentManager.endExperiment += () => { endExperimentEventFired = true; };
         ExperimentManager.startExperimentStage += (stageIndex) => { startExperimentStageEventFired = true; };
         ExperimentManager.endExperimentStage += (stageIndex) => { endExperimentStageEventFired = true; };
@@ -51,27 +51,27 @@ public class NonSequentialExperimentManagerTests
     public IEnumerator ValidExperimentChangeStage()
     {
         // Check if the ExperimentManager is present in the scene.
-        StageHandler stageHandler = Object.FindObjectOfType<StageHandler>();
-        Assert.IsNotNull(stageHandler);
+        StageManager stageManager = Object.FindObjectOfType<StageManager>();
+        Assert.IsNotNull(stageManager);
 
         bool completed = true;
         // By default already in stage 0.
-        stageHandler.EnterStage(1);
-        stageHandler.FinishStage(1, completed);
+        stageManager.EnterStage(1);
+        stageManager.FinishStage(1, completed);
 
         startExperimentStageEventFired = false;
         Assert.IsFalse(startExperimentStageEventFired);
-        stageHandler.EnterStage(2);
+        stageManager.EnterStage(2);
         Assert.IsTrue(startExperimentStageEventFired);
 
         endExperimentStageEventFired = false;
         Assert.IsFalse(endExperimentStageEventFired);
-        stageHandler.FinishStage(2, completed);
+        stageManager.FinishStage(2, completed);
         Assert.IsTrue(endExperimentStageEventFired);
 
         Assert.IsFalse(endExperimentEventFired);
-        stageHandler.EnterStage(0);
-        stageHandler.FinishStage(0, completed);
+        stageManager.EnterStage(0);
+        stageManager.FinishStage(0, completed);
         // Reached the last stage so the experiment should end.
         Assert.IsTrue(endExperimentEventFired);
         // Reset the value.
