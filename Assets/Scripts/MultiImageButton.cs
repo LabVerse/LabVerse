@@ -1,6 +1,9 @@
 // https://forum.unity.com/threads/tint-multiple-targets-with-single-button.279820/
 // credit: CleverAI, the1whom0x
 
+// Change the colour of multiple objects when hovering over a button
+// (Unity only allows a single target graphic to be specified)
+
 using UnityEngine;
 using UnityEngine.UI;
  

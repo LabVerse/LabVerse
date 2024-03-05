@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
+// Change experiment image and description depending on option selected
+// Move start button to appear on selected option
+
 public class ChooseExperiment : MonoBehaviour
 {
 

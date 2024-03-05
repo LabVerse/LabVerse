@@ -12,15 +12,17 @@ public class FilterSearches : MonoBehaviour
 
     void Start()
     {
-       ExperimentOptions = new GameObject[NumOptions]; 
-       for (int i = 0; i < NumOptions; i++)
-       {
+        // Create a list of all the experiment options
+        ExperimentOptions = new GameObject[NumOptions]; 
+        for (int i = 0; i < NumOptions; i++)
+        {
             ExperimentOptions[i] = ContentHolder.transform.GetChild(i).gameObject;
-       }
+        }
     }
 
     public void Filter()
     {
+        // Display the options that contain the search query in their name
         int VisibleOptionsCount = 0;
         string SearchText = SearchBar.GetComponent<TMP_InputField>().text;
         string OptionText;
@@ -30,6 +32,7 @@ public class FilterSearches : MonoBehaviour
             if (OptionText.Contains(SearchText.ToLower()))
             {
                 option.SetActive(true);
+                // Move object so that it is at the top of the ScrollView with successive options below it
                 option.transform.localPosition = new Vector3(30, -10-20*VisibleOptionsCount, 0);
                 VisibleOptionsCount++;
             }
@@ -39,5 +42,4 @@ public class FilterSearches : MonoBehaviour
             }
         }
     }
-
 }
