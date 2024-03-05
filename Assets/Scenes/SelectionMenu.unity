@@ -342,7 +342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 71012951}
   m_Layer: 0
-  m_Name: Search bar
+  m_Name: Search bar container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -687,7 +687,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12, y: -13.999801}
+  m_AnchoredPosition: {x: -12, y: -14}
   m_SizeDelta: {x: 26, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &89600522
@@ -6844,7 +6844,7 @@ GameObject:
   - component: {fileID: 1737247527}
   - component: {fileID: 1737247528}
   m_Layer: 0
-  m_Name: InputField (TMP)
+  m_Name: Search bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8719,8 +8719,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 597110210}
   m_HandleRect: {fileID: 597110209}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.99984175
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

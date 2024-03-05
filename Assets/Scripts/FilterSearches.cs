@@ -27,7 +27,7 @@ public class FilterSearches : MonoBehaviour
         foreach (GameObject option in ExperimentOptions)
         {
             OptionText = option.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text.ToLower();
-            if (SearchText == "" || OptionText.Contains(SearchText.ToLower()))
+            if (OptionText.Contains(SearchText.ToLower()))
             {
                 option.SetActive(true);
                 option.transform.localPosition = new Vector3(30, -10-20*VisibleOptionsCount, 0);
