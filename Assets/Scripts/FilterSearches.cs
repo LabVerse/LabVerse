@@ -5,10 +5,10 @@ using TMPro;
 
 public class FilterSearches : MonoBehaviour
 {
-    public GameObject SearchBar;
-    public GameObject ContentHolder;
-    public GameObject[] ExperimentOptions;
-    public int NumOptions;
+    [SerializeField] private GameObject SearchBar;
+    [SerializeField] private GameObject ContentHolder;
+    [SerializeField] private GameObject[] ExperimentOptions;
+    [SerializeField] private int NumOptions;
 
     void Start()
     {

@@ -426,7 +426,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 179832ab241257eca8aebc1ebdb37142, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -687,7 +687,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12, y: -14}
+  m_AnchoredPosition: {x: -12, y: -13.999997}
   m_SizeDelta: {x: 26, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &89600522
@@ -1028,7 +1028,6 @@ GameObject:
   - component: {fileID: 143420499}
   - component: {fileID: 143420498}
   - component: {fileID: 143420497}
-  - component: {fileID: 143420496}
   m_Layer: 0
   m_Name: Flame Test option
   m_TagString: Untagged
@@ -1060,18 +1059,6 @@ RectTransform:
   m_AnchoredPosition: {x: -3, y: 30}
   m_SizeDelta: {x: 60, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &143420496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 143420494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a7cf7e5c4d6f8842b7e8f5344c26d33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &143420497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1185,19 +1172,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 140333947}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 143420494}
-        m_TargetAssemblyTypeName: MenuNavigation, LabVerseScripts
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!222 &143420501
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2926,6 +2901,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 329207799}
   m_CullTransparentMesh: 1
+--- !u!1 &401462892
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 401462894}
+  - component: {fileID: 401462893}
+  m_Layer: 0
+  m_Name: SceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &401462893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401462892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c8cb64c9532184a8017663c7e07c2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &401462894
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401462892}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.012062561, y: 1.2666696, z: 0.6027643}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &402483507
 GameObject:
   m_ObjectHideFlags: 0
@@ -3211,7 +3230,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Identifying metal ions in unknown compounds by observing colour changes.
+  m_text: Identify metal ions in unknown compounds by observing colour changes.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3640,7 +3659,6 @@ GameObject:
   - component: {fileID: 689586536}
   - component: {fileID: 689586535}
   - component: {fileID: 689586534}
-  - component: {fileID: 689586533}
   m_Layer: 0
   m_Name: Radioactivity option
   m_TagString: Untagged
@@ -3671,18 +3689,6 @@ RectTransform:
   m_AnchoredPosition: {x: -3, y: -10}
   m_SizeDelta: {x: 60, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &689586533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 689586531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a7cf7e5c4d6f8842b7e8f5344c26d33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &689586534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3796,19 +3802,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1882758634}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 689586531}
-        m_TargetAssemblyTypeName: MenuNavigation, LabVerseScripts
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!222 &689586537
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4320,16 +4314,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuNavigation, LabVerseScripts
-        m_MethodName: goToMainMenu
-        m_Mode: 1
+      - m_Target: {fileID: 401462893}
+        m_TargetAssemblyTypeName: SceneLogic, LabVerseScripts
+        m_MethodName: ChangeScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: ExperimentLab
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1024131526
@@ -5419,7 +5413,6 @@ GameObject:
   - component: {fileID: 1312524725}
   - component: {fileID: 1312524724}
   - component: {fileID: 1312524723}
-  - component: {fileID: 1312524722}
   m_Layer: 0
   m_Name: Microorganisms option
   m_TagString: Untagged
@@ -5450,18 +5443,6 @@ RectTransform:
   m_AnchoredPosition: {x: -3, y: 10}
   m_SizeDelta: {x: 60, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1312524722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1312524720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a7cf7e5c4d6f8842b7e8f5344c26d33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1312524723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5575,19 +5556,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1619779343}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1312524720}
-        m_TargetAssemblyTypeName: MenuNavigation, LabVerseScripts
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!222 &1312524726
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6548,28 +6517,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OptionDescriptions:
-  - Identifying metal ions in unknown compounds by observing colour changes.
-  - Observing the growth of bacterial colonies on agar jelly in a petri dish. Preparing
-    the culture using aseptic techniques to avoid contamination.
-  - "Investigate the penetration powers of different types of radiation using a Geiger-M\xFCller
+  - Identify metal ions in unknown compounds by observing colour changes.
+  - Grow bacterial colonies in a petri dish and employ aseptic techniques to avoid
+    contamination.
+  - "Investigate the penetration powers of different types of radiation using a Geiger\u2013M\xFCller
     tube."
-  - Observe the effect of water, light and temperature on the growth rate of mustard
-    seeds.
+  - Measure the effects of water, sunlight, and temperature on the growth rate of
+    mustard seeds.
   OptionImages:
   - {fileID: 21300000, guid: 179832ab241257eca8aebc1ebdb37142, type: 3}
+  - {fileID: 21300000, guid: c6c769e8fbceaf362b7ecc92cbab89f5, type: 3}
   - {fileID: 21300000, guid: 92659d2810801c5e98332eb5d8216b6c, type: 3}
-  - {fileID: 21300000, guid: c6c769e8fbceaf362b7ecc92cbab89f5, type: 3}
-  - {fileID: 21300000, guid: c6c769e8fbceaf362b7ecc92cbab89f5, type: 3}
+  - {fileID: 21300000, guid: 3ab4088c748dd07d48aada4169cab560, type: 3}
   ExperimentOptions:
   - {fileID: 143420499}
   - {fileID: 1312524725}
   - {fileID: 689586536}
   - {fileID: 1783032590}
-  ExperimentScenes:
-  - MainMenu
-  - SettingsMenu
-  - SampleScene
-  - SampleScene
   CurrentDescription: {fileID: 531952917}
   CurrentImage: {fileID: 80794026}
   StartButton: {fileID: 1024131525}
@@ -6587,7 +6551,6 @@ GameObject:
   - component: {fileID: 1715511517}
   - component: {fileID: 1715511516}
   - component: {fileID: 1715511515}
-  - component: {fileID: 1715511514}
   m_Layer: 0
   m_Name: Back button
   m_TagString: Untagged
@@ -6617,18 +6580,6 @@ RectTransform:
   m_AnchoredPosition: {x: 3, y: -3}
   m_SizeDelta: {x: 8, y: 12}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &1715511514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1715511512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f973ce99b7e194724929889a781d2c5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1715511515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6687,7 +6638,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1715511514}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SceneNavigation, LabVerseScripts
         m_MethodName: goToMainMenu
         m_Mode: 1
@@ -6743,16 +6694,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1715511514}
-        m_TargetAssemblyTypeName: MenuNavigation, LabVerseScripts
-        m_MethodName: goToMainMenu
-        m_Mode: 1
+      - m_Target: {fileID: 401462893}
+        m_TargetAssemblyTypeName: SceneLogic, LabVerseScripts
+        m_MethodName: ChangeScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: MainMenu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1715511518
@@ -7174,7 +7125,6 @@ GameObject:
   - component: {fileID: 1783032590}
   - component: {fileID: 1783032589}
   - component: {fileID: 1783032588}
-  - component: {fileID: 1783032587}
   m_Layer: 0
   m_Name: Germination option
   m_TagString: Untagged
@@ -7205,18 +7155,6 @@ RectTransform:
   m_AnchoredPosition: {x: -3, y: -30}
   m_SizeDelta: {x: 60, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1783032587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1783032585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a7cf7e5c4d6f8842b7e8f5344c26d33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1783032588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7330,19 +7268,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2127463837}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1783032585}
-        m_TargetAssemblyTypeName: MenuNavigation, LabVerseScripts
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!222 &1783032591
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8719,8 +8645,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 597110210}
   m_HandleRect: {fileID: 597110209}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.99984175
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -9328,6 +9254,71 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2071682826}
   m_CullTransparentMesh: 1
+--- !u!1 &2076946543
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2076946545}
+  - component: {fileID: 2076946544}
+  m_Layer: 0
+  m_Name: OptionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2076946544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076946543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23adc471b7e84c68386cfdcdcddc28d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OptionDescriptions:
+  - 'Identify metal ions in unknown compounds by observing colour changes. '
+  - 'Grow bacterial colonies in a petri dish and employ aseptic techniques to avoid
+    contamination. '
+  - "Investigate the penetration powers of different types of radiation using a Geiger\u2013M\xFCller
+    tube. "
+  - 'Measure the effects of water, sunlight, and temperature on the growth rate of
+    mustard seeds. '
+  OptionImages:
+  - {fileID: 21300000, guid: 179832ab241257eca8aebc1ebdb37142, type: 3}
+  - {fileID: 21300000, guid: c6c769e8fbceaf362b7ecc92cbab89f5, type: 3}
+  - {fileID: 21300000, guid: 92659d2810801c5e98332eb5d8216b6c, type: 3}
+  - {fileID: 21300000, guid: 3ab4088c748dd07d48aada4169cab560, type: 3}
+  ExperimentOptions:
+  - {fileID: 143420499}
+  - {fileID: 1312524725}
+  - {fileID: 689586536}
+  - {fileID: 1783032590}
+  CurrentDescription: {fileID: 531952917}
+  CurrentImage: {fileID: 80794026}
+  StartButton: {fileID: 1024131525}
+--- !u!4 &2076946545
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076946543}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.011985025, y: 1.3016131, z: 0.60456914}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2085239955
 GameObject:
   m_ObjectHideFlags: 0
@@ -9487,3 +9478,5 @@ SceneRoots:
   - {fileID: 157931572}
   - {fileID: 1173209302}
   - {fileID: 653871907}
+  - {fileID: 401462894}
+  - {fileID: 2076946545}

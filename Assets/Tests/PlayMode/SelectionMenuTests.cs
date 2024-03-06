@@ -18,6 +18,7 @@ public class SelectionMenuTests
         EditorSceneManager.LoadSceneInPlayMode("Assets/Scenes/SelectionMenu.unity", new LoadSceneParameters(LoadSceneMode.Single));
     }
 
+    // Clicking back button returns to Main Menu
     [UnityTest]
     public IEnumerator NavigateToMainMenu()
     {
@@ -36,6 +37,7 @@ public class SelectionMenuTests
         yield return null;
     }
 
+    // Search 'flame' and check that option with matching name is shown but non-matching isn't
     [UnityTest]
     public IEnumerator FilterSearchOptions()
     {

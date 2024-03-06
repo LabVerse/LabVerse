@@ -886,6 +886,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 221586017}
   m_CullTransparentMesh: 1
+--- !u!1 &284071777
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 284071779}
+  - component: {fileID: 284071778}
+  m_Layer: 0
+  m_Name: SceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &284071778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284071777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c8cb64c9532184a8017663c7e07c2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &284071779
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284071777}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.012062561, y: 1.2666696, z: 0.6027643}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &292552560
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,7 +1201,6 @@ GameObject:
   - component: {fileID: 433882949}
   - component: {fileID: 433882948}
   - component: {fileID: 433882947}
-  - component: {fileID: 433882952}
   m_Layer: 0
   m_Name: Settings button
   m_TagString: Untagged
@@ -1288,16 +1331,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 433882952}
-        m_TargetAssemblyTypeName: MenuNavigation, Assembly-CSharp
-        m_MethodName: goToSettings
-        m_Mode: 1
+      - m_Target: {fileID: 284071778}
+        m_TargetAssemblyTypeName: SceneLogic, LabVerseScripts
+        m_MethodName: ChangeScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: SettingsMenu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &433882950
@@ -1338,18 +1381,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 433882945}
   m_CullTransparentMesh: 1
---- !u!114 &433882952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 433882945}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f973ce99b7e194724929889a781d2c5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &695512774
 GameObject:
   m_ObjectHideFlags: 0
@@ -1428,7 +1459,6 @@ GameObject:
   - component: {fileID: 912831034}
   - component: {fileID: 912831033}
   - component: {fileID: 912831032}
-  - component: {fileID: 912831037}
   m_Layer: 0
   m_Name: Help button
   m_TagString: Untagged
@@ -1559,8 +1589,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 912831037}
-        m_TargetAssemblyTypeName: MenuNavigation, Assembly-CSharp
+      - m_Target: {fileID: 284071778}
+        m_TargetAssemblyTypeName: SceneLogic, LabVerseScripts
         m_MethodName: openDocumentation
         m_Mode: 1
         m_Arguments:
@@ -1609,18 +1639,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 912831030}
   m_CullTransparentMesh: 1
---- !u!114 &912831037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 912831030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f973ce99b7e194724929889a781d2c5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1083562960 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 996bc95e1b6dfc847aead2de66dc4a91,
@@ -1887,7 +1905,6 @@ GameObject:
   - component: {fileID: 1466926784}
   - component: {fileID: 1466926788}
   - component: {fileID: 1466926787}
-  - component: {fileID: 1466926789}
   m_Layer: 0
   m_Name: Experiments button
   m_TagString: Untagged
@@ -1961,16 +1978,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1466926789}
-        m_TargetAssemblyTypeName: MenuNavigation, Assembly-CSharp
-        m_MethodName: goToSelectionMenu
-        m_Mode: 1
+      - m_Target: {fileID: 284071778}
+        m_TargetAssemblyTypeName: SceneLogic, LabVerseScripts
+        m_MethodName: ChangeScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: SelectionMenu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1466926785
@@ -2069,29 +2086,17 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+        m_TargetAssemblyTypeName: SceneLogic, LabVerseScripts
+        m_MethodName: ChangeScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: SelectionMenu
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1466926789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1466926782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f973ce99b7e194724929889a781d2c5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1642927668
 GameObject:
   m_ObjectHideFlags: 0
@@ -2330,7 +2335,6 @@ GameObject:
   - component: {fileID: 1863980317}
   - component: {fileID: 1863980315}
   - component: {fileID: 1863980314}
-  - component: {fileID: 1863980318}
   - component: {fileID: 1863980319}
   m_Layer: 0
   m_Name: Quit button
@@ -2418,8 +2422,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1863980318}
-        m_TargetAssemblyTypeName: MenuNavigation, Assembly-CSharp
+      - m_Target: {fileID: 284071778}
+        m_TargetAssemblyTypeName: SceneLogic, LabVerseScripts
         m_MethodName: quitApp
         m_Mode: 1
         m_Arguments:
@@ -2438,18 +2442,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1863980312}
   m_CullTransparentMesh: 1
---- !u!114 &1863980318
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1863980312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f973ce99b7e194724929889a781d2c5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1863980319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3068,3 +3060,4 @@ SceneRoots:
   - {fileID: 806493296}
   - {fileID: 1642927669}
   - {fileID: 695512775}
+  - {fileID: 284071779}

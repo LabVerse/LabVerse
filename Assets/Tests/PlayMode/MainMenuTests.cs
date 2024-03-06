@@ -17,6 +17,7 @@ public class MainMenuTests
         EditorSceneManager.LoadSceneInPlayMode("Assets/Scenes/MainMenu.unity", new LoadSceneParameters(LoadSceneMode.Single));
     }
 
+    // Clicking experiments button goes to Selection Menu
     [UnityTest]
     public IEnumerator navigateToExperimentSelection()
     {
@@ -35,6 +36,7 @@ public class MainMenuTests
         yield return null;
     }
 
+    // Clicking settings button goes to Settings
     [UnityTest]
     public IEnumerator navigateToSettings()
     {
