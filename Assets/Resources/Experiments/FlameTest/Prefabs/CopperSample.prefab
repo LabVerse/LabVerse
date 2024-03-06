@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6987036990740698787}
   - component: {fileID: 5837111406152504123}
   - component: {fileID: 674600494396126837}
+  - component: {fileID: -1679453014336941626}
   m_Layer: 0
   m_Name: CopperSample
   m_TagString: Untagged
@@ -33,7 +34,7 @@ Transform:
   m_LocalScale: {x: 0.005, y: 0.0025, z: 0.005}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1306467851036397264}
+  - {fileID: 8567216216613759423}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6367162558492427161
@@ -119,9 +120,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfe64f6b0df00894d8c442c29df55ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  metal: 0
+  stageIndex: 1
   countdown: 8
---- !u!1001 &1310989114032186084
+--- !u!54 &-1679453014336941626
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5759553019297840615}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!1001 &8571702436971824523
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -133,29 +161,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: CopperFlame
       objectReference: {fileID: 0}
-    - target: {fileID: 1706519164850726, guid: e01058ddddc76074eba2481c1c949e4e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1878652760548056, guid: e01058ddddc76074eba2481c1c949e4e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911683160194432, guid: e01058ddddc76074eba2481c1c949e4e, type: 3}
+    - target: {fileID: 1253142483436318, guid: e01058ddddc76074eba2481c1c949e4e, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4521404770085940, guid: e01058ddddc76074eba2481c1c949e4e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4521404770085940, guid: e01058ddddc76074eba2481c1c949e4e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4521404770085940, guid: e01058ddddc76074eba2481c1c949e4e, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4521404770085940, guid: e01058ddddc76074eba2481c1c949e4e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -199,8 +219,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198168859160489886, guid: e01058ddddc76074eba2481c1c949e4e,
         type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198168859160489886, guid: e01058ddddc76074eba2481c1c949e4e,
+        type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 0.4
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198205007009897148, guid: e01058ddddc76074eba2481c1c949e4e,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 198205007009897148, guid: e01058ddddc76074eba2481c1c949e4e,
         type: 3}
@@ -209,27 +239,42 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198260517930635872, guid: e01058ddddc76074eba2481c1c949e4e,
         type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198260517930635872, guid: e01058ddddc76074eba2481c1c949e4e,
+        type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 0.4
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 198321560017527566, guid: e01058ddddc76074eba2481c1c949e4e,
         type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 2
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198321560017527566, guid: e01058ddddc76074eba2481c1c949e4e,
+        type: 3}
+      propertyPath: scalingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198778633208645958, guid: e01058ddddc76074eba2481c1c949e4e,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 198778633208645958, guid: e01058ddddc76074eba2481c1c949e4e,
         type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 0.4
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e01058ddddc76074eba2481c1c949e4e, type: 3}
---- !u!4 &1306467851036397264 stripped
+--- !u!4 &8567216216613759423 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4521404770085940, guid: e01058ddddc76074eba2481c1c949e4e,
     type: 3}
-  m_PrefabInstance: {fileID: 1310989114032186084}
+  m_PrefabInstance: {fileID: 8571702436971824523}
   m_PrefabAsset: {fileID: 0}
