@@ -20,8 +20,8 @@ public class BunsenBurnerFlamesTests
     {
         GameObject bunsen = GameObject.Find("BunsenBurner");
         var bunsenScript = bunsen.GetComponent<BunsenBurnerFlames>();
-        GameObject coolFlame = bunsen.transform.GetChild(0).gameObject;
-        GameObject hotFlame = bunsen.transform.GetChild(1).gameObject;
+        GameObject coolFlame = bunsen.transform.Find("BunsenFlame").GetChild(0).gameObject;
+        GameObject hotFlame = bunsen.transform.Find("BunsenFlame").GetChild(1).gameObject;
 
         //check that the bunsen burner can switch between states as intended
         //1. turn flame off
@@ -57,8 +57,8 @@ public class BunsenBurnerFlamesTests
         BunsenBurnerFlames bunsenScript = bunsen.GetComponent<BunsenBurnerFlames>();
         Assert.IsTrue(bunsenScript != null);
 
-        GameObject coolFlame = bunsen.transform.GetChild(0).gameObject;
-        GameObject hotFlame = bunsen.transform.GetChild(1).gameObject;
+        GameObject coolFlame = bunsen.transform.Find("BunsenFlame").GetChild(0).gameObject;
+        GameObject hotFlame = bunsen.transform.Find("BunsenFlame").GetChild(1).gameObject;
 
         //check that the bunsen burner can toggle states
         //turn flame off

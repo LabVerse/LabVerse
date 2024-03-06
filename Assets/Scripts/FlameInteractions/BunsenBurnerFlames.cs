@@ -84,6 +84,5 @@ public class BunsenBurnerFlames : MonoBehaviour
             case FLAME_STATE.COOL: SetFlame(FLAME_STATE.HOT); break;
             case FLAME_STATE.HOT: SetFlame(FLAME_STATE.OFF); break;
         }
-        //else do nothing
     }
 }

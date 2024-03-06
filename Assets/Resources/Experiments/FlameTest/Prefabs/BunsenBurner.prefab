@@ -432,8 +432,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BunsenBurner, LabVerseScripts
+      - m_Target: {fileID: 216446718309037045}
+        m_TargetAssemblyTypeName: BunsenBurnerFlames, LabVerseScripts
         m_MethodName: ToggleFlame
         m_Mode: 1
         m_Arguments:
@@ -716,6 +716,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3715403102131749051}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e95370b6447e30546bc38348190606e0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 216446718309037045}
   m_SourcePrefab: {fileID: 100100000, guid: e95370b6447e30546bc38348190606e0, type: 3}
 --- !u!1 &4786496937013897234 stripped
 GameObject:
@@ -771,6 +775,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &216446718309037045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4786496937013897234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d2b2853eb4389b4a90e07fc09808384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_flameState: 0
 --- !u!4 &5271143638611866280 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e95370b6447e30546bc38348190606e0,

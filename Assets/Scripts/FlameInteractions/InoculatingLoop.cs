@@ -1,4 +1,3 @@
-using Codice.CM.WorkspaceServer.Tree;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.SceneManagement;
@@ -36,7 +35,6 @@ public class InoculatingLoop : MonoBehaviour
         if (m_isColliding) { return; }
         m_isColliding=true;
 
-        Debug.Log("Collided with" + other.gameObject.name);
         if (other.gameObject.CompareTag("Metal"))
         {
             int i = 0;
