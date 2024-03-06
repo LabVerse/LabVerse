@@ -45,6 +45,7 @@ public class InoculatingLoop : MonoBehaviour
             foreach (Transform child in transform)
             {
                 // Determine which metal was on the inoculation loop
+                // Use 'ObjectName(Clone)' as this is how children will be named
                 // NB: Consider improvements for this code in future
                 if (child.gameObject.name == "CopperSample(Clone)") { i = 1; } 
                 else if (child.gameObject.name == "LithiumSample(Clone)") { i = 2; }

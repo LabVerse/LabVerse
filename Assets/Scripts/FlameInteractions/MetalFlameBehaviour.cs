@@ -53,7 +53,7 @@ public class MetalFlameBehaviour : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Check if collision was with a bunsen burner's flame
-        if (other.transform.gameObject.name == "BunsenBurner")
+        if (other.transform.gameObject.name == "BunsenFlame")
         {
             // Check if the bunsen burner's flame is lit
             BunsenBurnerFlames bunsenScript = other.transform.GetComponent<BunsenBurnerFlames>();
@@ -68,7 +68,7 @@ public class MetalFlameBehaviour : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         // Check if collision was with a bunsen burner's flame
-        if (other.transform.gameObject.name == "BunsenBurner")
+        if (other.transform.gameObject.name == "BunsenFlame")
         {
             // Metal has left the flame, so stop burning
             m_burning = false;

@@ -16,19 +16,13 @@ public class BunsenBurnerFlames : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_coolFlame = transform.GetChild(0).gameObject;
-        m_hotFlame = transform.GetChild(1).gameObject;
+        Transform flameParent = transform.Find("BunsenFlame");
+        m_coolFlame = flameParent.GetChild(0).gameObject;
+        m_hotFlame = flameParent.GetChild(1).gameObject;
 
         m_flameState = FLAME_STATE.COOL;
         SetFlame(m_flameState);
     }
-
-    // Update is called once per frame
-    //void Update()
-    //{
-        //set the flame to the correct state (would be better if this only occurs on change to state)
-        //SetFlame(flameState);
-    //}
 
     /// <summary>
     /// Change the state of the bunsen burner
