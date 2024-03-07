@@ -44,7 +44,8 @@ public class InoculatingLoop : MonoBehaviour
         Vector3 colliderPos = new Vector3(0.00465f, 0, 0);
         newChild.transform.localPosition = colliderPos;
 
-        // Start the correct stage of the experiment
-        StageManager.instance.EnterStage(metalIndex);
+        // Start the correct stage of the experiment.
+        // Add one because first stage is turning the bunsen burner on.
+        StageManager.instance.EnterStage(metalIndex + 1);
     }
 }

@@ -5,7 +5,9 @@ using UnityEngine;
 /// </summary>
 public class MetalFlameBehaviour : MonoBehaviour
 {
-    [SerializeField] private int stageIndex;
+    [SerializeField] 
+    private int stageIndex;
+
     private GameObject m_flame;
     private bool m_burning;
 
@@ -53,8 +55,6 @@ public class MetalFlameBehaviour : MonoBehaviour
         if (other.transform.gameObject.name == "BunsenFlame")
         {
             // Check if the bunsen burner's flame is lit
-
-
             if (other.transform.parent.TryGetComponent<BunsenBurnerFlames>(out var bunsenBurner) && bunsenBurner.IsLit())
             {
                 m_burning = true;

@@ -87,6 +87,7 @@ public class ExperimentManager : MonoBehaviour
     private void EndExperiment(bool completed)
     {
         endExperiment?.Invoke();
+        Application.Quit();
     }
 
     public Item[] GetExperimentItems()

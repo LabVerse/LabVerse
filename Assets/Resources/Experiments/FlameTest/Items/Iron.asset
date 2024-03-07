@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Iron
   thumbnail: {fileID: 0}
-  model: {fileID: 919132149155446097, guid: 420d1dbeb503cf04e8f7492754a6cf0a, type: 3}
+  model: {fileID: 1050846803070748590, guid: f7831e4d469f2424c902620d3415b028, type: 3}
