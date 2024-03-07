@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -8,10 +6,13 @@ using UnityEngine;
 /// </summary>
 public class BunsenBurnerFlames : MonoBehaviour
 {
+    public enum FLAME_STATE{OFF, COOL, HOT};
+
+    [SerializeField] 
+    private FLAME_STATE m_flameState;
+
     private GameObject m_coolFlame;
     private GameObject m_hotFlame;
-    public enum FLAME_STATE{OFF, COOL, HOT};
-    [SerializeField] private FLAME_STATE m_flameState;
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +52,7 @@ public class BunsenBurnerFlames : MonoBehaviour
             default:
                 return false;
         }
+
         m_flameState = flame;
         return true;
     }
@@ -60,7 +62,7 @@ public class BunsenBurnerFlames : MonoBehaviour
     /// </summary>
     public bool IsLit()
     {
-        return (m_flameState!=FLAME_STATE.OFF);
+        return m_flameState != FLAME_STATE.OFF;
     }
 
     /// <summary>
@@ -80,9 +82,15 @@ public class BunsenBurnerFlames : MonoBehaviour
         // Toggle to the next state, ie off >> cool >> hot >> off
         switch (m_flameState)
         {
-            case FLAME_STATE.OFF: SetFlame(FLAME_STATE.COOL); break;
-            case FLAME_STATE.COOL: SetFlame(FLAME_STATE.HOT); break;
-            case FLAME_STATE.HOT: SetFlame(FLAME_STATE.OFF); break;
+            case FLAME_STATE.OFF:
+                SetFlame(FLAME_STATE.COOL);
+                break;
+            case FLAME_STATE.COOL: 
+                SetFlame(FLAME_STATE.HOT); 
+                break;
+            case FLAME_STATE.HOT: 
+                SetFlame(FLAME_STATE.OFF); 
+                break;
         }
     }
 }
