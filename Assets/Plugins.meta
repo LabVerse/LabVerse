@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Plugins.meta
 guid: 217a5c8a01f0a9b4dae4857f44d5ce72
+========
+guid: d661a811d03225843bdb8938e857906e
+>>>>>>>> 3443f073c5902bbdfc48f3875ff3956dfc7840b3:Assets/Resources/Experiments/Growing A Bacterial Culture.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
