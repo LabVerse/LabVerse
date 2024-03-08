@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: AgarBottle
   thumbnail: {fileID: 0}
-  model: {fileID: 6664383043979624394, guid: 5d23871117041b244a3777ba7c9686cd, type: 3}
+  model: {fileID: 1663353895636263428, guid: 5d23871117041b244a3777ba7c9686cd, type: 3}

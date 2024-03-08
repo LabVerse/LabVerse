@@ -167,7 +167,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3351540038937257833}
-  - component: {fileID: 613204243692309012}
   m_Layer: 0
   m_Name: Petri Dish
   m_TagString: Spawnable
@@ -183,28 +182,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2722671461753617875}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3958171493879799881}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!114 &613204243692309012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2722671461753617875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7a2caa80fd52e44abbee5ced550f626, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotation: {x: 0, y: 0, z: 0}
-  scale: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4442115675988179699
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,6 +206,7 @@ GameObject:
   - component: {fileID: 1670322613728256508}
   - component: {fileID: 6476967718867023055}
   - component: {fileID: 2030017005242351300}
+  - component: {fileID: 517793970735363658}
   m_Layer: 0
   m_Name: petriDish
   m_TagString: Untagged
@@ -236,16 +222,16 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4442115675988179699}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0.001889912}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7706082246856458425}
   - {fileID: 1432545362484487184}
   - {fileID: 8708761130006345414}
   m_Father: {fileID: 3351540038937257833}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &90524535447056364
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -532,6 +518,20 @@ MonoBehaviour:
   lid: {fileID: 2085405596202221668}
   agarJelly: {fileID: 5222288735890618042}
   bacteria: {fileID: 6547603189453670126}
+--- !u!114 &517793970735363658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4442115675988179699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7a2caa80fd52e44abbee5ced550f626, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotation: {x: 0, y: 0, z: 0}
+  scale: {x: 0, y: 0, z: 0}
 --- !u!1 &5100767399801551598
 GameObject:
   m_ObjectHideFlags: 0
@@ -1226,7 +1226,7 @@ MonoBehaviour:
   bacteriumCount: 100
   bacteriumPrefab: {fileID: 8242924283991214921, guid: 80755d081990b824d940b10646d7d63c,
     type: 3}
-  spawnArea: {x: 0.1, y: 0.1, z: 0.1}
+  spawnArea: {x: 0.01, y: 0.01, z: 0.01}
   growthRate: 0.001
   timePerGeneration: 1
   maxBacteriaSize: 1

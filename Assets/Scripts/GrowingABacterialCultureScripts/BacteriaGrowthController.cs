@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
 /// Bacteria Growth Controller for spawning bacteria into petri dish.
@@ -11,6 +12,7 @@ public class BacteriaGrowthController : MonoBehaviour
     [SerializeField] float timePerGeneration = 1.0f;
     [SerializeField] float maxBacteriaSize = 1.0f;
     [SerializeField] Vector3 parentScale;
+    List<GameObject> bacteria = new List<GameObject>();
 
     /// <summary>
     /// Spawn bacteria into petri dish.
@@ -26,12 +28,15 @@ public class BacteriaGrowthController : MonoBehaviour
             GameObject bacterium = Instantiate(bacteriumPrefab);
             bacterium.transform.SetParent(transform);
             bacterium.transform.localPosition = new Vector3(Random.Range(-spawnArea.x, spawnArea.x), 0, Random.Range(-spawnArea.z, spawnArea.z));
+            Vector3 bacteriumScale = bacterium.transform.localScale;
+            bacterium.transform.localScale = new Vector3(bacteriumScale.x / parentScale.x, bacteriumScale.y / parentScale.y, bacteriumScale.z / parentScale.z);
             BacteriaGrowth bacteriumGrowth = bacterium.GetComponent<BacteriaGrowth>();
             bacteriumGrowth.radius = GetComponent<SphereCollider>().radius * parentScale.x;
             bacteriumGrowth.growthRate = growthRate;
             bacteriumGrowth.timePerGeneration = timePerGeneration;
             bacteriumGrowth.maxBacteriaSize = maxBacteriaSize;
             bacteriumGrowth.parentScale = parentScale;
+            bacteria.Add(bacterium);
         }
     }
 
@@ -42,5 +47,10 @@ public class BacteriaGrowthController : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, spawnArea.x);
+    }
+
+    public List<GameObject> GetBacteria()
+    {
+        return bacteria;
     }
 }

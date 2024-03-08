@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 public class SterilizeLoop : MonoBehaviour
 {
-    [SerializeField] Material originalMaterial;
+    Material originalMaterial;
     Material material;
     // Start is called before the first frame update
     void Start()
@@ -15,7 +15,6 @@ public class SterilizeLoop : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.name);
         switch (other.gameObject.name)
         {
             case "BunsenFlame":
@@ -25,7 +24,10 @@ public class SterilizeLoop : MonoBehaviour
                 BacteriaPresence bacteriaPresence = GetComponent<BacteriaPresence>();
                 bacteriaPresence.bacteriaPresent = false;
                 bacteriaPresence.bacteria.SetActive(false);
-                material.DOColor(Color.red, 10);
+                if (material.color != Color.red)
+                {
+                    material.DOColor(Color.red, 10);
+                }
                 break;
                 }
             case "bacterialSolution":
@@ -46,7 +48,10 @@ public class SterilizeLoop : MonoBehaviour
         switch (other.gameObject.name)
         {
             case "BunsenFlame":
-                material.DOColor(originalMaterial.color, 4);
+                if (material.color != originalMaterial.color)
+                {
+                    material.DOColor(originalMaterial.color, 4);
+                }
                 break;
         }
     }

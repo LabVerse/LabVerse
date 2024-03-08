@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Petri Dish
   thumbnail: {fileID: 0}
-  model: {fileID: 2722671461753617875, guid: 7198ecbe9c380ef49b2b111fb2c47c46, type: 3}
+  model: {fileID: 2722671461753617875, guid: 24fc1421ac69af246b56358f75a1b64c, type: 3}

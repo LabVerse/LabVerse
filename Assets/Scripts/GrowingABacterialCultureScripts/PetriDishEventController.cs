@@ -5,8 +5,8 @@ using UnityEngine;
 public class PetriDishEventController : MonoBehaviour
 {
     public GameObject lid;
-    [SerializeField] GameObject agarJelly;
-    [SerializeField] GameObject bacteria;
+    public GameObject agarJelly;
+    public GameObject bacteria;
     /// <summary>
     /// Collider trigger event for checking stage changes and enabling agar jelly and bacteria gameobject component.
     /// </summary>
