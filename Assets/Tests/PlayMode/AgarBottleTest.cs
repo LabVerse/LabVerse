@@ -51,7 +51,7 @@ public class AgarBottleTest
 
         //Check if agar flow when:
         //Cap is active
-       // NoFlow(cap, agarBottle, agarFlow);
+        NoFlow(cap, agarBottle, agarFlow);
 
         //Cap is inactive
         Flow(cap, agarBottle, agarFlow);
@@ -112,11 +112,14 @@ public class AgarBottleTest
         //No flow should occur
         SetActivity(agarBottle, 360, agarFlow, false);
     }
-    private void SetActivity(GameObject agarBottle, float rotation, GameObject agarFlow, bool agarFlowActive)
+
+    private IEnumerator SetActivity(GameObject agarBottle, float rotation, GameObject agarFlow, bool agarFlowActive)
     {
         agarBottle.transform.SetLocalPositionAndRotation(agarBottle.transform.position, Quaternion.Euler(rotation, 0, 0));
 
-        //Assert.IsTrue(agarFlow.activeSelf == agarFlowActive); Can't actually test this due to timing issues
+        yield return null;
+
+        Assert.IsTrue(agarFlow.activeSelf == agarFlowActive);
 
         agarBottle.transform.SetLocalPositionAndRotation(agarBottle.transform.position, Quaternion.Euler(0, 0, 0));
     }
