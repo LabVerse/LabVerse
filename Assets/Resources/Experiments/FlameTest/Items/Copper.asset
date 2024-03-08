@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Copper
   thumbnail: {fileID: 0}
-  model: {fileID: 919132149155446097, guid: c9eeba78707ecad4f85f77b5d38f0de0, type: 3}
+  model: {fileID: 5589955099990680475, guid: f1bc96a0149656e409357a43bb27bc45, type: 3}

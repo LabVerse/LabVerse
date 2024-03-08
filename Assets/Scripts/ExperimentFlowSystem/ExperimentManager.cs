@@ -87,6 +87,8 @@ public class ExperimentManager : MonoBehaviour
     private void EndExperiment(bool completed)
     {
         endExperiment?.Invoke();
+
+        // TODO: Change to experiment completion scene.
     }
 
     public Item[] GetExperimentItems()

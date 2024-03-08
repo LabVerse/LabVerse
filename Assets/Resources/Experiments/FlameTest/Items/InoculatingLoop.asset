@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abb159345b4ce0d47accebf89184fff7, type: 3}
-  m_Name: BunsenBurner
+  m_Name: InoculatingLoop
   m_EditorClassIdentifier: 
-  itemName: Bunsen Burner
+  itemName: Inoculating Loop
   thumbnail: {fileID: 0}
-  model: {fileID: 4786496937013897234, guid: 941d5c1263fad854daae0137ac1933a1, type: 3}
+  model: {fileID: 4829893045404347815, guid: 10539f59860e16c46a8ff769a9ad4fcd, type: 3}

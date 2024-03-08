@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.XR.CoreUtils;
 using UnityEngine;
 
 /// <summary>
@@ -8,7 +5,9 @@ using UnityEngine;
 /// </summary>
 public class MetalFlameBehaviour : MonoBehaviour
 {
-    [SerializeField] private int stageIndex;
+    [SerializeField] 
+    private int stageIndex;
+
     private GameObject m_flame;
     private bool m_burning;
 
@@ -19,10 +18,10 @@ public class MetalFlameBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //get references to key child components
+        // Get references to key child components.
         m_flame = transform.GetChild(0).gameObject;
 
-        //set default values for attributes
+        // Set default values for attributes.
         m_burning = false;
         m_flame.SetActive(false);
     }
@@ -30,7 +29,7 @@ public class MetalFlameBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (m_burning) { BurnTick(); }    
+        if (m_burning) BurnTick();
     }
 
     /// <summary>
@@ -56,8 +55,7 @@ public class MetalFlameBehaviour : MonoBehaviour
         if (other.transform.gameObject.name == "BunsenFlame")
         {
             // Check if the bunsen burner's flame is lit
-            BunsenBurnerFlames bunsenScript = other.transform.GetComponent<BunsenBurnerFlames>();
-            if (bunsenScript.IsLit())
+            if (other.transform.parent.TryGetComponent<BunsenBurnerFlames>(out var bunsenBurner) && bunsenBurner.IsLit())
             {
                 m_burning = true;
                 m_flame.SetActive(true);
