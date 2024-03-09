@@ -41,7 +41,7 @@ public class ExperimentManager : MonoBehaviour
         {
             // PlayerPrefs stores Player preferences between game sessions.
             // Experiment name is stored in PlayerPrefs when the experiment is selected.
-            if (experiment.name == PlayerPrefs.GetString("ExperimentName"))
+            if (experiment.experimentName == PlayerPrefs.GetString("ExperimentName"))
             {
                 selectedExperiment = experiment;
                 break;

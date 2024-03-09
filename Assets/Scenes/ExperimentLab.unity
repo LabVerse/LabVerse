@@ -1495,8 +1495,8 @@ MonoBehaviour:
   m_SpawnOptionIndex: -1
   m_OnlySpawnInView: 1
   m_ViewportPeriphery: 0.15
-  m_ApplyRandomAngleAtSpawn: 1
-  m_SpawnAngleRange: 45
+  m_ApplyRandomAngleAtSpawn: 0
+  m_SpawnAngleRange: 0
   m_SpawnAsChildren: 0
 --- !u!114 &1360448618
 MonoBehaviour:
@@ -2034,7 +2034,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_availableExperiments:
   - {fileID: 11400000, guid: 39bb4ba3d26e04b48bb9eb475d673578, type: 2}
-  selectedExperiment: {fileID: 11400000, guid: 39bb4ba3d26e04b48bb9eb475d673578, type: 2}
+  selectedExperiment: {fileID: 0}
 --- !u!4 &1862799852
 Transform:
   m_ObjectHideFlags: 0
