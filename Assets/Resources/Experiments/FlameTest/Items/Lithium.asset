@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Lithium
   thumbnail: {fileID: 0}
-  model: {fileID: 7535887608772325314, guid: 38e83a3da2e7eee40b2e7587621c2bcf, type: 3}
+  model: {fileID: 4571693734376473000, guid: 38e83a3da2e7eee40b2e7587621c2bcf, type: 3}

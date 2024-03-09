@@ -23,7 +23,7 @@ public class InoculatingLoop : MonoBehaviour
 
     private void Update()
     {
-        if (m_activeMetal == null) return;
+        if (!m_activeMetal) return;
         if(m_activeMetal.GetComponent<MetalFlameBehaviour>().IsBurning())
         {
             BurnTick();
@@ -39,7 +39,7 @@ public class InoculatingLoop : MonoBehaviour
         if (other.transform.gameObject.name == "BunsenFlame")
         {
             // If no metal sample on the inoculating loop, return
-            if (m_activeMetal == null) return;
+            if (!m_activeMetal) return;
 
             // Check if the bunsen burner's flame is lit
             if (other.transform.parent.TryGetComponent<BunsenBurnerFlames>(out var bunsenBurner) && bunsenBurner.IsLit())
@@ -52,13 +52,6 @@ public class InoculatingLoop : MonoBehaviour
 
         // Otherwise, check if collision is with metal source
         if (!other.gameObject.CompareTag("Metal")) return;
-
-
-        // Fail the previous metal's stage
-        if (m_activeMetal != null)
-        {
-            StageManager.instance.FinishStage(m_activeMetal.GetComponent<MetalFlameBehaviour>().GetStageIndex(), false);
-        }
 
         // Determine which metal should be added to the loop
         int metalIndex;
@@ -117,7 +110,7 @@ public class InoculatingLoop : MonoBehaviour
         if (other.transform.gameObject.name == "BunsenFlame")
         {
             //get child metal sample, set inactive and m_isBurning to false
-            if (m_activeMetal == null) return;
+            if (!m_activeMetal) return;
             m_activeMetal.GetComponent<MetalFlameBehaviour>().SetBurning(false);
         }
     }
