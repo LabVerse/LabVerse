@@ -21,7 +21,9 @@ public class BunsenBurnerFlames : MonoBehaviour
         m_coolFlame = flameParent.GetChild(0).gameObject;
         m_hotFlame = flameParent.GetChild(1).gameObject;
 
-        m_flameState = FLAME_STATE.OFF;
+        //CHANGE THIS BACK TO FLAME_STATE.OFF AFTER TESTING!!!!!!
+        m_flameState = FLAME_STATE.COOL;
+
         SetFlame(m_flameState);
     }
 
