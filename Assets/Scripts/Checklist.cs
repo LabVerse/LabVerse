@@ -24,11 +24,13 @@ public class Checklist : MonoBehaviour
     private void InitializeChecklist()
     {
         isSequential = ExperimentManager.instance.selectedExperiment.areStagesSequential;
-        if (!isSequential)
+        for (int i = 0; i < ExperimentManager.instance.selectedExperiment.stages.Count; i++)
         {
-            foreach (Stage stage in ExperimentManager.instance.selectedExperiment.stages)
+            Stage stage = ExperimentManager.instance.selectedExperiment.stages[i];
+            AddChecklistItem(stage.title, stage.description);
+            if (isSequential && i > 0)
             {
-                AddChecklistItem(stage.title);
+                checklistContent.transform.GetChild(i).gameObject.SetActive(false);
             }
         }
     }
@@ -36,14 +38,21 @@ public class Checklist : MonoBehaviour
     private void UpdateStage(int stageIndex)
     {
         tickChecklistItem(checklistContent.transform.GetChild(stageIndex).gameObject);
+        if (checklistContent.transform.childCount > stageIndex + 1)
+        {
+            checklistContent.transform.GetChild(stageIndex + 1).gameObject.SetActive(true);
+        }
     }
 
-    private void AddChecklistItem(string title)
+    private void AddChecklistItem(string title, string description)
     {
         GameObject newItem = Instantiate(checklistItemPrefab, checklistContent.transform);
 
-        TMP_Text text = newItem.GetComponentInChildren<TMP_Text>();
-        text.text = title;
+        TMP_Text titleText = newItem.transform.Find("Title").GetComponent<TMP_Text>();
+        TMP_Text descriptionText = newItem.transform.Find("Description").GetComponent<TMP_Text>();
+        titleText.text = title;
+        descriptionText.text = description;
+        
 
     }
     private void tickChecklistItem(GameObject item)
