@@ -167,7 +167,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3351540038937257833}
-  - component: {fileID: 6367253001531105966}
   m_Layer: 0
   m_Name: Petri Dish
   m_TagString: Spawnable
@@ -191,27 +190,6 @@ Transform:
   - {fileID: 3958171493879799881}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6367253001531105966
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2722671461753617875}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.1, y: 0.005, z: 0.1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4442115675988179699
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,10 +202,11 @@ GameObject:
   - component: {fileID: 90524535447056364}
   - component: {fileID: 2784751637566561062}
   - component: {fileID: 7462115580296953130}
-  - component: {fileID: 590238411797721460}
+  - component: {fileID: 7862027275036257470}
+  - component: {fileID: 5280617007868581351}
   - component: {fileID: 6476967718867023055}
-  - component: {fileID: 2030017005242351300}
   - component: {fileID: 517793970735363658}
+  - component: {fileID: 3179098800620333227}
   m_Layer: 0
   m_Name: petriDish
   m_TagString: Untagged
@@ -244,7 +223,7 @@ Transform:
   m_GameObject: {fileID: 4442115675988179699}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.001889912}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -330,7 +309,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &590238411797721460
+--- !u!65 &7862027275036257470
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4442115675988179699}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.02, y: 0.02, z: 0.0011569677}
+  m_Center: {x: 0, y: 1.2825601e-19, z: 0.00044606125}
+--- !u!65 &5280617007868581351
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -349,8 +349,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.02044454, y: 0.02044455, z: 0.0018899123}
-  m_Center: {x: 0, y: -0.00019213655, z: 0.00073924696}
+  m_Size: {x: 0.015, y: 0.015, z: 0.002}
+  m_Center: {x: 0, y: 0, z: 0.002}
 --- !u!114 &6476967718867023055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -503,21 +503,6 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!114 &2030017005242351300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4442115675988179699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e53ac7f823ec69146b12b5c7e631526d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lid: {fileID: 2085405596202221668}
-  agarJelly: {fileID: 5222288735890618042}
-  bacteria: {fileID: 6547603189453670126}
 --- !u!114 &517793970735363658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -532,6 +517,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: {x: 0, y: 0, z: 0}
   scale: {x: 0, y: 0, z: 0}
+--- !u!114 &3179098800620333227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4442115675988179699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e53ac7f823ec69146b12b5c7e631526d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lid: {fileID: 2085405596202221668}
+  agarJelly: {fileID: 5222288735890618042}
+  bacteria: {fileID: 6547603189453670126}
 --- !u!1 &5100767399801551598
 GameObject:
   m_ObjectHideFlags: 0
@@ -1183,13 +1183,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6547603189453670126}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7132505, y: -0, z: -0, w: 0.70090926}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0010000018}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0, z: 0.001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3958171493879799881}
-  m_LocalEulerAnglesHint: {x: 1, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &7474761884934518011
 SphereCollider:
   m_ObjectHideFlags: 0

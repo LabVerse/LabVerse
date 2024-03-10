@@ -31,6 +31,8 @@ public class PetriDishEventController : MonoBehaviour
                         StageManager.instance.FinishStage(2, true);
                         StageManager.instance.EnterStage(3);
                         bacteria.SetActive(true);
+                        collider.gameObject.GetComponent<BacteriaPresence>().bacteria.SetActive(false);
+                        collider.gameObject.GetComponent<BacteriaPresence>().bacteriaPresent = false;
                     }
                     //3 to 4 in bacteria growth script
                 }

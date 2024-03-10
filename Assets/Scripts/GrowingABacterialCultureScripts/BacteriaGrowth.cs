@@ -60,7 +60,7 @@ public class BacteriaGrowth : MonoBehaviour
         if(timeSinceLastGeneration >= timePerGeneration)
         {
             timeSinceLastGeneration = 0.0;
-            transform.localScale += new Vector3(growthRate / parentScale.x, 0, growthRate / parentScale.z);
+            transform.localScale += new Vector3(growthRate / parentScale.x, (growthRate * 0.01f) / parentScale.y, growthRate / parentScale.z);
         }
         timeSinceLastGeneration += Time.deltaTime;
 
@@ -71,6 +71,7 @@ public class BacteriaGrowth : MonoBehaviour
         {
             this.enabled = false;
         }
+
     }
 
     /// <summary>

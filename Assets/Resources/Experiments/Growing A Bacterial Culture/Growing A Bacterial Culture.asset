@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 783a95b0eca027649a473cf132330e7e, type: 3}
   m_Name: Growing A Bacterial Culture
   m_EditorClassIdentifier: 
-  experimentName: Growing A Bacterial Culture
+  experimentName: Culturing Bacteria
   stages:
   - {fileID: 11400000, guid: f53c2e51d55037a4aa861d613368e3dc, type: 2}
   - {fileID: 11400000, guid: b412db83923fd9d40b9c8446b71eba08, type: 2}
@@ -26,5 +26,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f51e081f61762d543bdb2b61a9ce9144, type: 2}
   - {fileID: 11400000, guid: b4c8c8fc9e8e5c844a7a79d0cdf9474d, type: 2}
   - {fileID: 11400000, guid: ebf9f33813030f44cab966c28dfaa25d, type: 2}
-  combinedItems: {fileID: 1833318990943844723, guid: 7af369cb098184a4696adcf846c57e25,
+  combinedItems: {fileID: 1833318990943844723, guid: f899c89dbf3b54a45a864b9337b9c583,
     type: 3}

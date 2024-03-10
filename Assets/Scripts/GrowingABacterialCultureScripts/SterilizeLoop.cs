@@ -6,11 +6,26 @@ public class SterilizeLoop : MonoBehaviour
 {
     Material originalMaterial;
     Material material;
+    float counter;
+    int heatEffectLength = 4;
+    bool objectLeftFlame = false;
     // Start is called before the first frame update
     void Start()
     {
         material = GetComponent<MeshRenderer>().material;
         originalMaterial = new Material(material);
+    }
+    void Update()
+    {
+        if (objectLeftFlame && material.color != originalMaterial.color)
+        {
+            counter += Time.deltaTime;
+            if (counter >= heatEffectLength)
+            {
+                material.SetColor("_Color",originalMaterial.color);
+                counter = 0;
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -24,10 +39,8 @@ public class SterilizeLoop : MonoBehaviour
                 BacteriaPresence bacteriaPresence = GetComponent<BacteriaPresence>();
                 bacteriaPresence.bacteriaPresent = false;
                 bacteriaPresence.bacteria.SetActive(false);
-                if (material.color == originalMaterial.color)
-                {
-                    material.DOColor(Color.red, 10);
-                }
+                material.DOColor(Color.red, heatEffectLength);
+                objectLeftFlame = false;
                 break;
                 }
             case "bacterialSolution":
@@ -45,18 +58,10 @@ public class SterilizeLoop : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
+        objectLeftFlame = true;
         if (material.color != originalMaterial.color)
         {
-            material.DOColor(originalMaterial.color, 4);
+            material.DOColor(originalMaterial.color, heatEffectLength);
         }
-        /*switch (other.gameObject.name)
-        {
-            case "BunsenFlame":
-                if (material.color != originalMaterial.color)
-                {
-                    material.DOColor(originalMaterial.color, 4);
-                }
-                break;
-        }*/
     }
 }

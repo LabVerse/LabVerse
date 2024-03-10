@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 6580876135152157764}
   - component: {fileID: 5001568115175432000}
   - component: {fileID: 309330828349423986}
+  - component: {fileID: 570079945432329433}
   m_Layer: 0
   m_Name: loop
   m_TagString: Untagged
@@ -220,7 +221,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.0005
+  m_Radius: 0.001
   m_Center: {x: 0.0048, y: 0, z: 0}
 --- !u!65 &8559917674584198112
 BoxCollider:
@@ -421,6 +422,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85a540c81fb24914f8eb2aa4b5dc1318, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &570079945432329433
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3187799849863564202}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0019268638, y: 0.00025388403, z: 0.00027080975}
+  m_Center: {x: 0.0038809474, y: 0, z: 0}
 --- !u!1 &7593488662502669152
 GameObject:
   m_ObjectHideFlags: 0
