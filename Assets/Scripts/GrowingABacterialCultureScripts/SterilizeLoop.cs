@@ -24,7 +24,7 @@ public class SterilizeLoop : MonoBehaviour
                 BacteriaPresence bacteriaPresence = GetComponent<BacteriaPresence>();
                 bacteriaPresence.bacteriaPresent = false;
                 bacteriaPresence.bacteria.SetActive(false);
-                if (material.color != Color.red)
+                if (material.color == originalMaterial.color)
                 {
                     material.DOColor(Color.red, 10);
                 }
@@ -45,7 +45,11 @@ public class SterilizeLoop : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        switch (other.gameObject.name)
+        if (material.color != originalMaterial.color)
+        {
+            material.DOColor(originalMaterial.color, 4);
+        }
+        /*switch (other.gameObject.name)
         {
             case "BunsenFlame":
                 if (material.color != originalMaterial.color)
@@ -53,6 +57,6 @@ public class SterilizeLoop : MonoBehaviour
                     material.DOColor(originalMaterial.color, 4);
                 }
                 break;
-        }
+        }*/
     }
 }

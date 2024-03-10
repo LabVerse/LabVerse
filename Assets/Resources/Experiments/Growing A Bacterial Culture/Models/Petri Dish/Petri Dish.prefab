@@ -167,6 +167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3351540038937257833}
+  - component: {fileID: 6367253001531105966}
   m_Layer: 0
   m_Name: Petri Dish
   m_TagString: Spawnable
@@ -190,6 +191,27 @@ Transform:
   - {fileID: 3958171493879799881}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6367253001531105966
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2722671461753617875}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.1, y: 0.005, z: 0.1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4442115675988179699
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,7 +225,6 @@ GameObject:
   - component: {fileID: 2784751637566561062}
   - component: {fileID: 7462115580296953130}
   - component: {fileID: 590238411797721460}
-  - component: {fileID: 1670322613728256508}
   - component: {fileID: 6476967718867023055}
   - component: {fileID: 2030017005242351300}
   - component: {fileID: 517793970735363658}
@@ -224,7 +245,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0.001889912}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7706082246856458425}
@@ -329,27 +350,6 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.02044454, y: 0.02044455, z: 0.0018899123}
-  m_Center: {x: 0, y: -0.00019213655, z: 0.00073924696}
---- !u!65 &1670322613728256508
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4442115675988179699}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.01, y: 0.01, z: 0.0018899123}
   m_Center: {x: 0, y: -0.00019213655, z: 0.00073924696}
 --- !u!114 &6476967718867023055
 MonoBehaviour:
@@ -737,7 +737,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5375924652140055050}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0125}
+  m_LocalPosition: {x: 0, y: 0, z: 0.00836}
   m_LocalScale: {x: 0.0005, y: 0.0004999999, z: 0.0004999999}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1092,7 +1092,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6458242211173740532}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -20}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1226,7 +1226,7 @@ MonoBehaviour:
   bacteriumCount: 100
   bacteriumPrefab: {fileID: 8242924283991214921, guid: 80755d081990b824d940b10646d7d63c,
     type: 3}
-  spawnArea: {x: 0.01, y: 0.01, z: 0.01}
+  spawnArea: {x: 0.03, y: 0.03, z: 0.03}
   growthRate: 0.001
   timePerGeneration: 1
   maxBacteriaSize: 1
@@ -1472,7 +1472,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8050532902591544460}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1482,7 +1482,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0}
   m_SizeDelta: {x: 25, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2478601563244330593
