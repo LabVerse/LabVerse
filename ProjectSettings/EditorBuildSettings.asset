@@ -21,8 +21,8 @@ EditorBuildSettings:
     path: Assets/Scenes/SelectionMenu.unity
     guid: fd5235d87bbe31f4caffad021f61349c
   - enabled: 1
-    path: Assets/Scenes/ExperimentChecklistMenu.unity
-    guid: 63e870c419086860b98cf4bcc2e67ce6
+    path: Assets/Scenes/SettingsMenu.unity
+    guid: 64436012d9fb56c47a52032d763cc578
   - enabled: 1
     path: Assets/Scenes/ExperimentLab.unity
     guid: 007e2362de60a944aaa7000a8d844e9e
