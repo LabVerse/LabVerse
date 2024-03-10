@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Experiment Manager Singleton that manages the flow of the experiment.
@@ -87,6 +88,8 @@ public class ExperimentManager : MonoBehaviour
     private void EndExperiment(bool completed)
     {
         endExperiment?.Invoke();
+        PlayerPrefs.SetString("ExperimentCompletedStatus", completed ? "completed" : "not completed");
+        SceneManager.LoadScene("ExperimentCompletionMenu");
 
         // TODO: Change to experiment completion scene.
     }
