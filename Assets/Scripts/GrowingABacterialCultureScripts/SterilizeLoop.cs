@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+/// <summary>
+/// Sterilize loop handler for material change and stage progression.
+/// </summary>
 public class SterilizeLoop : MonoBehaviour
 {
     Material originalMaterial;
@@ -9,6 +10,7 @@ public class SterilizeLoop : MonoBehaviour
     float counter;
     int heatEffectLength = 4;
     bool objectLeftFlame = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,24 +29,28 @@ public class SterilizeLoop : MonoBehaviour
             }
         }
     }
-
+    /// <summary>
+    /// Collider trigger event for checking stage changes, moving original material to red when in bunsen burner and toggling bacteria gameobject.
+    /// </summary>
     private void OnTriggerEnter(Collider other)
     {
         switch (other.gameObject.name)
         {
             case "BunsenFlame":
                 {
-                StageManager.instance.FinishStage(1, true);
-                StageManager.instance.EnterStage(2);
-                BacteriaPresence bacteriaPresence = GetComponent<BacteriaPresence>();
-                bacteriaPresence.bacteriaPresent = false;
-                bacteriaPresence.bacteria.SetActive(false);
-                material.DOColor(Color.red, heatEffectLength);
-                objectLeftFlame = false;
-                break;
+                    // When the loop is sterilized, the bacteria is killed and the stage is progressed.
+                    StageManager.instance.FinishStage(1, true);
+                    StageManager.instance.EnterStage(2);
+                    BacteriaPresence bacteriaPresence = GetComponent<BacteriaPresence>();
+                    bacteriaPresence.bacteriaPresent = false;
+                    bacteriaPresence.bacteria.SetActive(false);
+                    material.DOColor(Color.red, heatEffectLength);
+                    objectLeftFlame = false;
+                    break;
                 }
             case "bacterialSolution":
                 {
+                    // When the loop touches the bacterial solution, the bacteria is active on the loop.
                     BacteriaPresence bacteriaPresence = GetComponent<BacteriaPresence>();
                     if (bacteriaPresence != null && material.color == originalMaterial.color)
                     {
@@ -56,6 +62,9 @@ public class SterilizeLoop : MonoBehaviour
                 break;
         }
     }
+    /// <summary>
+    /// Collider trigger event moving back to original material.
+    /// </summary>
     private void OnTriggerExit(Collider other)
     {
         objectLeftFlame = true;
