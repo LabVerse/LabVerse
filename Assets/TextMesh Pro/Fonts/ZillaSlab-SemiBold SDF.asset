@@ -671,7 +671,7 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - GLOW_ON
+  - UNDERLAY_ON
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -720,11 +720,11 @@ Material:
     - _FaceUVSpeedX: 0
     - _FaceUVSpeedY: 0
     - _GlowInner: 1
-    - _GlowOffset: 0
-    - _GlowOuter: 0.75
-    - _GlowPower: 0.075
+    - _GlowOffset: 0.1
+    - _GlowOuter: 1
+    - _GlowPower: 0.1
     - _GradientScale: 10
-    - _LightAngle: 2.18
+    - _LightAngle: 3.09
     - _MaskSoftnessX: 0
     - _MaskSoftnessY: 0
     - _OutlineSoftness: 0
@@ -732,15 +732,15 @@ Material:
     - _OutlineUVSpeedY: 0
     - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
-    - _Reflectivity: 7.61
+    - _Reflectivity: 5
     - _ScaleRatioA: 0.9
-    - _ScaleRatioB: 0.82124996
+    - _ScaleRatioB: 0.74659085
     - _ScaleRatioC: 0.41062498
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 1
     - _Sharpness: 0
-    - _SpecularPower: 2.35
+    - _SpecularPower: 4
     - _Stencil: 0
     - _StencilComp: 8
     - _StencilOp: 0
@@ -749,7 +749,7 @@ Material:
     - _TextureHeight: 1024
     - _TextureWidth: 1024
     - _UnderlayDilate: 0
-    - _UnderlayOffsetX: 0
+    - _UnderlayOffsetX: -1
     - _UnderlayOffsetY: -1
     - _UnderlaySoftness: 1
     - _VertexOffsetX: 0
