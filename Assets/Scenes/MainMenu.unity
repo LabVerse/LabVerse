@@ -630,6 +630,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: openDocumentation
       objectReference: {fileID: 0}
+    - target: {fileID: 2132446652883724419, guid: 744cb8e3b47770dd98ee3bb0650403a2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3880336145014505848, guid: 744cb8e3b47770dd98ee3bb0650403a2,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -827,6 +832,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: SettingsMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 2132446652883724419, guid: 744cb8e3b47770dd98ee3bb0650403a2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4382312157777335120, guid: 744cb8e3b47770dd98ee3bb0650403a2,
         type: 3}
@@ -1561,6 +1571,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ChangeScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 2132446652883724419, guid: 744cb8e3b47770dd98ee3bb0650403a2,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2132446652883724419, guid: 744cb8e3b47770dd98ee3bb0650403a2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2132446652883724419, guid: 744cb8e3b47770dd98ee3bb0650403a2,
         type: 3}

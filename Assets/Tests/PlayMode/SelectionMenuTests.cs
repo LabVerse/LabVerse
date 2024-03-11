@@ -25,7 +25,7 @@ public class SelectionMenuTests
         string startScene = SceneManager.GetActiveScene().name;
         Assert.AreEqual("SelectionMenu", startScene);
 
-        btn = GameObject.Find("Back button").GetComponent<Button>();
+        btn = GameObject.Find("Back button").transform.GetChild(0).gameObject.GetComponent<Button>();
         Assert.IsNotNull(btn);
         btn.onClick.Invoke();
 
