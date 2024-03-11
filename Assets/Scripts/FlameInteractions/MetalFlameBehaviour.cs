@@ -9,10 +9,9 @@ public class MetalFlameBehaviour : MonoBehaviour
     private int stageIndex;
 
     private GameObject m_flame;
-    private bool m_burning;
 
     // Depending on element, set specific properties for flame colour, burn time, etc. here:
-    [SerializeField] private float countdown = 8f;
+    [SerializeField] private float m_countdown = 8f;
     // Other properties here:
     
     // Start is called before the first frame update
@@ -22,55 +21,32 @@ public class MetalFlameBehaviour : MonoBehaviour
         m_flame = transform.GetChild(0).gameObject;
 
         // Set default values for attributes.
-        m_burning = false;
         m_flame.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetBurning(bool burning)
     {
-        if (m_burning) BurnTick();
+        m_flame.SetActive(burning);
     }
 
-    /// <summary>
-    /// Register one frame of the metal burning, if countdown hits zero destroy the gameobject
-    /// </summary>
-    private void BurnTick()
+    public void SetCountdown(float value = 8f)
     {
-        // Decrement countdown to zero
-        countdown -= (1 * Time.deltaTime);
-        if (countdown <= 0)
-        {
-            // Once zero hit, metal has 'burned up' so delete it
-            Destroy(transform.gameObject);
-
-            // Call end of stage in stage manager
-            StageManager.instance.FinishStage(stageIndex, true);
-        }
+        m_countdown = value;
     }
 
-    private void OnTriggerEnter(Collider other)
+    public float GetCountdown()
     {
-        // Check if collision was with a bunsen burner's flame
-        if (other.transform.gameObject.name == "BunsenFlame")
-        {
-            // Check if the bunsen burner's flame is lit
-            if (other.transform.parent.TryGetComponent<BunsenBurnerFlames>(out var bunsenBurner) && bunsenBurner.IsLit())
-            {
-                m_burning = true;
-                m_flame.SetActive(true);
-            }
-        }
+        return m_countdown;
     }
 
-    private void OnTriggerExit(Collider other)
+    public int GetStageIndex()
     {
-        // Check if collision was with a bunsen burner's flame
-        if (other.transform.gameObject.name == "BunsenFlame")
-        {
-            // Metal has left the flame, so stop burning
-            m_burning = false;
-            m_flame.SetActive(false);
-        }
+        return stageIndex;
+    }
+
+    public bool IsBurning()
+    {
+        return m_flame.activeSelf;
     }
 }
+

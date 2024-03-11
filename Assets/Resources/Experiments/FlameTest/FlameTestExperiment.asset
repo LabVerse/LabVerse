@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 783a95b0eca027649a473cf132330e7e, type: 3}
   m_Name: FlameTestExperiment
   m_EditorClassIdentifier: 
-  experimentName: Flame Test Experiment
+  experimentName: Flame Test
   stages:
   - {fileID: 11400000, guid: 76aab7869900d6d4e9e2b08bce787884, type: 2}
   - {fileID: 11400000, guid: 5a1be44654394f440b1c6f3bbc88f608, type: 2}

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e823175fb300e694899322ce7eafcc84, type: 3}
+  m_Name: Bacterial Growth
+  m_EditorClassIdentifier: 
+  title: Bacterial Growth
+  description: "Place the petri dish upside down. This prevents condensation droplets
+    falling onto the agar jelly surface.\r\nLeave the plate at around 25\xB0C to
+    allow the culture to grow. In schools, bacteria are not grown at temperatures
+    above 25\xB0C as harmful pathogens are more likely to grow above this temperature.\r\r\nAfter
+    leaving the petri dish for some time, you will notice bacterial colonies appearing
+    on the surface of the agar jelly.\r\r\r"

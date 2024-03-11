@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Plugins.meta
+guid: c97d89f99e47a6e4995cbac928ac9ab1
+folderAsset: yes
+DefaultImporter:
+========
+guid: c7ed730bc6604db42bf60d70a9b638a0
+PrefabImporter:
+>>>>>>>> 7b0bb89 (Fix: Deleted testing container and adapted bacteria scripts):Assets/Resources/Experiments/Growing A Bacterial Culture/Models/agarBottle.prefab.meta
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
