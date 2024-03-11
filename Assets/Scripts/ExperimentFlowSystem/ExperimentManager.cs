@@ -16,6 +16,8 @@ public class ExperimentManager : MonoBehaviour
 
 
     public Experiment selectedExperiment;
+
+    [NonSerialized]
     public int currentStageIndex = 0;
 
     [SerializeField]
