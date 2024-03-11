@@ -20,7 +20,6 @@ public class PetriDishEventController : MonoBehaviour
                 StageManager.instance.FinishStage(0, true);
                 StageManager.instance.EnterStage(1);
                 agarJelly.SetActive(true);
-                
                 break;
             case "loop":
                 BacteriaPresence bacteriaPresence = collider.gameObject.GetComponent<BacteriaPresence>();

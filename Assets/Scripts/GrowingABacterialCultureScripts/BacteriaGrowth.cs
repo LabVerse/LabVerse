@@ -70,6 +70,7 @@ public class BacteriaGrowth : MonoBehaviour
         if (MaxSizeReached(localBounds) || ReachedContainerBounds(localBounds))
         {
             this.enabled = false;
+            StageManager.instance.FinishStage(4, true);
         }
 
     }

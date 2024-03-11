@@ -14,13 +14,13 @@ public class ExperimentManager : MonoBehaviour
     public static event Action<int> startExperimentStage; // int: stage index
     public static event Action<int> endExperimentStage; // int: stage index
 
+
+    public Experiment selectedExperiment;
+    public int currentStageIndex = 0;
+
     [SerializeField]
     private Experiment[] m_availableExperiments;
 
-    [SerializeField]
-    public Experiment selectedExperiment;
-
-    private int m_currentStageIndex = 0;
     private bool[] m_stagesCompletedStatus;
 
     private void Awake()
@@ -78,7 +78,7 @@ public class ExperimentManager : MonoBehaviour
     private void StartExperiment()
     {
         startExperiment?.Invoke();
-        startExperimentStage?.Invoke(m_currentStageIndex);
+        startExperimentStage?.Invoke(currentStageIndex);
     }
     
     /// <summary>
@@ -91,27 +91,20 @@ public class ExperimentManager : MonoBehaviour
         // TODO: Change to experiment completion scene.
     }
 
-    public Item[] GetExperimentItems()
-    {
-        return selectedExperiment.items;
-    }
-
     /// <summary>
     /// Start the stage.
     /// </summary>
     private void StartStage(int stageIndex)
     {
-        m_currentStageIndex = stageIndex;
+        currentStageIndex = stageIndex;
         startExperimentStage?.Invoke(stageIndex);
-
-        // Other logic to start the stage.
     }
 
     /// <summary>
     /// Safely end the current stage if necessary.
     private void EndCurrentStage()
     {
-        endExperimentStage?.Invoke(m_currentStageIndex);
+        endExperimentStage?.Invoke(currentStageIndex);
     }
     
     /// <summary>
@@ -124,14 +117,11 @@ public class ExperimentManager : MonoBehaviour
     private void ChangeStage(int stageIndex)
     {
         // Change stage
-        if (stageIndex < 0 || stageIndex >= selectedExperiment.stages.Count)
-        {
-            return;
-        }
+        if (stageIndex < 0 || stageIndex >= selectedExperiment.stages.Count) return;
 
-        bool sequentialAndNextStage = selectedExperiment.areStagesSequential && stageIndex == m_currentStageIndex + 1;
-        bool notSequentialAndDifferentStage = !selectedExperiment.areStagesSequential && stageIndex != m_currentStageIndex;
-        if ((m_stagesCompletedStatus[m_currentStageIndex] && sequentialAndNextStage) || notSequentialAndDifferentStage)
+        bool sequentialAndNextStage = selectedExperiment.areStagesSequential && stageIndex == currentStageIndex + 1;
+        bool notSequentialAndDifferentStage = !selectedExperiment.areStagesSequential && stageIndex != currentStageIndex;
+        if ((m_stagesCompletedStatus[currentStageIndex] && sequentialAndNextStage) || notSequentialAndDifferentStage)
         {
             StartStage(stageIndex);
         }

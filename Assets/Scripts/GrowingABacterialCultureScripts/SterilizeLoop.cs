@@ -50,6 +50,12 @@ public class SterilizeLoop : MonoBehaviour
                 }
             case "bacterialSolution":
                 {
+                    // Only stick to the loop if not in stage 0.
+                    if (ExperimentManager.instance.currentStageIndex == 0)
+                    {
+                        StageManager.instance.FinishStage(0, false);
+                    }   
+                    
                     // When the loop touches the bacterial solution, the bacteria is active on the loop.
                     BacteriaPresence bacteriaPresence = GetComponent<BacteriaPresence>();
                     if (bacteriaPresence != null && material.color == originalMaterial.color)
