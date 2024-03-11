@@ -1,7 +1,10 @@
 using UnityEngine;
 using TMPro;
 
-public class Checklist : MonoBehaviour
+/// <summary>
+/// Logic to add stage items to the checklist menu and update them when a stage is completed.
+/// </summary>
+public class ChecklistMenu : MonoBehaviour
 {
     [SerializeField]
     private GameObject checklistItemPrefab;
