@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abb159345b4ce0d47accebf89184fff7, type: 3}
+  m_Name: PetriDish
+  m_EditorClassIdentifier: 
+  itemName: Petri Dish
+  thumbnail: {fileID: 0}
+  model: {fileID: 2722671461753617875, guid: 24fc1421ac69af246b56358f75a1b64c, type: 3}
