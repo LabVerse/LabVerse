@@ -16,14 +16,14 @@ MonoBehaviour:
   stages:
   - {fileID: 11400000, guid: 76aab7869900d6d4e9e2b08bce787884, type: 2}
   - {fileID: 11400000, guid: 5a1be44654394f440b1c6f3bbc88f608, type: 2}
-  - {fileID: 11400000, guid: c756f3c58c4998440b42e3d78a1aed0f, type: 2}
   - {fileID: 11400000, guid: 0fbfdd5f51da83f4bafd4b039d01ac3d, type: 2}
+  - {fileID: 11400000, guid: c756f3c58c4998440b42e3d78a1aed0f, type: 2}
   areStagesSequential: 0
   items:
   - {fileID: 11400000, guid: e95c224a824fe614fa03a962a61cf2b3, type: 2}
   - {fileID: 11400000, guid: 025caaaed22ba9a4eaea080a6483fb6c, type: 2}
   - {fileID: 11400000, guid: f5ad58de110066b49b73a13a7ab883ec, type: 2}
-  - {fileID: 11400000, guid: 1ed4c61746d5b694fb790851f26b3b22, type: 2}
   - {fileID: 11400000, guid: 1861960dfdd320241b11e606d77ec3ce, type: 2}
+  - {fileID: 11400000, guid: 1ed4c61746d5b694fb790851f26b3b22, type: 2}
   combinedItems: {fileID: 8467666488583087624, guid: b65b1e15c08328d46a64344403a563d5,
     type: 3}

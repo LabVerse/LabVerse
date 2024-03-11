@@ -51,7 +51,7 @@ public class ExperimentManager : MonoBehaviour
             }
         }
     
-        if (selectedExperiment == null) {
+        if (!selectedExperiment) {
             Debug.LogError("No experiment selected or found");
             return;
         }
