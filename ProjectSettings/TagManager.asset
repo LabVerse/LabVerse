@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Spawnable
   - Metal
+  - Radioactive
   layers:
   - Default
   - TransparentFX
@@ -13,10 +14,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - GeigerTube
+  - Paper
+  - Aluminium
+  - Lead
   - 
   - 
   - 
