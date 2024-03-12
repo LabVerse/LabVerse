@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -855,9 +855,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 491b351b57f08dc42baffdddf72139e8, type: 3}
---- !u!4 &2018862218 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 330152802639229102, guid: e37d521bc8f623648bee5a65b17cb7e9,
+--- !u!135 &2018862219 stripped
+SphereCollider:
+  m_CorrespondingSourceObject: {fileID: 8268814367600232591, guid: e37d521bc8f623648bee5a65b17cb7e9,
     type: 3}
   m_PrefabInstance: {fileID: 1142395995}
   m_PrefabAsset: {fileID: 0}
@@ -1168,6 +1168,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6453083046607571085, guid: f58af86cc90b38d4bac64a5525a7e42a,
         type: 3}
+      propertyPath: ShapeModule.type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6453083046607571085, guid: f58af86cc90b38d4bac64a5525a7e42a,
+        type: 3}
       propertyPath: TriggerModule.inside
       value: 0
       objectReference: {fileID: 0}
@@ -1198,6 +1203,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6453083046607571085, guid: f58af86cc90b38d4bac64a5525a7e42a,
         type: 3}
+      propertyPath: ShapeModule.m_Rotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6453083046607571085, guid: f58af86cc90b38d4bac64a5525a7e42a,
+        type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6453083046607571085, guid: f58af86cc90b38d4bac64a5525a7e42a,
+        type: 3}
       propertyPath: InitialModule.maxNumParticles
       value: 50
       objectReference: {fileID: 0}
@@ -1210,6 +1225,11 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.startSpeed.scalar
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6453083046607571085, guid: f58af86cc90b38d4bac64a5525a7e42a,
+        type: 3}
+      propertyPath: CollisionModule.collisionMessages
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6453083046607571085, guid: f58af86cc90b38d4bac64a5525a7e42a,
         type: 3}
@@ -1245,7 +1265,7 @@ PrefabInstance:
         type: 3}
       propertyPath: TriggerModule.primitives.Array.data[0]
       value: 
-      objectReference: {fileID: 2018862218}
+      objectReference: {fileID: 2018862219}
     - target: {fileID: 6453083046607571085, guid: f58af86cc90b38d4bac64a5525a7e42a,
         type: 3}
       propertyPath: CollisionModule.m_EnergyLossOnCollision.scalar
