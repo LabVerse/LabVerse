@@ -152,6 +152,11 @@ PrefabInstance:
       propertyPath: TriggerModule.enter
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3928068980712513348, guid: 2fbd97e3c0436e64b948d695f0da9054,
+        type: 3}
+      propertyPath: CollisionModule.collisionMessages
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4401967578542670030, guid: 2fbd97e3c0436e64b948d695f0da9054,
         type: 3}
       propertyPath: m_LocalPosition.x
