@@ -8,7 +8,7 @@ public class PetriDishEventController : MonoBehaviour
     public GameObject agarJelly;
     public GameObject bacteria;
     /// <summary>
-    /// Collider trigger event for checking stage changes and enabling agar jelly and bacteria gameobject component.
+    /// Collider trigger event for checking stage changes and enabling bacteria gameobject.
     /// </summary>
     void OnTriggerEnter(Collider collider)
     {
@@ -35,6 +35,9 @@ public class PetriDishEventController : MonoBehaviour
                 break;
         }
     }
+    /// <summary>
+    /// Particle collider trigger event for checking stage changes and enabling agar jelly gameobject.
+    /// </summary>
     private void OnParticleCollision(GameObject other)
     {
         if (lid.activeSelf) return;
