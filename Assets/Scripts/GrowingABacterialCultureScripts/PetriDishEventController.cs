@@ -8,7 +8,7 @@ public class PetriDishEventController : MonoBehaviour
     public GameObject agarJelly;
     public GameObject bacteria;
     /// <summary>
-    /// Collider trigger event for checking stage changes and enabling agar jelly and bacteria gameobject component.
+    /// Collider trigger event for checking stage changes and enabling bacteria gameobject.
     /// </summary>
     void OnTriggerEnter(Collider collider)
     {
@@ -16,11 +16,6 @@ public class PetriDishEventController : MonoBehaviour
 
         switch(collider.gameObject.name)
         {
-            case "Agar Flow":
-                StageManager.instance.FinishStage(0, true);
-                StageManager.instance.EnterStage(1);
-                agarJelly.SetActive(true);
-                break;
             case "loop":
                 BacteriaPresence bacteriaPresence = collider.gameObject.GetComponent<BacteriaPresence>();
                 if (bacteriaPresence != null && agarJelly.activeSelf)
@@ -38,6 +33,20 @@ public class PetriDishEventController : MonoBehaviour
                 break;
             default:
                 break;
+        }
+    }
+    /// <summary>
+    /// Particle collider trigger event for checking stage changes and enabling agar jelly gameobject.
+    /// </summary>
+    private void OnParticleCollision(GameObject other)
+    {
+        if (lid.activeSelf) return;
+        GameObject parent = other.gameObject.GetComponentInParent<Rigidbody>().gameObject;
+        if (parent.name == "agarBottle")
+        {
+            StageManager.instance.FinishStage(0, true);
+            StageManager.instance.EnterStage(1);
+            agarJelly.SetActive(true);
         }
     }
 }
