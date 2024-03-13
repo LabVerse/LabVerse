@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4401967578542670030}
   - component: {fileID: 3928068980712513348}
   - component: {fileID: 1329851658579190649}
-  - component: {fileID: 2612277392734312392}
+  - component: {fileID: -5683551666897311887}
   m_Layer: 0
   m_Name: AlphaDecay
   m_TagString: Untagged
@@ -4831,7 +4831,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &2612277392734312392
+--- !u!114 &-5683551666897311887
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4844,4 +4844,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particle: 0
-  quantity: 10
+  quantity: 50
