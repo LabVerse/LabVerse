@@ -20,53 +20,24 @@ public class RadiationParticles : MonoBehaviour
     private ParticleSystem particleSystem;
     private GeigerScript geigerScript;
 
-    private float speed;
-    private float lifetime;
-    private int penetration;
+    // private int penetration;
 
 
     // Start is called before the first frame update
     void Start()
     {
-         // Set starting values, depending on particle type
-         // Different speed, size, lifetime, quantity, etc.
-         switch(particle)
-        {
-            case RADIATION_TYPES.BETA:
-                speed = 1f;
-                lifetime = 1f;
-                penetration = 1;
-                break;
-
-            case RADIATION_TYPES.GAMMA:
-                speed = 1f;
-                lifetime = 1f;
-                penetration = 2;
-                break;
-
-            default: // case ALPHA
-                speed = 1f;
-                lifetime = 1f;
-                penetration = 0;
-                break;
-        }
-
         particleSystem = gameObject.GetComponent<ParticleSystem>();
-        // Set these values in the particle system component
-        particleSystem.startSpeed = speed;
-        // so on...
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         
+        // Set release/second here
+        // MUST first declare emission as var, not sure why one-liner doesn't work D:
+        var em = particleSystem.emission;
+        em.rateOverTime = quantity;
     }
 
     void OnParticleCollision(GameObject other)
     {
-        Debug.Log(other.name);
         if(other.layer!=6) return;
+
         geigerScript = other.transform.parent.GetComponent<GeigerScript>();
         geigerScript.ParticleHit(particle);
     }

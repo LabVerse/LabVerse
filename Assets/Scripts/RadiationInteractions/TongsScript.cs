@@ -17,11 +17,16 @@ public class TongsScript : MonoBehaviour
     void Update()
     {
         // Check if tongs are upside-down
-        // NB: Needs to be improved, other rotations should cause drop
-        Vector3 rotation = transform.rotation.eulerAngles;
-        bool upsideDown = false; // add in actual logic here
-        if (upsideDown) DropObject();
+        // NB: Needs to be tested & improved
 
+        float rotationX = transform.eulerAngles.x; //default 270, keep between 180 and 360
+        //float rotationZ = transform.eulerAngles.z; //default 0, keep ?
+        if (rotationX > 360) rotationX = 360 - rotationX;
+        else if (rotationX < -360) rotationX = 360 + rotationX;
+        //if (rotationZ > 180) rotationZ = 360 - rotationZ;
+    
+        bool upsideDown = !(200 < rotationX && rotationX < 330);
+        if (upsideDown) DropObject();
     }
 
     public void Pickup(GameObject obj)
@@ -48,6 +53,7 @@ public class TongsScript : MonoBehaviour
         // Detach the material from the tongs
         m_currentMaterial.transform.parent = null;
         m_currentMaterial.transform.position = new Vector3(m_currentMaterial.transform.position.x, m_currentMaterial.transform.position.y - 0.03f, m_currentMaterial.transform.position.z); ;
+        m_currentMaterial.transform.rotation = Quaternion.identity;
         m_currentMaterial = null;
     }
 
