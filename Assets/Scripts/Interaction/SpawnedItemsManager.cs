@@ -9,11 +9,16 @@ public class SpawnedItemsManager : MonoBehaviour
 {
     private ItemSpawner m_Spawner;
 
-    public void OnEnable()
+    private void OnEnable()
     {
         m_Spawner = GetComponent<ItemSpawner>();
         m_Spawner.spawnAsChildren = true;
         ItemSelectionMenu.itemSelectionMenuItemClicked += UpdateSpawnerSelectedItem;
+    }
+
+    private void OnDisable()
+    {
+        ItemSelectionMenu.itemSelectionMenuItemClicked -= UpdateSpawnerSelectedItem;
     }
 
     /// <summary>

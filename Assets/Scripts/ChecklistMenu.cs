@@ -22,6 +22,7 @@ public class ChecklistMenu : MonoBehaviour
     private void OnDisable()
     {
         ExperimentManager.startExperiment -= InitializeChecklist;
+        ExperimentManager.endExperimentStage -= UpdateStage;
     }
 
     private void InitializeChecklist()
