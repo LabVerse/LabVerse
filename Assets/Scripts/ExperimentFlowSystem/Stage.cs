@@ -11,6 +11,9 @@ public class Stage : ScriptableObject
     [TextArea]
     public string description;
 
+    [TextArea]
+    public string explanation;
+
     // other stage properties
 }
 

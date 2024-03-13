@@ -62,14 +62,14 @@ public class InoculatingLoop : MonoBehaviour
                 SetSample(m_copperSample);
                 metalIndex = 0;
                 break;
-            case "LithiumSource":
-                //set lithium sample active
-                SetSample(m_lithiumSample);
-                metalIndex = 1;
-                break;
             case "IronSource":
                 //set iron sample active
                 SetSample(m_ironSample);
+                metalIndex = 1;
+                break;
+            case "LithiumSource":
+                //set lithium sample active
+                SetSample(m_lithiumSample);
                 metalIndex = 2;
                 break;
             default:
