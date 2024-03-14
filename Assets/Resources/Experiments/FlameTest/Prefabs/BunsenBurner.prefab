@@ -1496,7 +1496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_flameState: 0
-  m_invokeEvents: 0
+  m_invokeEvents: 1
 --- !u!114 &6111857808881944057
 MonoBehaviour:
   m_ObjectHideFlags: 0
