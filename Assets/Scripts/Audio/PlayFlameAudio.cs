@@ -16,19 +16,13 @@ public class PlayFlameAudio : MonoBehaviour
 
     void Update()
     {
-        if (bunsenScript.IsLit())
+        if (bunsenScript.IsLit() && !source.isPlaying)
         {
-            if (!source.isPlaying)
-            {
-                source.Play();
-            }
+            source.Play();
         }
-        else
+        else if (!bunsenScript.IsLit() && source.isPlaying)
         {
-            if (source.isPlaying)
-            {
-                source.Stop();
-            }
+            source.Stop();
         }
     }
 }
