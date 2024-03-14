@@ -1,68 +1,32 @@
-using Codice.CM.Client.Differences;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GeigerScript : MonoBehaviour
 {
-    private TMP_Text geigerScreen;
+    [SerializeField] private TMP_Text geigerScreen;
 
     [SerializeField]
-    private int m_geigerValue; // Min = 0, Max = 1000
-
-    private float m_countdown;
-    private float m_delay;
-    private int m_count;
-
-    private LinkedList<int> m_values;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        // HOW TO DECREASE FLUCTUATIONS???
-        // - increase particle count
-        // - use average of previous n values
-        // - update after longer wait
-
-        geigerScreen = GameObject.Find("GeigerCanvas/Text (TMP)").GetComponent<TMP_Text>();
-        
-        m_delay = 1f;
-        m_countdown = m_delay;
-
-        m_geigerValue = (int) System.Math.Round(18/m_delay); //Default room CPM
-        int cpm = (int)System.Math.Round(m_geigerValue * (60 / m_delay));
-
-        m_values = new LinkedList<int>(); 
-        for (int i=0; i<10; i++)
-        {
-            m_values.AddLast(cpm);
-        }
-    }
+    private int m_geigerValue = 0; // Min = 0, Max = 1000
+    private float m_countdown = 0;
+    [SerializeField] private float m_delay = 0.7f;
+    [SerializeField] private int m_backgroundRadiation = 18;
+    int m_radiationSum = 0;
+    int m_updateCount = 0;
 
     // Update is called every frame
     void Update()
     {
-        m_countdown -= 1*Time.deltaTime;
+        m_radiationSum += m_geigerValue;
+        m_updateCount++;
+        m_geigerValue = 0;
+        m_countdown -= Time.deltaTime;
 
-        if(m_countdown < 0)
+        if(m_countdown <= 0)
         {
             // Calculate new CPM
-            // Update Display
-            if (m_count > 2)
-            {
-                m_count = 0;
-                UpdateCPM(true);
-            } else
-            {
-                m_count++;
-                UpdateCPM(false);
-            }
-
-            // Should geiger value decrement, or be set to zero, after each update?
-            m_geigerValue = 0;
+            UpdateCPM();
 
             //Reset countdown
             m_countdown = m_delay;
@@ -74,46 +38,40 @@ public class GeigerScript : MonoBehaviour
         // Adjust the value of the geiger counter as necessary
         switch (particle) {
             case RadiationParticles.RADIATION_TYPES.GAMMA:
-                m_geigerValue += 1;
+                m_geigerValue += GuassianRandom(100,10);//100 to 10,000 CPM
                 break;
             case RadiationParticles.RADIATION_TYPES.BETA:
-                m_geigerValue += 3;
+                m_geigerValue += GuassianRandom(10,1);//10 to 1000 CPM
                 break;
-            default: //RadiationParticles.RADIATION_TYPES.ALPHA
-                m_geigerValue += 5;
+            case RadiationParticles.RADIATION_TYPES.ALPHA:
+                m_geigerValue += GuassianRandom(1,0.1f);//1 to 1000 CPM
+                break;
+            default:
                 break;
         }
 
     }
 
-    private void UpdateCPM(bool update)
+    private void UpdateCPM()
     {
-        // Convert from collisions/update to CPM
-        // Currently updates every 2s, so x30
-        int CPM = (int) System.Math.Round(m_geigerValue * (60/m_delay));
-        if (CPM > 1000) { CPM = 1000; } //cap at 1k cpm
+        //Calclulate the average
+        int avg = (int)(m_radiationSum * 60 / m_updateCount / m_delay) + m_backgroundRadiation;
 
-        // Remove oldest reading
-        m_values.RemoveFirst();
-        m_values.AddLast(CPM);
+        // Display average to screen
+        string txt = avg.ToString();
+        geigerScreen.text = txt;
+        m_radiationSum = 0;
+        m_updateCount = 0;
+    }
 
-        if (update)
-        {
-            // Calculate average
-            float total = 0;
-            float i = 0;
-            LinkedListNode<int> head = m_values.First;
-            while (head != null)
-            {
-                total += head.Value;
-                head = head.Next;
-                i++;
-            }
+    private int GuassianRandom(float mean, float stdDev)
+    {
+        System.Random rand = new System.Random(); //reuse this if you are generating many
+        double u1 = 1.0 - rand.NextDouble(); //uniform(0,1] random doubles
+        double u2 = 1.0 - rand.NextDouble();
+        double randStdNormal = Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Sin(2.0 * Math.PI * u2); //random normal(0,1)
+        double randNormal = mean + stdDev * randStdNormal; //random normal(mean,stdDev^2)
 
-            // Display average to screen
-            int avg = (int)System.Math.Round(total / i);
-            string txt = avg.ToString();
-            geigerScreen.text = txt;
-        }
+        return Mathf.Abs((int)randNormal);
     }
 }
