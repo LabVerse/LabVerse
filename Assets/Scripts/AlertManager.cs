@@ -55,7 +55,7 @@ public class AlertManager : MonoBehaviour
     {
         if (!AlertPrefabs.ContainsKey(alertType))
         {
-            Debug.LogError("Alert type '" + alertType + "' not found in the dictionary.");
+            Debug.LogWarning("Alert type '" + alertType + "' not found in the dictionary.");
             return;
         }
 
