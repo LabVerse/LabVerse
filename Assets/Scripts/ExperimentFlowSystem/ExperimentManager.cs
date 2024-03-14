@@ -139,6 +139,9 @@ public class ExperimentManager : MonoBehaviour
     /// </summary>
     private void CompleteStage(int stageIndex, bool completed)
     {
+        // Prevents stage being finished multiple times.
+        if (m_stagesCompletedStatus[stageIndex]) return;
+
         m_stagesCompletedStatus[stageIndex] = completed;
         bool completedAllStages = m_stagesCompletedStatus.All(stageComplete => stageComplete);
         if (!completed || completedAllStages)
