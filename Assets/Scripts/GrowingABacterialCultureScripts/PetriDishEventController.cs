@@ -43,6 +43,7 @@ public class PetriDishEventController : MonoBehaviour
     /// </summary>
     private void OnParticleCollision(GameObject other)
     {
+        // Needed to prevent multiple stage completion invokations which sometimes may lead to unsolicited stage change issues.
         if (m_filled) return;
         GameObject parent = other.gameObject.GetComponentInParent<Rigidbody>().gameObject;
         if (parent.name == "agarBottle")
