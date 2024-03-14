@@ -13,5 +13,10 @@ MonoBehaviour:
   m_Name: Preparing Agar Plate
   m_EditorClassIdentifier: 
   title: Preparing Agar Plate
-  description: "In a round, clear petri dish, pour hot agar jelly and leave this
-    to set. The petri dish and agar jelly must be heated to a high temperature.\r\r"
+  description: "In a sterile environment, open the agar bottle, take off the petri
+    dish lid, and pour the hot agar jelly into the round, clear petri dish. Allow
+    the agar jelly to cool and solidify.\r\r"
+  explanation: Agar is a gel-like substance derived from seaweed that provides a
+    nutrient-rich medium for bacteria to grow. By pouring hot agar jelly into a petri
+    dish and allowing it to solidify, we create a surface for bacterial colonies
+    to develop.

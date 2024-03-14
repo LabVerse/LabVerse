@@ -82,7 +82,8 @@ public class ExperimentManager : MonoBehaviour
         startExperiment?.Invoke();
         startExperimentStage?.Invoke(currentStageIndex);
         // Delete this. Example of how to spawn alerts.
-        AlertManager.instance.CreateAlert(AlertManager.ALERT_TYPE.INFO, "Tap the surface of your table to start the experiment");
+        AlertManager.instance.CreateAlert(AlertManager.ALERT_TYPE.INFO, "To access the quick menu, look at your palm of your hand.");
+        AlertManager.instance.CreateAlert(AlertManager.ALERT_TYPE.INFO, "Tap the surface of your table to start the experiment.");
     }
     
     /// <summary>
@@ -138,6 +139,9 @@ public class ExperimentManager : MonoBehaviour
     /// </summary>
     private void CompleteStage(int stageIndex, bool completed)
     {
+        // Prevents stage being finished multiple times.
+        if (m_stagesCompletedStatus[stageIndex]) return;
+
         m_stagesCompletedStatus[stageIndex] = completed;
         bool completedAllStages = m_stagesCompletedStatus.All(stageComplete => stageComplete);
         if (!completed || completedAllStages)

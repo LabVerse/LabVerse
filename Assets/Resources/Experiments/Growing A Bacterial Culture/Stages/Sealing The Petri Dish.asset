@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: Sealing The Petri Dish
   m_EditorClassIdentifier: 
   title: Sealing The Petri Dish
-  description: "Close the petri dish lid and lightly tape the sides. This avoids
-    any microorganisms from entering the petri dish.\r"
+  description: "Close the petri dish lid. This is done to prevent contamination.\r"
+  explanation: Sealing the petri dish helps to maintain a sterile environment inside,
+    minimising the risk of airborne contaminants from entering and interfering with
+    bacterial growth. However, it's important to allow for some airflow to facilitate
+    the exchange of gases necessary for bacterial metabolism.

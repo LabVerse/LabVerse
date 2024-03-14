@@ -3364,7 +3364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 826b8fbb9e0628f45b9e784d49c37cd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedExperiment: {fileID: 0}
+  selectedExperiment: {fileID: 11400000, guid: 39bb4ba3d26e04b48bb9eb475d673578, type: 2}
   m_availableExperiments:
   - {fileID: 11400000, guid: 39bb4ba3d26e04b48bb9eb475d673578, type: 2}
   - {fileID: 11400000, guid: c962ab801b9000843acca7a8e11d242e, type: 2}
@@ -15329,7 +15329,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 0
   m_fontColorGradient:
@@ -15346,8 +15346,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 8
-  m_fontSizeBase: 8
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 2
@@ -23230,7 +23230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlanePrefab: {fileID: 5982963534685165758, guid: b08aa487cadd25e48bd9a7c9c00d7680,
+  m_PlanePrefab: {fileID: 3893161713201305639, guid: d37f9fc07f53c4e4eb33ba4a8e503373,
     type: 3}
   m_DetectionMode: 1
 --- !u!1 &9101093512722997585

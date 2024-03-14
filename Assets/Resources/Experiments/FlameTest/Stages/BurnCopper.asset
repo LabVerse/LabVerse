@@ -13,4 +13,10 @@ MonoBehaviour:
   m_Name: BurnCopper
   m_EditorClassIdentifier: 
   title: Burn Copper
-  description: 
+  description: Grab the loop, dip it into the copper tray (blue coloured), and hold
+    the loop over the flame.
+  explanation: When the copper is introduced into the flame, the heat causes the
+    electrons in the copper atoms to become excited and jump to higher energy levels.
+    As the electrons return to their ground state, they release energy in the form
+    of light. The specific color observed in the flame (blue-green) is characteristic
+    of copper.
