@@ -14,8 +14,6 @@ public class ExperimentManager : MonoBehaviour
     public static event Action endExperiment;
     public static event Action<int> startExperimentStage; // int: stage index
     public static event Action<int> endExperimentStage; // int: stage index
-    public AlertSpawner AlertSpawner; // object that creates alerts
-
 
     public Experiment selectedExperiment;
 
@@ -26,6 +24,9 @@ public class ExperimentManager : MonoBehaviour
     private Experiment[] m_availableExperiments;
 
     private bool[] m_stagesCompletedStatus;
+
+    [SerializeField]
+    private AlertSpawner AlertSpawner; // object that creates alerts
 
     private void Awake()
     {
@@ -84,7 +85,7 @@ public class ExperimentManager : MonoBehaviour
         startExperiment?.Invoke();
         startExperimentStage?.Invoke(currentStageIndex);
         // Delete this. Example of how to spawn alerts.
-        AlertSpawner.CreateAlert("Warning", "Important safety message!");
+        AlertSpawner?.CreateAlert("Warning", "Important safety message!");
     }
     
     /// <summary>
