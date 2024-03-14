@@ -7,6 +7,9 @@ public class PetriDishEventController : MonoBehaviour
     public GameObject lid;
     public GameObject agarJelly;
     public GameObject bacteria;
+
+    private bool m_filled = false;
+
     /// <summary>
     /// Collider trigger event for checking stage changes and enabling bacteria gameobject.
     /// </summary>
@@ -40,13 +43,15 @@ public class PetriDishEventController : MonoBehaviour
     /// </summary>
     private void OnParticleCollision(GameObject other)
     {
-        if (lid.activeSelf) return;
+        // Needed to prevent multiple stage completion invokations which sometimes may lead to unsolicited stage change issues.
+        if (m_filled) return;
         GameObject parent = other.gameObject.GetComponentInParent<Rigidbody>().gameObject;
         if (parent.name == "agarBottle")
         {
             StageManager.instance.FinishStage(0, true);
             StageManager.instance.EnterStage(1);
             agarJelly.SetActive(true);
+            m_filled = true;
         }
     }
 }

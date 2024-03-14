@@ -24,7 +24,7 @@ public class MainMenuTests
         string startScene = SceneManager.GetActiveScene().name;
         Assert.AreEqual("MainMenu", startScene);
 
-        btn = GameObject.Find("Experiments button").GetComponent<Button>();
+        btn = GameObject.Find("Experiments button").transform.GetChild(0).gameObject.GetComponent<Button>();
         Assert.IsNotNull(btn);
         btn.onClick.Invoke();
 
@@ -43,7 +43,7 @@ public class MainMenuTests
         string startScene = SceneManager.GetActiveScene().name;
         Assert.AreEqual("MainMenu", startScene);
 
-        btn = GameObject.Find("Settings button").GetComponent<Button>();
+        btn = GameObject.Find("Settings button").transform.GetChild(0).gameObject.GetComponent<Button>();
         Assert.IsNotNull(btn);
         btn.onClick.Invoke();
 

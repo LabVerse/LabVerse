@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Bunsen Burner
   thumbnail: {fileID: 0}
-  model: {fileID: 4786496937013897234, guid: 941d5c1263fad854daae0137ac1933a1, type: 3}
+  model: {fileID: 4786496937013897234, guid: f7b1924a0d8af234bbf59eb34664cb58, type: 3}

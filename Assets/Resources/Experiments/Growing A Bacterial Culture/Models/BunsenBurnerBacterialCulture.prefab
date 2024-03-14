@@ -186,7 +186,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 216446718309037045}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BunsenBurnerFlames, LabVerseScripts
         m_MethodName: ToggleFlame
         m_Mode: 1
@@ -1082,7 +1082,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e95370b6447e30546bc38348190606e0,
         type: 3}
       propertyPath: m_Name
-      value: BunsenBurner
+      value: BunsenBurnerBacterialCulture
       objectReference: {fileID: 0}
     - target: {fileID: 1576432090826895520, guid: e95370b6447e30546bc38348190606e0,
         type: 3}
@@ -1150,7 +1150,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e95370b6447e30546bc38348190606e0,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 216446718309037045}
+      addedObject: {fileID: 2837450824114053043}
   m_SourcePrefab: {fileID: 100100000, guid: e95370b6447e30546bc38348190606e0, type: 3}
 --- !u!1 &4786496937013897234 stripped
 GameObject:
@@ -1379,7 +1379,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!114 &216446718309037045
+--- !u!114 &2837450824114053043
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1392,7 +1392,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_flameState: 0
-  invokeEvents: 1
 --- !u!4 &5271143638611866280 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e95370b6447e30546bc38348190606e0,

@@ -33,7 +33,12 @@ public class MultiImageButton : Button
             state == SelectionState.Selected ? colors.selectedColor : Color.white;
  
         foreach (var graphic in graphics)
-            graphic.CrossFadeColor(targetColor, instant ? 0 : colors.fadeDuration, true, true);
+        {
+            if (graphic != null)
+            {
+                graphic.CrossFadeColor(targetColor, instant ? 0 : colors.fadeDuration, true, true);
+            }
+        }
     }
  
     private bool GetGraphics()

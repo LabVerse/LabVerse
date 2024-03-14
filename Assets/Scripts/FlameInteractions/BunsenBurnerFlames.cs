@@ -11,6 +11,9 @@ public class BunsenBurnerFlames : MonoBehaviour
     [SerializeField] 
     private FLAME_STATE m_flameState;
 
+    [SerializeField]
+    private bool m_invokeEvents = false;
+
     private GameObject m_coolFlame;
     private GameObject m_hotFlame;
 
@@ -42,13 +45,13 @@ public class BunsenBurnerFlames : MonoBehaviour
                 // Make cool flame
                 m_coolFlame.SetActive(true);
                 m_hotFlame.SetActive(false);
-                StageManager.instance.FinishStage(0, true);
+                if (m_invokeEvents) StageManager.instance.FinishStage(0, true);
                 break;
             case FLAME_STATE.HOT:
                 // Make hot flame
                 m_coolFlame.SetActive(false);
                 m_hotFlame.SetActive(true);
-                StageManager.instance.FinishStage(0, true);
+                if (m_invokeEvents) StageManager.instance.FinishStage(0, true);
                 break;
             default:
                 return false;

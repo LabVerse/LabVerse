@@ -26,6 +26,7 @@ public class ChooseExperiment : MonoBehaviour
             int index = i;
             ExperimentOptions[i].onClick.AddListener(() => ChangeSelectedOption(index));
         }
+        PlayerPrefs.SetString("ExperimentName", "Flame Test");
     }
 
     public void ChangeSelectedOption(int index)
