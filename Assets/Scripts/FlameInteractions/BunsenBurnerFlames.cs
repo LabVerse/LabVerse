@@ -45,7 +45,6 @@ public class BunsenBurnerFlames : MonoBehaviour
                 // Make cool flame
                 m_coolFlame.SetActive(true);
                 m_hotFlame.SetActive(false);
-                if (m_invokeEvents) StageManager.instance.FinishStage(0, true);
                 break;
             case FLAME_STATE.HOT:
                 // Make hot flame

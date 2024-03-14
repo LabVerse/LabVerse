@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: Bacterial Growth
   m_EditorClassIdentifier: 
   title: Bacterial Growth
-  description: "Place the petri dish upside down. This prevents condensation droplets
-    falling onto the agar jelly surface.\r\nLeave the plate at around 25\xB0C to
-    allow the culture to grow. In schools, bacteria are not grown at temperatures
-    above 25\xB0C as harmful pathogens are more likely to grow above this temperature.\r\r\nAfter
-    leaving the petri dish for some time, you will notice bacterial colonies appearing
-    on the surface of the agar jelly.\r\r\r"
+  description: Place the sealed petri dish upside down to prevent condensation droplets
+    from falling onto the agar jelly surface. After a bit of time, take the lid off
+    the petri dish to see the grown bacteria.
+  explanation: "By placing the petri dish upside down, we prevent condensation from
+    accumulating on the agar surface, which could dilute or disrupt bacterial growth.
+    Incubating the plate at a controlled temperature allows the bacteria to proliferate
+    without promoting the growth of harmful pathogens, as temperatures above 25\xB0C
+    can be conducive to their growth. Over time, bacterial colonies will become visible
+    on the agar surface, representing the growth and proliferation of the inoculated
+    bacteria."

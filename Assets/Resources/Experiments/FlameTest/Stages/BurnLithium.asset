@@ -13,4 +13,10 @@ MonoBehaviour:
   m_Name: BurnLithium
   m_EditorClassIdentifier: 
   title: Burn Lithium
-  description: 
+  description: Grab the loop, dip it into the copper tray (grey coloured), and hold
+    the loop over the flame.
+  explanation: When lithium is introduced into the flame, the heat causes the electrons
+    in the lithium atoms to become excited and move to higher energy levels. As these
+    excited electrons return to their ground state, they release energy in the form
+    of light. The specific color observed in the flame (bright crimson or red) is
+    characteristic of lithium.

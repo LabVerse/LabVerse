@@ -1150,11 +1150,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e95370b6447e30546bc38348190606e0,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 216446718309037045}
+      addedObject: {fileID: -1776264785132622074}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e95370b6447e30546bc38348190606e0,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: -1776264785132622074}
+      addedObject: {fileID: 216446718309037045}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e95370b6447e30546bc38348190606e0,
         type: 3}
       insertIndex: -1
@@ -1387,19 +1387,6 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!114 &216446718309037045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4786496937013897234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d2b2853eb4389b4a90e07fc09808384, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_flameState: 0
 --- !u!82 &-1776264785132622074
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1496,6 +1483,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &216446718309037045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4786496937013897234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d2b2853eb4389b4a90e07fc09808384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_flameState: 0
+  m_invokeEvents: 0
 --- !u!114 &6111857808881944057
 MonoBehaviour:
   m_ObjectHideFlags: 0

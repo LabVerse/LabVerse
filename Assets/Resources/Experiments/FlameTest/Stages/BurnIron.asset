@@ -13,4 +13,9 @@ MonoBehaviour:
   m_Name: BurnIron
   m_EditorClassIdentifier: 
   title: Burn Iron
-  description: 
+  description: Grab the loop, dip it into the iron tray (orange coloured), and hold
+    the loop over the flame.
+  explanation: ' When the iron compound is heated in the flame, the heat excites
+    the electrons in the iron atoms, causing them to jump to higher energy levels.
+    As these electrons return to their ground state, they emit light energy. The
+    specific color observed in the flame (yellow-orange) is characteristic of iron.'

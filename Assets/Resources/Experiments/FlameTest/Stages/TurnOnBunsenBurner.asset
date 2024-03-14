@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e823175fb300e694899322ce7eafcc84, type: 3}
   m_Name: TurnOnBunsenBurner
   m_EditorClassIdentifier: 
-  title: Turn on Bunsen Burner
-  description: 
-  explanation: 
+  title: Ignite the Bunsen Burner.
+  description: Press the 'toggle' button near the bunsen burner twice, to make it
+    into a blue flame.
+  explanation: The Bunsen burner produces a hot, blue flame due to the complete combustion
+    of gas (usually methane or natural gas) with the surrounding oxygen. The blue
+    color indicates that the fuel is burning efficiently, with sufficient oxygen
+    present for combustion.

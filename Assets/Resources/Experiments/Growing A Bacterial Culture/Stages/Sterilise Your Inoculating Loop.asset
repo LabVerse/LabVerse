@@ -12,5 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e823175fb300e694899322ce7eafcc84, type: 3}
   m_Name: Sterilise Your Inoculating Loop
   m_EditorClassIdentifier: 
-  title: Sterilise Your Inoculating Loop
-  description: "Pass your inoculating loop through a hot flame to sterilise.\r\r"
+  title: Sterilise the Inoculating Loop
+  description: "Ignite the bunsen burner then hold your inoculating loop through
+    the hot flame until it glows red. Remove from the heat and allow it some time
+    to cool down.\r\r"
+  explanation: Sterilisation of the inoculating loop is crucial to prevent contamination
+    of the agar plate with unwanted microorganisms. Heating the loop to a high temperature
+    kills any bacteria or fungi present on its surface.

@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e823175fb300e694899322ce7eafcc84, type: 3}
   m_Name: Spreading The Bacteria
   m_EditorClassIdentifier: 
-  title: Spreading The Bacteria
-  description: "Using the inoculating loop, carefully spread the bacteria around
-    the surface of the agar jelly plate. This will give an even spread of the bacterial
-    cells.\r\r"
+  title: Spreading the Bacteria
+  description: "Using the sterilized inoculating loop, carefully spread a sample
+    of bacteria onto the surface of the agar jelly plate in a zigzag motion.\r\r"
+  explanation: By spreading the bacteria onto the agar plate, we provide an opportunity
+    for individual bacterial cells to grow and multiply into visible colonies. Ensuring
+    an even spread of bacteria helps to observe and analyse bacterial growth patterns.
