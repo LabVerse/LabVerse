@@ -15,7 +15,6 @@ public class ExperimentManager : MonoBehaviour
     public static event Action<int> startExperimentStage; // int: stage index
     public static event Action<int> endExperimentStage; // int: stage index
 
-
     public Experiment selectedExperiment;
 
     [NonSerialized]
@@ -82,6 +81,8 @@ public class ExperimentManager : MonoBehaviour
     {
         startExperiment?.Invoke();
         startExperimentStage?.Invoke(currentStageIndex);
+        // Delete this. Example of how to spawn alerts.
+        AlertManager.instance.CreateAlert(AlertManager.ALERT_TYPE.INFO, "Tap the surface of your table to start the experiment");
     }
     
     /// <summary>
