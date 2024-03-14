@@ -25,9 +25,6 @@ public class ExperimentManager : MonoBehaviour
 
     private bool[] m_stagesCompletedStatus;
 
-    [SerializeField]
-    private AlertSpawner AlertSpawner; // object that creates alerts
-
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -85,7 +82,7 @@ public class ExperimentManager : MonoBehaviour
         startExperiment?.Invoke();
         startExperimentStage?.Invoke(currentStageIndex);
         // Delete this. Example of how to spawn alerts.
-        AlertSpawner?.CreateAlert("Warning", "Important safety message!");
+        AlertManager.instance.CreateAlert(AlertManager.ALERT_TYPE.INFO, "Tap the surface of your table to start the experiment");
     }
     
     /// <summary>

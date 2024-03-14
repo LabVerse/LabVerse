@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.31253916, g: 0.5502121, b: 0.8222736, a: 1}
+  m_IndirectSpecularColor: {r: 0.3134649, g: 0.55015177, b: 0.82149005, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2614,6 +2614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be97bdc8097c37560a94eca76493ba29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UI: {fileID: 2073726593}
   WarningPrefab: {fileID: 4144329852843256771, guid: b4299d660d4e7db389e033de51ff51c5,
     type: 3}
   InfoPrefab: {fileID: 2017566236601704498, guid: 0487f4c772c69dcceae831612eb2b381,
@@ -3363,7 +3364,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 826b8fbb9e0628f45b9e784d49c37cd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AlertSpawner: {fileID: 1617583938}
   selectedExperiment: {fileID: 0}
   m_availableExperiments:
   - {fileID: 11400000, guid: 39bb4ba3d26e04b48bb9eb475d673578, type: 2}
