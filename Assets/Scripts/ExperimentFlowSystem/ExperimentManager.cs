@@ -1,25 +1,41 @@
 using System;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
-/// Experiment Manager that manages the flow of the experiment.
+/// Experiment Manager Singleton that manages the flow of the experiment.
 /// </summary>
 public class ExperimentManager : MonoBehaviour
 {
-    public static event Action<string> startExperiment; // string: experiment name
+    public static ExperimentManager instance { get; private set; }
+
+    public static event Action startExperiment; // string: experiment name
     public static event Action endExperiment;
     public static event Action<int> startExperimentStage; // int: stage index
     public static event Action<int> endExperimentStage; // int: stage index
 
+    public Experiment selectedExperiment;
+
+    [NonSerialized]
+    public int currentStageIndex = 0;
+
     [SerializeField]
     private Experiment[] m_availableExperiments;
 
-    [SerializeField]
-    public Experiment m_experiment;
-
-    private int m_currentStageIndex = 0;
     private bool[] m_stagesCompletedStatus;
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
 
     private void Start()
     {   
@@ -27,35 +43,35 @@ public class ExperimentManager : MonoBehaviour
         {
             // PlayerPrefs stores Player preferences between game sessions.
             // Experiment name is stored in PlayerPrefs when the experiment is selected.
-            if (experiment.name == PlayerPrefs.GetString("ExperimentName"))
+            if (experiment.experimentName == PlayerPrefs.GetString("ExperimentName"))
             {
-                m_experiment = experiment;
+                selectedExperiment = experiment;
                 break;
             }
         }
     
-        if (m_experiment == null) {
+        if (!selectedExperiment) {
             Debug.LogError("No experiment selected or found");
             return;
         }
 
         // Fill the array with false.
-        m_stagesCompletedStatus = new bool[m_experiment.stages.Count];
+        m_stagesCompletedStatus = new bool[selectedExperiment.stages.Count];
         StartExperiment();
     }
 
     private void OnEnable()
     {
         // Subscribe to events.
-        StageHandler.enterStage += ChangeStage;
-        StageHandler.finishStage += CompleteStage;
+        StageManager.enterStage += ChangeStage;
+        StageManager.finishStage += CompleteStage;
     }
 
     private void OnDisable()
     {
         // Unsubscribe from events.
-        StageHandler.enterStage -= ChangeStage;
-        StageHandler.finishStage -= CompleteStage;
+        StageManager.enterStage -= ChangeStage;
+        StageManager.finishStage -= CompleteStage;
     }
 
     /// <summary>
@@ -63,8 +79,11 @@ public class ExperimentManager : MonoBehaviour
     /// </summary>
     private void StartExperiment()
     {
-        startExperiment?.Invoke(m_experiment.experimentName);
-        startExperimentStage?.Invoke(m_currentStageIndex);
+        startExperiment?.Invoke();
+        startExperimentStage?.Invoke(currentStageIndex);
+        // Delete this. Example of how to spawn alerts.
+        AlertManager.instance.CreateAlert(AlertManager.ALERT_TYPE.INFO, "To access the quick menu, look at your palm of your hand.");
+        AlertManager.instance.CreateAlert(AlertManager.ALERT_TYPE.INFO, "Tap the surface of your table to start the experiment.");
     }
     
     /// <summary>
@@ -73,6 +92,10 @@ public class ExperimentManager : MonoBehaviour
     private void EndExperiment(bool completed)
     {
         endExperiment?.Invoke();
+        PlayerPrefs.SetString("ExperimentCompletedStatus", completed ? "completed" : "not completed");
+        SceneManager.LoadScene("ExperimentCompletionMenu");
+
+        // TODO: Change to experiment completion scene.
     }
 
     /// <summary>
@@ -80,17 +103,15 @@ public class ExperimentManager : MonoBehaviour
     /// </summary>
     private void StartStage(int stageIndex)
     {
-        m_currentStageIndex = stageIndex;
+        currentStageIndex = stageIndex;
         startExperimentStage?.Invoke(stageIndex);
-
-        // Other logic to start the stage.
     }
 
     /// <summary>
     /// Safely end the current stage if necessary.
     private void EndCurrentStage()
     {
-        endExperimentStage?.Invoke(m_currentStageIndex);
+        endExperimentStage?.Invoke(currentStageIndex);
     }
     
     /// <summary>
@@ -103,14 +124,11 @@ public class ExperimentManager : MonoBehaviour
     private void ChangeStage(int stageIndex)
     {
         // Change stage
-        if (stageIndex < 0 || stageIndex >= m_experiment.stages.Count)
-        {
-            return;
-        }
+        if (stageIndex < 0 || stageIndex >= selectedExperiment.stages.Count) return;
 
-        bool sequentialAndNextStage = m_experiment.areStagesSequential && stageIndex == m_currentStageIndex + 1;
-        bool notSequentialAndDifferentStage = !m_experiment.areStagesSequential && stageIndex != m_currentStageIndex;
-        if ((m_stagesCompletedStatus[m_currentStageIndex] && sequentialAndNextStage) || notSequentialAndDifferentStage)
+        bool sequentialAndNextStage = selectedExperiment.areStagesSequential && stageIndex == currentStageIndex + 1;
+        bool notSequentialAndDifferentStage = !selectedExperiment.areStagesSequential && stageIndex != currentStageIndex;
+        if ((m_stagesCompletedStatus[currentStageIndex] && sequentialAndNextStage) || notSequentialAndDifferentStage)
         {
             StartStage(stageIndex);
         }
@@ -121,6 +139,9 @@ public class ExperimentManager : MonoBehaviour
     /// </summary>
     private void CompleteStage(int stageIndex, bool completed)
     {
+        // Prevents stage being finished multiple times.
+        if (m_stagesCompletedStatus[stageIndex]) return;
+
         m_stagesCompletedStatus[stageIndex] = completed;
         bool completedAllStages = m_stagesCompletedStatus.All(stageComplete => stageComplete);
         if (!completed || completedAllStages)

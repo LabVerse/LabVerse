@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e823175fb300e694899322ce7eafcc84, type: 3}
+  m_Name: Spreading The Bacteria
+  m_EditorClassIdentifier: 
+  title: Spreading the Bacteria
+  description: "Using the sterilized inoculating loop, carefully spread a sample
+    of bacteria onto the surface of the agar jelly plate in a zigzag motion.\r\r"
+  explanation: By spreading the bacteria onto the agar plate, we provide an opportunity
+    for individual bacterial cells to grow and multiply into visible colonies. Ensuring
+    an even spread of bacteria helps to observe and analyse bacterial growth patterns.

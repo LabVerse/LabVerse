@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e823175fb300e694899322ce7eafcc84, type: 3}
+  m_Name: TurnOnBunsenBurner
+  m_EditorClassIdentifier: 
+  title: Ignite the Bunsen Burner.
+  description: Press the 'toggle' button near the bunsen burner twice, to make it
+    into a blue flame.
+  explanation: The Bunsen burner produces a hot, blue flame due to the complete combustion
+    of gas (usually methane or natural gas) with the surrounding oxygen. The blue
+    color indicates that the fuel is burning efficiently, with sufficient oxygen
+    present for combustion.

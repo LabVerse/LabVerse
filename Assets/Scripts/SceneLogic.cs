@@ -20,4 +20,14 @@ public class SceneLogic : MonoBehaviour
 
         SceneManager.LoadScene(sceneName);
     }
+    public void openDocumentation()
+    {
+        // Open a webpage in browser
+        Application.OpenURL("https://github.com/LabVerse/LabVerse");
+    }
+    public void quitApp()
+    {
+        // Close the app
+        Application.Quit();
+    }
 }

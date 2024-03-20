@@ -17,31 +17,33 @@ public class MainMenuTests
         EditorSceneManager.LoadSceneInPlayMode("Assets/Scenes/MainMenu.unity", new LoadSceneParameters(LoadSceneMode.Single));
     }
 
+    // Clicking experiments button goes to Selection Menu
     [UnityTest]
     public IEnumerator navigateToExperimentSelection()
     {
         string startScene = SceneManager.GetActiveScene().name;
         Assert.AreEqual("MainMenu", startScene);
 
-        btn = GameObject.Find("Experiments button").GetComponent<Button>();
+        btn = GameObject.Find("Experiments button").transform.GetChild(0).gameObject.GetComponent<Button>();
         Assert.IsNotNull(btn);
         btn.onClick.Invoke();
 
         yield return null;
 
         string newScene = SceneManager.GetActiveScene().name;
-        Assert.AreEqual("ExperimentSelectionMenu", newScene);
+        Assert.AreEqual("SelectionMenu", newScene);
 
         yield return null;
     }
 
+    // Clicking settings button goes to Settings
     [UnityTest]
     public IEnumerator navigateToSettings()
     {
         string startScene = SceneManager.GetActiveScene().name;
         Assert.AreEqual("MainMenu", startScene);
 
-        btn = GameObject.Find("Settings button").GetComponent<Button>();
+        btn = GameObject.Find("Settings button").transform.GetChild(0).gameObject.GetComponent<Button>();
         Assert.IsNotNull(btn);
         btn.onClick.Invoke();
 
