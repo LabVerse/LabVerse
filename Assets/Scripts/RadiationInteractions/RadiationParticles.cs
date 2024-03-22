@@ -17,7 +17,7 @@ public class RadiationParticles : MonoBehaviour
     [SerializeField]
     private float quantity;
 
-    private ParticleSystem particleSystem;
+    private ParticleSystem m_particleSystem;
     private GeigerScript geigerScript;
 
     // private int penetration;
@@ -26,11 +26,11 @@ public class RadiationParticles : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        particleSystem = gameObject.GetComponent<ParticleSystem>();
+        m_particleSystem = gameObject.GetComponent<ParticleSystem>();
         
         // Set release/second here
         // MUST first declare emission as var, not sure why one-liner doesn't work D:
-        var em = particleSystem.emission;
+        var em = m_particleSystem.emission;
         em.rateOverTime = quantity;
     }
 

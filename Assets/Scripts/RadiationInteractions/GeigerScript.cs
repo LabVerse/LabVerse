@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -14,6 +13,11 @@ public class GeigerScript : MonoBehaviour
     [SerializeField] private int m_backgroundRadiation = 18;
     int m_radiationSum = 0;
     int m_updateCount = 0;
+
+    [SerializeField]
+    private GameObject[] barriers;
+
+    private int m_currentBarrierIndex = -1;
 
     // Update is called every frame
     void Update()
@@ -73,5 +77,23 @@ public class GeigerScript : MonoBehaviour
         double randNormal = mean + stdDev * randStdNormal; //random normal(mean,stdDev^2)
 
         return Mathf.Abs((int)randNormal);
+    }
+
+    public void ToggleBarrier()
+    {
+        foreach (GameObject barrier in barriers)
+        {
+            barrier.SetActive(false);
+        }
+
+        m_currentBarrierIndex++;
+        if (m_currentBarrierIndex >= barriers.Length)
+        {
+            m_currentBarrierIndex = -1;
+        }
+
+        if (m_currentBarrierIndex == -1) return;
+
+        barriers[m_currentBarrierIndex].SetActive(true);
     }
 }

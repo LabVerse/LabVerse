@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
-public class TongsScript : MonoBehaviour
+public class Tongs : MonoBehaviour
 {
     private GameObject m_currentMaterial;
 
@@ -40,6 +37,7 @@ public class TongsScript : MonoBehaviour
 
         // Set current material as object
         m_currentMaterial = obj;
+        m_currentMaterial.GetComponent<Rigidbody>().useGravity = false;
     }
 
     /// <summary>
@@ -54,6 +52,7 @@ public class TongsScript : MonoBehaviour
         m_currentMaterial.transform.parent = null;
         m_currentMaterial.transform.position = new Vector3(m_currentMaterial.transform.position.x, m_currentMaterial.transform.position.y - 0.03f, m_currentMaterial.transform.position.z); ;
         m_currentMaterial.transform.rotation = Quaternion.identity;
+        m_currentMaterial.GetComponent<Rigidbody>().useGravity = true;
         m_currentMaterial = null;
     }
 
