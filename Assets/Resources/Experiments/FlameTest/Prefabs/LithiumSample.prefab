@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfe64f6b0df00894d8c442c29df55ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageIndex: 2
+  stageIndex: 3
   m_countdown: 8
 --- !u!1001 &2394208224945261746
 PrefabInstance:
