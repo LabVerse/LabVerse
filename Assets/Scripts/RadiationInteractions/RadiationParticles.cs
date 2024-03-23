@@ -1,11 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices.ComTypes;
 using UnityEngine;
 
 /// <summary>
-/// Use to set rlevant properties for different decay types
+/// Use to set relevant properties for different decay types.
 /// </summary>
 public class RadiationParticles : MonoBehaviour
 {

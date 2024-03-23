@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Tongs script that allows the player to pick up radioactive samples.
+/// </summary>
 public class Tongs : MonoBehaviour
 {
     private GameObject m_currentMaterial;

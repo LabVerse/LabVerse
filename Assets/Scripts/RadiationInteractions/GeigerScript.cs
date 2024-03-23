@@ -2,6 +2,9 @@ using System;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// Geiger script that simulates a Geiger counter.
+/// </summary>
 public class GeigerScript : MonoBehaviour
 {
     [SerializeField] private TMP_Text geigerScreen;
