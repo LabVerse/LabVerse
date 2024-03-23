@@ -26,6 +26,11 @@ public class Tongs : MonoBehaviour
         if (upsideDown) DropObject();
     }
 
+    private void OnEnable()
+    {
+        AlertManager.instance.CreateAlert(AlertManager.ALERT_TYPE.INFO, "Use the tongs to pick up the radioactive samples.");
+    }
+
     public void Pickup(GameObject obj)
     {
         // Snap to end of tongs

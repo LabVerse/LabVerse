@@ -19,7 +19,7 @@ MonoBehaviour:
     alpha, beta and gamma radiation is modelled. Each have different speeds, sizes,
     and penetration power.
 
-    Try moving each sample near/far from the counter,
+    Try moving each sample nearer/further from the counter,
     and placing different materials in between using the ''toggle barriers'' button,
     to compare properties and guess which types of radiation are released from each
     sample.'
