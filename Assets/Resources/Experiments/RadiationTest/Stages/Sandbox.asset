@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e823175fb300e694899322ce7eafcc84, type: 3}
+  m_Name: Sandbox
+  m_EditorClassIdentifier: 
+  title: Sandbox
+  description: 'Experiment with different sources of radiation to see how they measure
+    on the Geiger counter. '
+  explanation: 'Materials can release various forms of radiation, in this example
+    alpha, beta and gamma radiation is modelled. Each have different speeds, sizes,
+    and penetration power.
+
+    Try moving each sample near/far from the counter,
+    and placing different materials in between using the ''toggle barriers'' button,
+    to compare properties and guess which types of radiation are released from each
+    sample.'

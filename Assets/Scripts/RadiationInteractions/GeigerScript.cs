@@ -36,19 +36,24 @@ public class GeigerScript : MonoBehaviour
             m_countdown = m_delay;
         }
     }
+
+    /// <summary>
+    /// Call this whenever a particle colliders with the geiger sensor's collider.
+    /// </summary>
+    /// <param name="particle">Radiation (alpha/beta/gamma) of type RADIATION_TYPES</param>
     public void ParticleHit(RadiationParticles.RADIATION_TYPES particle)
     {
         // Geiger Tube will call this on every collision
         // Adjust the value of the geiger counter as necessary
         switch (particle) {
             case RadiationParticles.RADIATION_TYPES.GAMMA:
-                m_geigerValue += GuassianRandom(100,10);//100 to 10,000 CPM
+                m_geigerValue += GaussianRandom(100,10);//100 to 10,000 CPM
                 break;
             case RadiationParticles.RADIATION_TYPES.BETA:
-                m_geigerValue += GuassianRandom(10,1);//10 to 1000 CPM
+                m_geigerValue += GaussianRandom(10,1);//10 to 1000 CPM
                 break;
             case RadiationParticles.RADIATION_TYPES.ALPHA:
-                m_geigerValue += GuassianRandom(1,0.1f);//1 to 1000 CPM
+                m_geigerValue += GaussianRandom(1,0.1f);//1 to 1000 CPM
                 break;
             default:
                 break;
@@ -68,7 +73,7 @@ public class GeigerScript : MonoBehaviour
         m_updateCount = 0;
     }
 
-    private int GuassianRandom(float mean, float stdDev)
+    private int GaussianRandom(float mean, float stdDev)
     {
         System.Random rand = new System.Random(); //reuse this if you are generating many
         double u1 = 1.0 - rand.NextDouble(); //uniform(0,1] random doubles
