@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/AlertManager.cs.meta
 guid: be97bdc8097c37560a94eca76493ba29
+========
+guid: abb159345b4ce0d47accebf89184fff7
+>>>>>>>> aa69c92 (feat: Working item selection menu and palm menu, and modified experiment flow system (#18)):Assets/Scripts/ExperimentFlowSystem/Item.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

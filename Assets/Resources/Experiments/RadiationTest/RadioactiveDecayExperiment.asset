@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 783a95b0eca027649a473cf132330e7e, type: 3}
+  m_Name: RadioactiveDecayExperiment
+  m_EditorClassIdentifier: 
+  experimentName: Radioactive Decay
+  stages:
+  - {fileID: 11400000, guid: 31b2e5d6593bbf74db3c185c29ff0d6d, type: 2}
+  areStagesSequential: 0
+  items:
+  - {fileID: 11400000, guid: 89ff6ca6b35608b408a5de6f9b785919, type: 2}
+  - {fileID: 11400000, guid: cbff0ab5e47088f4f8cdb31583986e6c, type: 2}
+  - {fileID: 11400000, guid: afc1a2de8525ae44bb880403472ce2f0, type: 2}
+  combinedItems: {fileID: 2952921077135497551, guid: 50fe7bbb6b9fa034e800ab3ae921923c,
+    type: 3}
