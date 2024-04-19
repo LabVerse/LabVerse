@@ -58,7 +58,7 @@ public class SterilizeLoop : MonoBehaviour
                     
                     // When the loop touches the bacterial solution, the bacteria is active on the loop.
                     BacteriaPresence bacteriaPresence = GetComponent<BacteriaPresence>();
-                    if (bacteriaPresence != null && material.color == originalMaterial.color)
+                    if (bacteriaPresence != null/* && material.color == originalMaterial.color*/)
                     {
                         GameObject bacteria = bacteriaPresence.bacteria;
                         bacteria.SetActive(true);
